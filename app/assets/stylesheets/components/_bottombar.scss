@@ -1,0 +1,37 @@
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $red;
+  padding: 10px 0 20px 0;
+  z-index: 1000;
+  border-radius: 15px;
+  a{
+   color:white;
+   text-decoration: none;
+  }
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 7px;
+
+  i {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.8;
+
+    }
+  }
+}
