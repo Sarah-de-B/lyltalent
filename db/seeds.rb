@@ -176,7 +176,7 @@ demo_event = Event.create!(
   date: Date.new(2025, 10, 5),
   user: event_planner1 # tu peux réutiliser un event planner existant
 )
-file = Rails.root.join("db/seeds/events/Soirée_Démo_Sarah.jpg").open
+file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
 demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
@@ -194,7 +194,7 @@ event1 = Event.create!(
   date: Date.new(2025, 7, 15),
   user: event_planner1
 )
-file = Rails.root.join("db/seeds/events/Festival_d_Été.jpg").open
+file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
 event1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event2 = Event.create!(
@@ -212,7 +212,7 @@ event2 = Event.create!(
   date: Date.new(2025, 8, 20),
   user: event_planner2
 )
-file = Rails.root.join("db/seeds/events/soirée_electro.jpeg").open
+file = Rails.root.join("db/seeds/events/soiree_electro.jpeg").open
 event2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event3 = Event.create!(
