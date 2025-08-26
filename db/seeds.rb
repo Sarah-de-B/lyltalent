@@ -176,8 +176,8 @@ demo_event = Event.create!(
   date: Date.new(2025, 10, 5),
   user: event_planner1 # tu peux réutiliser un event planner existant
 )
-file = Rails.root.join("db/seeds/events/Soirée Démo Sarah.jpg").open
-event.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/events/Soirée_Démo_Sarah.jpg").open
+demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
   category: "Festival",
@@ -194,8 +194,8 @@ event1 = Event.create!(
   date: Date.new(2025, 7, 15),
   user: event_planner1
 )
-file = Rails.root.join("db/seeds/events/Festival d'Été.jpg").open
-event1.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/events/Festival_d_Été.jpg").open
+event1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event2 = Event.create!(
   category: "Club",
@@ -212,8 +212,8 @@ event2 = Event.create!(
   date: Date.new(2025, 8, 20),
   user: event_planner2
 )
-file = Rails.root.join("db/seeds/events/soiré electro.jpeg").open
-event2.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/events/soirée_electro.jpeg").open
+event2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event3 = Event.create!(
   category: "Concert",
@@ -230,8 +230,8 @@ event3 = Event.create!(
   date: Date.new(2025, 9, 5),
   user: event_planner3
 )
-file = Rails.root.join("db/seeds/events/open mic hip hop.jpeg").open
-event3.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/events/open mic_hip_hop.jpeg").open
+event3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 # --- ENTERTAINMENTS (liés aux musiciens + events) ---
 demo_entertainment = Entertainment.create!(
