@@ -1,1 +1,17 @@
-<h1>@entertainment.name</h1>
+<div id='container'>
+<h1><%= @entertainment.event.name %></h1>
+ <h3><%= @entertainment.event.date %></h3>
+<br>
+<h3>Description de la soiree</h3>
+<br>
+<p><%= @entertainment.event.description %></p>
+<br>
+<h2>details de l'evenement</h2>
+<p> La soiree sera le <%= @entertainment.event.date %> et commence a
+<%= @entertainment.starts_at %> jusqu'a <%= @entertainment.ends_at %></p>
+<p>Public attendu d'environ <%= @entertainment.event.estimated_public_in_number %> personnes
+et l'age est d'environ <%= @entertainment.event.public_age %> ans</p>
+<p>Concernant l'evenement</p>
+<p>le Genre sera <%= @entertainment.event.musical_styles.join(", ") %> pour une duree de <%= @entertainment.event.duration %> minutes</p>
+<h2> Evenement <%= @entertainment.event.description %></h2>
+</div>

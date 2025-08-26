@@ -148,7 +148,7 @@ demo_event = Event.create!(
   musical_styles: ["Pop", "Soul"],
   cover_or_composition: "composition",
   number_of_artists_needed: 1,
-  name: "Soirée Démo Sarah",
+  name: "Soirée a la salle de la Demo, Chant",
   description: "Première performance live de Sarah pour la démo.",
   vehicule: false,
   date: Date.new(2025, 10, 5),
