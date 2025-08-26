@@ -10,9 +10,84 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_25_144736) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_26_085940) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: :cascade do |t|
+    t.date "starts_on"
+    t.date "ends_on"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_availabilities_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.bigint "entertainment_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entertainment_application_id"], name: "index_chats_on_entertainment_application_id"
+  end
+
+  create_table "entertainment_applications", force: :cascade do |t|
+    t.string "message"
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.bigint "entertainment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entertainment_id"], name: "index_entertainment_applications_on_entertainment_id"
+    t.index ["user_id"], name: "index_entertainment_applications_on_user_id"
+  end
+
+  create_table "entertainments", force: :cascade do |t|
+    t.string "artist_type"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string "included_services", default: [], array: true
+    t.string "artist_experience_in_years"
+    t.integer "duration_in_minutes"
+    t.string "available_tool"
+    t.string "necessary_tool"
+    t.string "planned_remuneration"
+    t.integer "planned_remuneration_in_euros"
+    t.bigint "event_id", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_entertainments_on_event_id"
+    t.index ["user_id"], name: "index_entertainments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "category"
+    t.integer "duration"
+    t.string "address"
+    t.integer "estimated_public_in_number"
+    t.integer "public_age"
+    t.string "musical_styles", default: [], array: true
+    t.string "cover_or_composition"
+    t.integer "number_of_artists_needed"
+    t.string "name"
+    t.text "description"
+    t.boolean "vehicule", default: false
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +97,45 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_25_144736) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "artist_name"
+    t.string "phone_number"
+    t.string "role"
+    t.string "address"
+    t.string "instruments", default: [], array: true
+    t.string "musical_styles", default: [], array: true
+    t.string "instagram_url"
+    t.string "facebook_url"
+    t.string "spotify_url"
+    t.string "youtube_url"
+    t.boolean "covers", default: false
+    t.boolean "original_composition", default: false
+    t.integer "stage_time_in_minutes"
+    t.string "tools"
+    t.string "tools_needed"
+    t.string "legal_entity_type"
+    t.string "siret"
+    t.integer "concert_number"
+    t.text "description_education"
+    t.text "description_experience"
+    t.string "price"
+    t.text "bio"
+    t.string "artist_type"
+    t.boolean "vehicule", default: false
+    t.date "date_of_birth"
+    t.boolean "epk_completed", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "availabilities", "users"
+  add_foreign_key "chats", "entertainment_applications"
+  add_foreign_key "entertainment_applications", "entertainments"
+  add_foreign_key "entertainment_applications", "users"
+  add_foreign_key "entertainments", "events"
+  add_foreign_key "entertainments", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "users"
 end
