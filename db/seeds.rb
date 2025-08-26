@@ -162,7 +162,7 @@ event1 = Event.create!(
   public_age: 25,
   musical_styles: ["Pop", "Folk"],
   cover_or_composition: "composition",
-  number_of_artists_needed: 2,
+  number_of_artists_needed: 3,
   name: "Festival d'Été",
   description: "Festival annuel mettant en avant des artistes émergents.",
   vehicule: true,
