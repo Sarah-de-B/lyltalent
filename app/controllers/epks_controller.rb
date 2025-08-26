@@ -9,7 +9,7 @@ class EpksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_epk
-    @epk = Epk.find(params[:id])
+    @epk = current_user
   end
 
 end
