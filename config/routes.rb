@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :entertainments, only: [ :index, :show ] do
-    resources :entertainment_applications, only: [ :new, :create ]
+    resources :entertainment_applications, only: [ :new, :create ] do
+      collection do
+        get :confirmation
   end
 
   resources :events, only: [ :new, :create ]

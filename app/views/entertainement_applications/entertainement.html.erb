@@ -1,0 +1,18 @@
+<h1>Nouvelle candidature</h1>
+
+<%= form_for @entertainment_application do |f| %>
+  <%= f.text_area :message,
+                  placeholder: "Votre message pour le spectacle",
+                  rows: 5,
+                  cols: 40 %><br><br>
+
+  <%= f.hidden_field :entertainment_id, value: @entertainment_id || params[:entertainment_id] %>
+
+  <div class="d-flex ">
+   <%= f.submit "Envoyer la candidature", class: "btn btn-danger" %>
+  </div>
+<% end %>
+
+
+
+  <%# <%= f.submit "Envoyer la candidature", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
