@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :entertainment_applications, dependent: :destroy
   has_many :chats, through: :entertainment_applications
 
+  has_many_attached :photos
+  has_many_attached :videos
+
+
   # ORGA DEVENT
   has_many :events, dependent: :destroy
 end
