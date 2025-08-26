@@ -1,0 +1,2 @@
+class EpksController < ApplicationController
+end
