@@ -2,6 +2,9 @@ class EntertainmentsController < ApplicationController
 
   def index
     @entertainments = policy_scope(Entertainment)
-  end
 
+    if params[:query].present?
+      @entertainments = @entertainments.search_by_address(params[:query])
+    end
+  end
 end
