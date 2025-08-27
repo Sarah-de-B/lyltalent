@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.top-right-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  background: $red;
+  border: none;
+  border-radius: 25px;
+  color: white !important;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.8;
+    color: white !important;
+  }
+}
