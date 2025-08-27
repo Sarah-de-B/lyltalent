@@ -1,4 +1,7 @@
 <div id='container'>
+<% if @entertainment.event.photo.attached? %>
+  <%= image_tag(@entertainment.event.photo.url) %>
+<% end %>
 <h1><%= @entertainment.event.name %></h1>
  <h3><%= @entertainment.event.date %></h3>
 <br>
@@ -21,6 +24,8 @@ et l'age est d'environ <%= @entertainment.event.public_age %> ans</p>
 <% end %>
 <p>Sont pris en charge par l'evenement (VHR): <%= @entertainment.included_services.join(', ') %> </p>
 <div>
-  <button>Postuler</button>
+  <div class="btn-container">
+    <%= link_to "Postuler", new_entertainment_entertainment_application_path(@entertainment), class: "bottom-middle-btn" %>
+  </div>
 </div>
 </div>
