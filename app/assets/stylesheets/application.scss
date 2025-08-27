@@ -10,3 +10,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body {
+  font-family: $content;
+  color: $dark;
+  background-color: white;
+}
+
+h1 {
+  font-family: $title;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: $content;
+}

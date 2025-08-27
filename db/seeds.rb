@@ -37,6 +37,10 @@ artist_persona = User.create!(
   date_of_birth: Date.new(1995, 6, 10),
   epk_completed: true
 )
+
+file = Rails.root.join("db/seeds/users/sarah.jpeg").open
+artist_persona.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 # :guitare: Musicians
 musician1 = User.create!(
   email: "jules.d@example.com",
@@ -61,6 +65,9 @@ musician1 = User.create!(
   date_of_birth: Date.new(1993, 4, 15),
   epk_completed: true
 )
+file = Rails.root.join("db/seeds/users/julien.jpg").open
+musician1.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 musician2 = User.create!(
   email: "sofi.beats@example.com",
   password: "password123",
@@ -84,6 +91,9 @@ musician2 = User.create!(
   date_of_birth: Date.new(1990, 9, 3),
   epk_completed: true
 )
+file = Rails.root.join("db/seeds/users/sophie.jpg").open
+musician2.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 musician3 = User.create!(
   email: "krimflow@example.com",
   password: "password123",
@@ -107,17 +117,23 @@ musician3 = User.create!(
   date_of_birth: Date.new(1998, 12, 21),
   epk_completed: false
 )
+file = Rails.root.join("db/seeds/users/karim.jpg").open
+musician3.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 # :micro: Event Planners
 event_planner1 = User.create!(
   email: "sarah.events@example.com",
   password: "password123",
   last_name: "Martin",
-  first_name: "Sarah",
+  first_name: "Anetta",
   phone_number: "0645781234",
   role: "event_planner",
   address: "Bordeaux",
   bio: "Organisatrice d'événements culturels et musicaux depuis 8 ans."
 )
+file = Rails.root.join("db/seeds/users/anetta.png").open
+event_planner1.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 event_planner2 = User.create!(
   email: "thomas.prod@example.com",
   password: "password123",
@@ -128,6 +144,9 @@ event_planner2 = User.create!(
   address: "Toulouse",
   bio: "Spécialisé dans la gestion de festivals et de concerts."
 )
+file = Rails.root.join("db/seeds/users/thomas.jpg").open
+event_planner2.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 event_planner3 = User.create!(
   email: "amelie.agency@example.com",
   password: "password123",
@@ -138,6 +157,9 @@ event_planner3 = User.create!(
   address: "Marseille",
   bio: "Directrice d'agence événementielle, experte en booking d’artistes."
 )
+file = Rails.root.join("db/seeds/users/amelie.jpg").open
+event_planner3.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 # --- EVENTS (liés aux event planners) ---
 demo_event = Event.create!(
   category: "Concert",
@@ -148,12 +170,15 @@ demo_event = Event.create!(
   musical_styles: ["Pop", "Soul"],
   cover_or_composition: "composition",
   number_of_artists_needed: 1,
-  name: "Soirée Démo Sarah",
+  name: "Soirée a la salle de la Demo, Chant",
   description: "Première performance live de Sarah pour la démo.",
   vehicule: false,
   date: Date.new(2025, 10, 5),
   user: event_planner1 # tu peux réutiliser un event planner existant
 )
+file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
+demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 event1 = Event.create!(
   category: "Festival",
   duration: 180,
@@ -162,13 +187,16 @@ event1 = Event.create!(
   public_age: 25,
   musical_styles: ["Pop", "Folk"],
   cover_or_composition: "composition",
-  number_of_artists_needed: 2,
+  number_of_artists_needed: 3,
   name: "Festival d'Été",
   description: "Festival annuel mettant en avant des artistes émergents.",
   vehicule: true,
   date: Date.new(2025, 7, 15),
   user: event_planner1
 )
+file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
+event1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 event2 = Event.create!(
   category: "Club",
   duration: 240,
@@ -184,6 +212,9 @@ event2 = Event.create!(
   date: Date.new(2025, 8, 20),
   user: event_planner2
 )
+file = Rails.root.join("db/seeds/events/soiree_electro.jpeg").open
+event2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 event3 = Event.create!(
   category: "Concert",
   duration: 120,
@@ -199,6 +230,9 @@ event3 = Event.create!(
   date: Date.new(2025, 9, 5),
   user: event_planner3
 )
+file = Rails.root.join("db/seeds/events/open mic_hip_hop.jpeg").open
+event3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
 # --- ENTERTAINMENTS (liés aux musiciens + events) ---
 demo_entertainment = Entertainment.create!(
   artist_type: "soliste",
@@ -210,7 +244,7 @@ demo_entertainment = Entertainment.create!(
   available_tool: "Micro Shure",
   necessary_tool: "Piano électrique",
   planned_remuneration: "Cachet démo",
-  planned_remuneration_in_euros: 150,
+  planned_remuneration_in_euros: nil,
   event: demo_event,
   user: artist_persona
 )

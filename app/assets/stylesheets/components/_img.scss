@@ -1,0 +1,26 @@
+.event-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.event-image {
+  width: 100%;
+  max-width: 900px;
+  height: 50vh;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.user-image-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.user-image {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  object-fit: cover;
+}

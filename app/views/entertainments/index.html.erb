@@ -1,0 +1,26 @@
+<div class="container.entertainement">
+  <h1 id="title-entertainment">Événements à venir</h1>
+
+  <div class="button">
+    <button class="btn-map">Liste | Carte</button>
+  </div>
+
+  <div class="entertainments-cards">
+    <% @entertainments.each do |entertainment| %>
+      <%= link_to entertainment_path(entertainment), class: "entertainment-card-link" do %>
+        <div class="entertainment-card">
+          <% if entertainment.event.photo.attached? %>
+            <%= cl_image_tag(entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "card-image") %>
+          <% else %>
+            <%= image_tag "default_event.jpg", alt: "Image par défaut" %>
+          <% end %>
+          <div class="card-content">
+            <h3><%= entertainment.event.name %></h3>
+            <p id="date_address"><%= entertainment.event.date%> | <%=entertainment.event.address%></p>
+            <p id="musical_styles"><%= entertainment.event.musical_styles.join(', ') %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

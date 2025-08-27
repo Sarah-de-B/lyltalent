@@ -1,0 +1,74 @@
+#title-entertainment {
+  margin: 30px;
+  text-align: center;
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.btn-map {
+  margin-bottom: 1rem;
+  padding: 8px 16px;
+  background-color: white;
+  color: $dark;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.entertainments-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.entertainment-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 10px;
+}
+
+.entertainment-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-content {
+  margin: 1rem 1rem 0 1rem;
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+#date_address {
+  margin-bottom: 0px;
+}
+
+#musical_styles {
+  font-style: italic;
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  display: block;
+}
