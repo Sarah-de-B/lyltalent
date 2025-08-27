@@ -1,3 +1,6 @@
+
+class EntertainmentApplicationsController < ApplicationController
+
 class EntertainmentsController < ApplicationController
   before_action :set_entertainment, only: [:show]
   

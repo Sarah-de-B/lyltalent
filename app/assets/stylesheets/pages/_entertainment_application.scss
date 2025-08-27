@@ -1,0 +1,81 @@
+.entertainment-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // pour centrer sur l'écran
+  padding: 20px;
+
+  .textarea-center {
+    width: 90%;               // prend presque toute la largeur
+    max-width: 700px;         // limite à ~700px (pour écran 780px)
+    height: 200px;            // plus grand
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+    resize: vertical;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2); // ombre bas/droite
+    margin-bottom: 20px;
+  }
+
+  .btn-container {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    justify-content: flex-end; // bouton à droite
+  }
+
+  .btn-entertainment {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #d9534f; // rouge Bootstrap-like
+    color: white;
+    border: none;
+  }
+}
+
+.confirmation-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+
+  .textarea-center {
+    margin-bottom: 20px;
+  }
+
+  p {
+    max-width: 600px;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  .btn-container {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center; // bouton centré
+  }
+
+  .btn-return {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #d9534f; // rouge style Bootstrap
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #c9302c;
+    }
+  }
+}
