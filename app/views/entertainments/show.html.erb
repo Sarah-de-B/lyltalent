@@ -1,7 +1,7 @@
 <div id='container'>
   <div class="event-image-container">
     <% if @entertainment.event.photo.attached? %>
-      <%= image_tag(@entertainment.event.photo.url, class: 'event-image') %>
+          <%= cl_image_tag @entertainment.event.photo.key, height: 300, width: 300, crop: :fill, class: 'event-image'%>
     <% end %>
   </div>
 
@@ -45,10 +45,9 @@
       <h2>Ils participent à l'event</h2>
     </div>
   </div>
-
+    <% @participating_artists.each do |artist| %>
   <div class="user-image-container">
-    <% @entertainment.entertainment_applications.each do |application| %>
-      <%= image_tag(application.user.photos.first.url, class: 'user-image') %>
+      <%= cl_image_tag artist.photos.first.key, height: 300, width: 300, crop: :fill, class: 'user-image'%>
     <% end %>
   </div>
 </div>

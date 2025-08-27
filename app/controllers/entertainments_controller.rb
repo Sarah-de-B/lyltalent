@@ -10,6 +10,7 @@ class EntertainmentsController < ApplicationController
 
   def show
     authorize @entertainment
+    @participating_artists = @entertainment.event.users
   end
 
   private
@@ -17,5 +18,4 @@ class EntertainmentsController < ApplicationController
   def set_entertainment
     @entertainment = Entertainment.find(params[:id])
   end
-
 end
