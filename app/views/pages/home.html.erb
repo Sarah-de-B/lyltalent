@@ -1,3 +1,29 @@
-<%= link_to "#", class: "top-right-btn" do %>
-  J'organise un événement
-<% end %>
+<div class="container-btn">
+  <%= link_to "#", class: "top-right-btn btn-orga" do %>
+    J'organise un événement
+  <% end %>
+</div>
+<div class="logo">
+ <%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo" %>
+</div>
+<div class="container-content row justify-content-center">
+    <%= form_with url: entertainments_path, method: :get, class: "search-form", local: true do %>
+      <div class="input-wrapper">
+        <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "Tape une adresse..." %>
+        <button type="submit" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    <% end %>
+<div class="btn-inscription">
+  <%= link_to new_user_registration_path, class: "top-right-btn" do %>
+    Inscription
+  <% end %>
+</div>
+<div class="home-text">
+  <p>Faites vibrer votre musique, là où elle compte
+
+  Inscrivez-vous gratuitement, indiquez votre ville et devenez visible auprès des bars, organisateurs et bookers proches de chez vous.
+  Trouvez des événements autour de vous et décrochez vos prochains concerts</p>
+  </div>
+</div>

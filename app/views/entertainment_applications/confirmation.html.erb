@@ -1,0 +1,18 @@
+<div class="confirmation-area">
+  <div class="logo">
+    <%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo" %>
+  </div>
+
+  <div class="textarea-center">
+    <h1>Candidature envoyée</h1>
+  </div>
+
+  <p>
+    Merci de l'intérêt que vous portez à cet événement. Votre candidature a été bien prise en compte,
+    nous reviendrons vers vous dans les meilleurs délais.
+  </p>
+
+  <div class="btn-container">
+    <%= button_to "Retour", entertainments_path, method: :get, class: "btn-return" %>
+  </div>
+</div>

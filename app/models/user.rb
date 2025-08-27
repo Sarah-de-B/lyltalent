@@ -17,9 +17,11 @@ class User < ApplicationRecord
 
   # validations
   validates :artist_name, uniqueness: true, if: :musician?
+
   validate :at_least_one_photo, if: :musician?
 
   validates :role, inclusion: { in: ['musician', 'event_planner'] }
+
 
   # validations urls
   validates :instagram_url, format: {
@@ -41,12 +43,14 @@ class User < ApplicationRecord
     with: /\A(?:https?:\/\/open\.spotify\.com\/(track|user|artist|album)\/[a-zA-Z0-9]+(\/playlist\/[a-zA-Z0-9]+)?|spotify:(track|user|artist|album):[a-zA-Z0-9]+(:playlist:[a-zA-Z0-9]+)?)\z/,
     message: "must be a valid Spotify URL"
   }, allow_blank: true
+
   # ORGA DEVENT
   has_many :events, dependent: :destroy
 
   private
 
   def musician?
+
     role == 'musician'
   end
   # def musician?= role == 'musician'
