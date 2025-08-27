@@ -210,7 +210,7 @@ demo_entertainment = Entertainment.create!(
   available_tool: "Micro Shure",
   necessary_tool: "Piano électrique",
   planned_remuneration: "Cachet démo",
-  planned_remuneration_in_euros: 150,
+  planned_remuneration_in_euros: nil,
   event: demo_event,
   user: artist_persona
 )
