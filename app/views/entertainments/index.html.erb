@@ -7,16 +7,18 @@
 
   <div class="entertainments-cards">
     <% @entertainments.each do |entertainment| %>
-      <div class="entertainment-card">
-        <% if entertainment.event.photo.attached? %>
-          <%= cl_image_tag(entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "card-image") %>
-        <% end %>
-        <div class="card-content">
-          <h3><%= entertainment.event.name %></h3>
-          <p><%= entertainment.event.date%> | <%=entertainment.event.address%></p>
-          <p><%= entertainment.event.musical_styles.join(', ') %></p>
+      <%= link_to entertainment_path(entertainment), class: "entertainment-card-link" do %>
+        <div class="entertainment-card">
+          <% if entertainment.event.photo.attached? %>
+            <%= cl_image_tag(entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "card-image") %>
+          <% end %>
+          <div class="card-content">
+            <h3><%= entertainment.event.name %></h3>
+            <p id="date_address"><%= entertainment.event.date%> | <%=entertainment.event.address%></p>
+            <p id="musical_styles"><%= entertainment.event.musical_styles.join(', ') %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
