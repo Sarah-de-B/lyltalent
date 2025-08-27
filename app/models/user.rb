@@ -16,8 +16,11 @@ class User < ApplicationRecord
   has_many_attached :videos
 
   # validations
-  validates :artist_name, uniqueness: true
-  
+  validates :artist_name, uniqueness: true, if: :musician?
+  validate :at_least_one_photo, if: :musician?
+
+  validates :role, inclusion: { in: ['musician', 'event_planner'] }
+
   # validations urls
   validates :instagram_url, format: {
     with: /\A(?:https?:)?\/\/(?:www\.)?(?:instagram\.com|instagr\.am)\/[A-Za-z0-9_\.]+\z/,
@@ -40,4 +43,18 @@ class User < ApplicationRecord
   }, allow_blank: true
   # ORGA DEVENT
   has_many :events, dependent: :destroy
+
+  private
+
+  def musician?
+    role == 'musician'
+  end
+  # def musician?= role == 'musician'
+
+
+  def at_least_one_photo
+    if photos.blank?
+      errors.add(:photos, "must have at least one photo")
+    end
+  end
 end
