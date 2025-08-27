@@ -11,6 +11,8 @@
         <div class="entertainment-card">
           <% if entertainment.event.photo.attached? %>
             <%= cl_image_tag(entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "card-image") %>
+          <% else %>
+            <%= image_tag "default_event.jpg", alt: "Image par défaut" %>
           <% end %>
           <div class="card-content">
             <h3><%= entertainment.event.name %></h3>
