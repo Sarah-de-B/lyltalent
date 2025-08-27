@@ -16,8 +16,8 @@ class User < ApplicationRecord
   has_many_attached :videos
 
   # validations
-  validates :artist_name, uniqueness: true
-  
+  validates :artist_name, uniqueness: true, if: :musician?
+
   # validations urls
   validates :instagram_url, format: {
     with: /\A(?:https?:)?\/\/(?:www\.)?(?:instagram\.com|instagr\.am)\/[A-Za-z0-9_\.]+\z/,
@@ -38,6 +38,13 @@ class User < ApplicationRecord
     with: /\A(?:https?:\/\/open\.spotify\.com\/(track|user|artist|album)\/[a-zA-Z0-9]+(\/playlist\/[a-zA-Z0-9]+)?|spotify:(track|user|artist|album):[a-zA-Z0-9]+(:playlist:[a-zA-Z0-9]+)?)\z/,
     message: "must be a valid Spotify URL"
   }, allow_blank: true
+
   # ORGA DEVENT
   has_many :events, dependent: :destroy
+
+  private
+
+  def musician?
+    role == "musician"
+  end
 end
