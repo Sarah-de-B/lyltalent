@@ -91,7 +91,7 @@ musician2 = User.create!(
   date_of_birth: Date.new(1990, 9, 3),
   epk_completed: true
 )
-file = Rails.root.join("db/seeds/users/Sophie.jpg").open
+file = Rails.root.join("db/seeds/users/sophie.jpg").open
 musician2.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 musician3 = User.create!(
