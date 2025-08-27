@@ -1,0 +1,16 @@
+<div class="container.entertainement">
+  <h1 id="title-entertainment">Événements à venir</h1>
+
+  <button class="btn-map">Liste | Carte</button>
+
+  <div class="entertainments-cards">
+    <% @entertainments.each do |entertainment| %>
+      <div class="entertainment-card">
+        <h3><%= entertainment.event.name %></h3>
+        <p><%= entertainment.event.date%></p>
+        <p><%=entertainment.event.address%></p>
+        <p><%=entertainment.event.musical_styles%></p>
+      </div>
+    <% end %>
+  </div>
+</div>
