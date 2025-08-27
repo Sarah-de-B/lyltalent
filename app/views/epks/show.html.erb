@@ -4,3 +4,74 @@
 
 <%= @epk.artist_name %>
 <%= @epk.artist_type %>
+<% @epk.instruments.each do |instrument| %>
+  <%= instrument %>
+<% end %>
+<% @epk.musical_styles.each do |genre| %>
+  <button><%= genre %></button>
+<% end %>
+<% if @epk.original_composition && @epk.covers %>
+  <%= "Compositions originales et reprises" %>
+<% elsif @epk.original_composition && !@epk.covers %>
+  <% if @epk.artist_type == "soliste" %>
+    <%= "Spécialisé en compositions originales" %>
+  <% elsif @epk.artist_type == "groupe" %>
+    <%= "Spécialisés en compositions originales" %>
+  <% else %>
+    <%= "un DJ set original" %>
+  <% end %>
+<% elsif !@epk.original_composition && @epk.covers %>
+  <% if @epk.artist_type == "soliste" %>
+    <%= "Spécialisé en reprises" %>
+  <% elsif @epk.artist_type == "groupe" %>
+    <%= "Spécialisés en reprises" %>
+  <% else %>
+    <%= "uniquement des musiques que vous connaissez" %>
+  <% end %>
+<% end %>
+
+<%= @epk.bio %>
+
+<% @epk.photos.each do |photo| %>
+  <%= photo %>
+<% end %>
+
+<button> <%= link_to "Télécharger les photos", "#" %> </button>
+
+<h3>Expérience</h3>
+<%= @epk.description_experience %>
+<%= @epk.concert_number %>
+
+<h3>Biographie musicale</h3>
+<%= @epk.description_education %>
+
+<h2>Fiche technique</h2>
+<%= @epk.tools %>
+<%= @epk.tools_needed %>
+<%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
+
+<h2>Informations complémentaires</h2>
+<%= @epk.legal_entity_type %>
+<%= @epk.siret %>
+
+<h3>Contact</h3>
+<%= @epk.artist_name %> : <%= @epk.phone_number %>
+
+<%= link_to @epk.instagram_url, target: "_blank"  do %>
+  <i class="fa-brands fa-instagram"></i>
+<% end %>
+<%= link_to @epk.facebook_url, target: "_blank" do %>
+  <i class="fa-brands fa-facebook"></i>
+<% end %>
+
+<%= link_to @epk.spotify_url, target: "_blank" do %>
+  <i class="fa-brands fa-spotify"></i>
+<% end %>
+
+<%= link_to @epk.youtube_url, target: "_blank" do %>
+  <i class="fa-brands fa-youtube"></i>
+<% end %>
+
+
+<%# à mettre en bas de page, coin gauche %>
+<%= @epk.address %>
