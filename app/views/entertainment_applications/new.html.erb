@@ -1,0 +1,14 @@
+<h1>LOGO LYLTALENT</h1>
+
+
+<%= simple_form_for [@entertainment, @entertainment_application] do |f| %>
+  <div class="entertainment-area mb-3 ">
+    <%= f.input :message,
+                placeholder: "Entrez votre message pour l'événement",
+                input_html: { class: "textarea-center" } %>
+
+    <div class="btn-container">
+      <%= f.submit "Envoie simple", class: "btn-entertainment " %>
+    </div>
+  </div>
+<% end %>

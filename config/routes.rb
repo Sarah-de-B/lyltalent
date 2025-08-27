@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :entertainments, only: [ :index, :show ] do
     resources :entertainment_applications, only: [ :new, :create ] do
-      collection do
-        get :confirmation
+      collection { get :confirmation }
+    end
   end
 
   resources :events, only: [ :new, :create ]
