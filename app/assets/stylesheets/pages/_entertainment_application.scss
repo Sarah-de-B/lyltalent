@@ -1,73 +1,81 @@
 .entertainment-area {
   display: flex;
   flex-direction: column;
-  align-items: center;       // centre horizontalement
-  justify-content: center;   // centre verticalement
-  min-height: 90vh;          // prend presque toute la hauteur de l’écran
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // pour centrer sur l'écran
   padding: 20px;
 
   .textarea-center {
-    width: 90%;
-    max-width: 360px;
-    height: 150px;
-    font-size: 16px;
-    text-align: center;
+    width: 90%;               // prend presque toute la largeur
+    max-width: 700px;         // limite à ~700px (pour écran 780px)
+    height: 200px;            // plus grand
+    font-size: 18px;
     padding: 15px;
-    resize: vertical;
     border-radius: 12px;
-    border:  solid ;
+    border: 1px solid #ccc;
+    text-align: center;
+    resize: vertical;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2); // ombre bas/droite
     margin-bottom: 20px;
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   }
-.btn-container {
-  width: 90%;          // même largeur que la textarea
-  max-width: 360px;
-  display: flex;
-  justify-content: flex-end; // bouton aligné à droite
-  margin-top: 10px;
-}
 
-.btn-entertainment {
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 8px;
-}
+  .btn-container {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    justify-content: flex-end; // bouton à droite
+  }
 
+  .btn-entertainment {
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #d9534f; // rouge Bootstrap-like
+    color: white;
+    border: none;
+  }
 }
-
 
 .confirmation-area {
   display: flex;
   flex-direction: column;
-  align-items: center;       // centre horizontalement
-  justify-content: center;   // centre verticalement
-  min-height: 100vh;         // prend toute la hauteur de l'écran
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding: 20px;
-  text-align: center;        // centre le texte
+  text-align: center;
 
-  // h1 {
-  //   font-size: 24px;
-  //   margin-bottom: 15px;
-  // }
+  .textarea-center {
+    margin-bottom: 20px;
+  }
 
   p {
+    max-width: 600px;
+    margin-bottom: 30px;
     font-size: 16px;
-    max-width: 360px;        // limite la largeur du texte sur mobile
-    line-height: 1.5;
   }
 
-  .logo {
-    margin-bottom: 20px;
-    width: 80px;              // ajustez selon la taille du logo
-    height: auto;
+  .btn-container {
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center; // bouton centré
   }
+
   .btn-return {
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 8px;
-  width: 35%;          // même largeur que la textarea
-  max-width: 360px;
-  display: flex;
-  margin-top: 10px;
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #d9534f; // rouge style Bootstrap
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #c9302c;
+    }
   }
 }
