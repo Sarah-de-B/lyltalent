@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_many :availabilities, dependent: :destroy
   has_many :entertainment_applications, dependent: :destroy
   has_many :chats, through: :entertainment_applications
-
+  has_many :entertainments, through: :entertainment_applications
+  
   has_many_attached :photos
   has_many_attached :videos
 
