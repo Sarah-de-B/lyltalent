@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_26_095311) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_28_085532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_26_095311) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "category"
+    t.string "category", default: [], array: true
     t.integer "duration"
     t.string "address"
     t.integer "estimated_public_in_number"
