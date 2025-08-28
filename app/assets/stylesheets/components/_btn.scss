@@ -24,3 +24,14 @@
   align-items: center;
   margin-top: 20px;
 }
+
+.btn-white {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  padding: 8px 16px;
+  background-color: white;
+  color: $dark;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

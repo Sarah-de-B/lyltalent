@@ -1,0 +1,90 @@
+.container-dashboard {
+  margin: 0 10px;
+  h2 {
+    font-size: 18px;
+  }
+}
+
+.artist-profile-photo-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.artist-profile-name {
+  text-align: center;
+}
+
+.artist-profile-bio {
+  text-align: center;
+}
+
+.applications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 25px 0;
+}
+
+.application-card {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.application-card-image {
+  width: 120px;
+  height: 100%;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.application-card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.application-card-content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.application-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.application-card-description {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin: 8px 0 0;
+}
+
+.application-card-status {
+
+}
+
+#epk-title {
+  text-align: center;
+}
+
+.top-right-btn a {
+  text-decoration: none;
+  color: white;
+}
