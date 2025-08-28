@@ -10,6 +10,7 @@ class EntertainmentsController < ApplicationController
 
   def show
     authorize @entertainment
+    @participating_artists = @entertainment.event.users
   end
 
   private
