@@ -1,11 +1,15 @@
+<div class ="logo">
 <h1><%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo" %></h1>
+</div>
 
 
 <%= simple_form_for [@entertainment, @entertainment_application] do |f| %>
   <div class="entertainment-area mb-3 ">
-    <%= f.input :message,
-                placeholder: "Entrez votre message pour l'événement",
-                input_html: { class: "textarea-center" } %>
+<%= f.input :message,
+            as: :text,
+            label: false,
+            placeholder: "Entrez votre message pour l'événement",
+            input_html: { class: "textarea-center", wrap: "soft" } %>
 
     <div class="btn-container">
       <%= f.submit "Envoie simple", class: "btn-entertainment " %>

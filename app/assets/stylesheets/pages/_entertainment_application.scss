@@ -3,12 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; // pour centrer sur l'écran
+  min-height: 80vh; // pour centrer sur l'écran
   padding: 20px;
-  width: 100%;
+  // width: 100%;
+   
 
   .textarea-center {
-    width: 90%;               // prend presque toute la largeur
+                               // prend presque toute la largeur
     max-width: 700px;         // limite à ~700px (pour écran 780px)
     height: 200px;            // plus grand
     font-size: 18px;
@@ -19,10 +20,12 @@
     resize: vertical;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2); // ombre bas/droite
     margin-bottom: 20px;
+      width: 46vh;
+    height: 10vh;
   }
 
   .btn-container {
-    width: 90%;
+    width: 100%;
     max-width: 700px;
     display: flex;
     justify-content: flex-end; // bouton à droite
@@ -32,7 +35,7 @@
     padding: 12px 25px;
     font-size: 16px;
     border-radius: 8px;
-    background-color: #d9534f; // rouge Bootstrap-like
+    background-color: $red; // rouge Bootstrap-like
     color: white;
     border: none;
   }
@@ -69,14 +72,14 @@
     padding: 12px 25px;
     font-size: 16px;
     border-radius: 8px;
-    background-color: #d9534f; // rouge style Bootstrap
+    background-color: $red; // rouge style Bootstrap
     color: white;
     border: none;
     cursor: pointer;
     text-decoration: none;
 
     &:hover {
-      background-color: #c9302c;
+      background-color: $red;
     }
   }
 }
