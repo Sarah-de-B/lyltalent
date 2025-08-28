@@ -1,0 +1,9 @@
+<%= month_calendar(attribute: :starts_at, events: @entertainments) do |date, entertainments|%>
+  <% if entertainments.any? %>
+    <%= link_to entertainment_path(entertainments.first), class: "calendar-accepted" do %>
+      <%= date.day %>
+    <% end %>
+  <% else %>
+    <%= date.day %>
+  <% end %>
+<% end %>
