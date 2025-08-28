@@ -1,7 +1,7 @@
 <div id='container'>
   <div class="event-image-container">
     <% if @entertainment.event.photo.attached? %>
-      <%= image_tag(@entertainment.event.photo.url, class: 'event-image') %>
+          <%= cl_image_tag @entertainment.event.photo.key, height: 300, width: 300, crop: :fill, class: 'event-image'%>
     <% end %>
   </div>
 
@@ -16,8 +16,9 @@
     <br>
 
     <h2 class="text-bold">Détails de l'événement</h2>
-    <p>La soirée sera le <%= @entertainment.event.date %> et commence à
-    <%= @entertainment.starts_at %> jusqu'à <%= @entertainment.ends_at %></p>
+    <p>Date: <%= l(@entertainment.event.date, format: '%d/%m/%Y') %></p>
+    <p>Debut: <%= l(@entertainment.starts_at, format: '%Hh%M' ) %></p>
+    <p>jusqu'à: <%= l(Time.at(@entertainment.duration_in_minutes * 60).utc, format: '%Hh%M') %></p>
 
     <p>👥 Public attendu d'environ <%= @entertainment.event.estimated_public_in_number %> personnes
     et l'âge est d'environ <%= @entertainment.event.public_age %> ans</p>
@@ -44,10 +45,9 @@
       <h2>Ils participent à l'event</h2>
     </div>
   </div>
-
+    <% @participating_artists.each do |artist| %>
   <div class="user-image-container">
-    <% @entertainment.entertainment_applications.each do |application| %>
-      <%= image_tag(application.user.photos.first.url, class: 'user-image') %>
+      <%= cl_image_tag artist.photos.first.key, height: 300, width: 300, crop: :fill, class: 'user-image'%>
     <% end %>
   </div>
 </div>

@@ -1,4 +1,23 @@
 <div class="container.entertainement">
+
+  <div class="container-header">
+      <%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo-entertainments" %>
+      <%= link_to "#", class: "top-right-btn btn-orga" do %>
+        Organisateur
+      <% end %>
+  </div>
+
+  <div class="search-bar">
+    <%= form_with url: entertainments_path, method: :get, class: "search-form", local: true do %>
+        <div class="input-wrapper">
+          <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "Tape une adresse..." %>
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+    <% end %>
+  </div>
+
   <h1 id="title-entertainment">Événements à venir</h1>
 
   <div class="button">

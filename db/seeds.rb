@@ -14,7 +14,7 @@ EntertainmentApplication.destroy_all
 Entertainment.destroy_all
 Event.destroy_all
 User.destroy_all
-artist_persona = User.create!(
+artist_persona = User.new(
   email: "sarah@example.com",
   password: "password",
   last_name: "Dupont",
@@ -37,12 +37,18 @@ artist_persona = User.create!(
   date_of_birth: Date.new(1995, 6, 10),
   epk_completed: true
 )
-
+puts "created en cours"
 file = Rails.root.join("db/seeds/users/sarah.jpeg").open
 artist_persona.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
-
+puts "done"
+artist_persona.save!
+# p artist_persona.valid?
+# p artist_persona.errors.messages
+# p artist_persona.id
+file = Rails.root.join("db/seeds/users/videos/sarah_show.mp4").open
+artist_persona.videos.attach(io: file, filename: "sarah_show.mp4", content_type: "video/mp4")
 # :guitare: Musicians
-musician1 = User.create!(
+musician1 = User.new(
   email: "jules.d@example.com",
   password: "password123",
   last_name: "Durand",
@@ -68,7 +74,10 @@ musician1 = User.create!(
 file = Rails.root.join("db/seeds/users/julien.jpg").open
 musician1.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
-musician2 = User.create!(
+musician1.save!
+puts "musician1 valid? #{musician1.valid?}"
+
+musician2 = User.new(
   email: "sofi.beats@example.com",
   password: "password123",
   last_name: "Nguyen",
@@ -94,7 +103,10 @@ musician2 = User.create!(
 file = Rails.root.join("db/seeds/users/sophie.jpg").open
 musician2.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
-musician3 = User.create!(
+musician2.save!
+puts "musician2 valid? #{musician2.valid?}"
+
+musician3 = User.new(
   email: "krimflow@example.com",
   password: "password123",
   last_name: "Benali",
@@ -119,6 +131,9 @@ musician3 = User.create!(
 )
 file = Rails.root.join("db/seeds/users/karim.jpg").open
 musician3.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+musician3.save!
+puts "musician3 valid? #{musician3.valid?}"
 
 # :micro: Event Planners
 event_planner1 = User.create!(

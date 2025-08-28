@@ -1,6 +1,7 @@
 <% @epk.videos.each do |video| %>
-  <%= video %>
+  <%= video_tag url_for(video), controls: true, size: "360x780", alt: @epk.artist_name %>
 <% end %>
+
 
 <%= @epk.artist_name %>
 <%= @epk.artist_type %>
@@ -33,8 +34,9 @@
 <%= @epk.bio %>
 
 <% @epk.photos.each do |photo| %>
-  <%= photo %>
+  <%= image_tag url_for(photo), alt: @epk.artist_name %>
 <% end %>
+
 
 <button> <%= link_to "Télécharger les photos", "#" %> </button>
 
