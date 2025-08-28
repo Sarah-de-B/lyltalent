@@ -35,3 +35,47 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+// epk show - btn télécharger les photos
+
+
+.btn-light {
+    background-color: white;
+    padding: 6px 10px;
+    width: 30vw;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin: auto;
+
+}
+
+.link-light a {
+  text-decoration: none;
+  color: $dark;
+  &:hover {
+    opacity: 0.8;
+    color: $dark !important;
+  }
+}
+// fin de l'epk show et début de la new de entertainment application (william)
+.bottom-right-btn {
+// le bouton envoie pour mettre en bas a droite sur la page entertainment_application
+  padding: 6px 10px;
+  background: $red;
+  border: none;
+  border-radius: 25px;
+  color: white !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 20px;
+//  pour mettre en bas a droite
+  align-self: flex-end;
+
+  &:hover {
+    opacity: 0.8;
+    color: white !important;
+  }
+}
