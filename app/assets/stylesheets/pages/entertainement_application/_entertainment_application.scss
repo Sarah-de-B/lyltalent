@@ -1,0 +1,41 @@
+// pour la page entertainment_application
+.entertainment-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh; // pour centrer sur l'écran
+  padding: 20px;
+  padding-top: 50px;
+  // pour rendre le texte dans la car textarea en noir
+ .colordark{
+    color:$dark;
+}
+
+}
+
+// pour la page confirmation de entertainment_application
+.confirmation-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 20px;
+  text-align: center;
+
+  .textarea-center {
+    margin-bottom: 20px;
+
+  p {
+    max-width: 600px;
+    margin-bottom: 30px;
+    font-size: 16px;
+
+  }
+
+  }
+
+
+
+}

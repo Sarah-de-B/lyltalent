@@ -48,3 +48,24 @@
     color: $dark !important;
   }
 }
+// fin de l'epk show et début de la new de entertainment application (william)
+.bottom-right-btn {
+// le bouton envoie pour mettre en bas a droite sur la page entertainment_application
+  padding: 6px 10px;
+  background: $red;
+  border: none;
+  border-radius: 25px;
+  color: white !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 20px;
+//  pour mettre en bas a droite
+  align-self: flex-end;
+
+  &:hover {
+    opacity: 0.8;
+    color: white !important;
+  }
+}
