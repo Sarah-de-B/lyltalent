@@ -6,6 +6,11 @@
   }
 }
 
+.artist-profile-photo{
+  position: relative;
+  top: -2.5em;
+}
+
 .artist-profile-photo-group {
   display: flex;
   justify-content: center;
@@ -15,6 +20,7 @@
 
 .artist-profile-name {
   text-align: center;
+  margin-top: -1em;
 }
 
 .artist-profile-bio {

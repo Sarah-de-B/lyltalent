@@ -1,3 +1,13 @@
+<%= month_calendar(attribute: :starts_at, events: @entertainments) do |date, entertainments|%>
+  <% if entertainments.any? %>
+    <%= link_to entertainment_path(entertainments.first), class: "calendar-accepted" do %>
+      <%= date.day %>
+    <% end %>
+  <% else %>
+    <%= date.day %>
+  <% end %>
+<% end %>
+
 <div class="container-dashboard">
 
 <div class="artist-profile">
@@ -11,8 +21,8 @@
   <p class="artist-profile-bio"><%= @user.bio %></p>
 </div>
 
-  <h2>Mes propositions en attente</h2>
-  
+  <%# <h2>Mes propositions en attente</h2> %>
+
   <h2>Mes candidatures en attente</h2>
   <div class="applications-list">
     <% @applications.each do |application| %>
