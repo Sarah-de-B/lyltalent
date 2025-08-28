@@ -1,0 +1,65 @@
+<%= month_calendar(attribute: :starts_at, events: @entertainments) do |date, entertainments|%>
+  <% if entertainments.any? %>
+    <%= link_to entertainment_path(entertainments.first), class: "calendar-accepted" do %>
+      <%= date.day %>
+    <% end %>
+  <% else %>
+    <%= date.day %>
+  <% end %>
+<% end %>
+
+<div class="container-dashboard">
+
+<div class="artist-profile">
+  <div class="artist-profile-photo-group">
+    <% @user.photos.each do |photo| %>
+      <%= image_tag url_for(photo), controls: true, size: "130x130", alt: @user.artist_name, class: "artist-profile-photo rounded-circle" %>
+    <% end %>
+  </div>
+
+  <h1 class="artist-profile-name"><%= @user.artist_name %></h1>
+  <p class="artist-profile-bio"><%= @user.bio %></p>
+</div>
+
+  <%# <h2>Mes propositions en attente</h2> %>
+
+  <h2>Mes candidatures en attente</h2>
+  <div class="applications-list">
+    <% @applications.each do |application| %>
+      <%= link_to entertainment_path(application.entertainment), class: "application-card" do %>
+        <div class="application-card-image">
+
+          <% if application.entertainment.event.photo.attached? %>
+            <%= cl_image_tag(application.entertainment.event.photo.key, alt: "Image de l'événement", class: "application-card-img") %>
+          <% else %>
+            <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card_img" %>
+          <% end %>
+
+          <% if application.status == "accepted" %>
+            <div class="status"><p class="application-card-status-accepted"><%= application.status %></p></div>
+          <% elsif application.status == "pending" %>
+            <div class="status"><p class="application-card-status-pending"><%= application.status %></p></div>
+          <% else %>
+            <div class="status"><p class="application-card-status-refuse"><%= application.status %></p></div>
+          <% end %>
+
+        </div>
+
+        <div class="application-card-content">
+          <h3 class="application-card-title"><%= application.entertainment.event.name %></h3>
+          <p class="application-card-description"><%= application.entertainment.event.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h2 id="epk-title">Mon EPK</h2>
+  <div class= "d-flex justify-content-center align-items-center">
+    <button class= "top-right-btn">
+      <%= link_to epk_path do %>
+        Actualiser
+      <% end %>
+    </button>
+  </div>
+
+</div>

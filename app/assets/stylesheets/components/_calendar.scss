@@ -1,8 +1,11 @@
 .simple-calendar {
-  width: 100%;
+  width: 85%;
+  margin: 1em auto 0 auto;
   border-collapse: collapse;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  border-radius: 10px;
 
   nav {
     display: flex;
@@ -16,11 +19,13 @@
     width: 100%;
     table-layout: fixed; // force toutes les colonnes à largeur égale
   }
-
+  th{
+    font-size: small;
+  }
   th,
   .day {
     border: 1px solid #e5e5e5;
-    padding: 0.5rem;
+    padding: 0.2rem;
     vertical-align: top;
     position: relative;
     transition: background 0.2s ease;
@@ -88,16 +93,14 @@
 
 }
 
-// Bouton du calendrier
+// outon du calendrier
 .calendar-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $red;
   border: none;
-  border-radius: 25px;
-  color: white !important;
   text-decoration: none;
+  color: inherit;
   margin-top: 1em;
   padding: 0.2em 0.5em;
 }

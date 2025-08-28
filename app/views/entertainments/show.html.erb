@@ -6,43 +6,47 @@
   </div>
 
   <div class="text-container">
-    <h1 class="text-center text-bold"><%= @entertainment.event.name %></h1>
-    <h3 class="text-center">📅 <%= @entertainment.event.date %></h3>
+    <h2 class="text-center text-bold"><%= @entertainment.event.name %></h2>
     <br>
 
-    <h3 class="text-bold">Description de la soirée</h3>
-    <br>
-    <p><%= @entertainment.event.description %></p>
-    <br>
 
-    <h2 class="text-bold">Détails de l'événement</h2>
-    <p>Date: <%= l(@entertainment.event.date, format: '%d/%m/%Y') %></p>
-    <p>Debut: <%= l(@entertainment.starts_at, format: '%Hh%M' ) %></p>
-    <p>jusqu'à: <%= l(Time.at(@entertainment.duration_in_minutes * 60).utc, format: '%Hh%M') %></p>
-
-    <p>👥 Public attendu d'environ <%= @entertainment.event.estimated_public_in_number %> personnes
+  <h4><%= @entertainment.event.description %></h4>
+  <br>
+    <p><i class="fa-solid fa-calendar-days me-2"></i>Date: <%= l(@entertainment.event.date, format: '%d/%m/%Y') %></p>
+    <p><i class="fa-solid fa-clock me-2"></i>Début: <%= l(@entertainment.starts_at, format: '%Hh%M' ) %></p>
+    <p><i class="fa-solid fa-clock me-2"></i>Jusqu'à: <%= l(Time.at(@entertainment.duration_in_minutes * 60).utc, format: '%Hh%M') %></p>
+     <p><i class="fa-solid fa-hourglass-start me-2"></i>Durée: <%= l(Time.at(@entertainment.event.duration * 60).utc, format: '%Hh%M') %></p>
+    <p> <i class="fa-solid fa-people-group me-2"></i> Public attendu: <%= @entertainment.event.estimated_public_in_number %> personnes
     et l'âge est d'environ <%= @entertainment.event.public_age %> ans</p>
 
-    <p>Concernant l'événement :</p>
-    <p>Le genre sera <%= @entertainment.event.musical_styles.join(", ") %> pour une durée de <%= @entertainment.event.duration %> minutes</p>
 
-    <h2 class="text-bold">Événement <%= @entertainment.event.description %></h2>
 
-    <p class="text-bold"> Les conditions :</p>
-    <p><%= @entertainment.planned_remuneration %></p>
+      <div class='musical-style-card-container'>
+        <% @entertainment.event.musical_styles.each do |style| %>
+           <div class='musical-style-card'><%= style %></div>
+        <% end %>
+      </div>
+
+    <div class='separator'></div>
+
+    <div class="condition-container">
+    <p class="text-bold"> Rémunération :</p>
+
+    <%= @entertainment.planned_remuneration%> <i class="fa-solid fa-scale-balanced"></i>
 
     <% if @entertainment.planned_remuneration_in_euros.present? %>
-      <p><%= @entertainment.planned_remuneration_in_euros %></p>
+      <p><%= @entertainment.planned_remuneration_in_euros %> <i class="fa-solid fa-euro-sign"></i></p>
     <% end %>
 
-    <p>Sont pris en charge par l'événement (VHR) : <%= @entertainment.included_services.join(', ') %></p>
-
+    <p class="text-bold">Sont pris en charge:</p>
+      <%= @entertainment.included_services.join(', ') %>
+   </div>
     <div class="btn-container">
       <%= link_to "Postuler", new_entertainment_entertainment_application_path(@entertainment), class: "bottom-middle-btn" %>
     </div>
 
     <div class="text-bold-center">
-      <h2>Ils participent à l'event</h2>
+      <h4>Ils participent à l'événement</h4>
     </div>
   </div>
     <% @participating_artists.each do |artist| %>
