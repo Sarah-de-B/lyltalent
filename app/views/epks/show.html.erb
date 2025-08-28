@@ -1,56 +1,71 @@
+
 <% @epk.videos.each do |video| %>
-  <%= video_tag url_for(video), controls: true, size: "360x780", alt: @epk.artist_name %>
+  <%= video_tag url_for(video), controls: true, size: "360x780", alt: @epk.artist_name, class: "video_fullscreen" %>
 <% end %>
 
+<div class="text-center">
+  <h1><%= @epk.artist_name %></h1>
+  <h2>
+    <%= @epk.artist_type %> - <% @epk.instruments.each do |instrument| %>
+      <%= instrument %>
+    <% end %>
+  </h2>
 
-<%= @epk.artist_name %>
-<%= @epk.artist_type %>
-<% @epk.instruments.each do |instrument| %>
-  <%= instrument %>
-<% end %>
-<% @epk.musical_styles.each do |genre| %>
-  <button><%= genre %></button>
-<% end %>
-<% if @epk.original_composition && @epk.covers %>
-  <%= "Compositions originales et reprises" %>
-<% elsif @epk.original_composition && !@epk.covers %>
-  <% if @epk.artist_type == "soliste" %>
-    <%= "Spécialisé en compositions originales" %>
-  <% elsif @epk.artist_type == "groupe" %>
-    <%= "Spécialisés en compositions originales" %>
-  <% else %>
-    <%= "un DJ set original" %>
+  <h3><%= @epk.musical_styles.join(", ") %></h3>
+</div>
+
+<div class="text-bold-center">
+  <% if @epk.original_composition && @epk.covers %>
+    <%= "Compositions originales et reprises" %>
+  <% elsif @epk.original_composition && !@epk.covers %>
+    <% if @epk.artist_type == "soliste" %>
+      <%= "Spécialisé en compositions originales" %>
+    <% elsif @epk.artist_type == "groupe" %>
+      <%= "Spécialisés en compositions originales" %>
+    <% else %>
+      <%= "un DJ set original" %>
+    <% end %>
+  <% elsif !@epk.original_composition && @epk.covers %>
+    <% if @epk.artist_type == "soliste" %>
+      <%= "Spécialisé en reprises" %>
+    <% elsif @epk.artist_type == "groupe" %>
+      <%= "Spécialisés en reprises" %>
+    <% else %>
+      <%= "uniquement des musiques que vous connaissez" %>
+    <% end %>
   <% end %>
-<% elsif !@epk.original_composition && @epk.covers %>
-  <% if @epk.artist_type == "soliste" %>
-    <%= "Spécialisé en reprises" %>
-  <% elsif @epk.artist_type == "groupe" %>
-    <%= "Spécialisés en reprises" %>
-  <% else %>
-    <%= "uniquement des musiques que vous connaissez" %>
-  <% end %>
-<% end %>
+</div>
+<div class="text-center">
+  <%= @epk.bio %>
+</div>
 
-<%= @epk.bio %>
+
 
 <% @epk.photos.each do |photo| %>
   <%= image_tag url_for(photo), alt: @epk.artist_name %>
 <% end %>
 
 
-<button> <%= link_to "Télécharger les photos", "#" %> </button>
 
-<h3>Expérience</h3>
-<%= @epk.description_experience %>
-<%= @epk.concert_number %>
+<div class="text-center">
+  <div class="btn-light link-light">
+    <%= link_to "Télécharger les photos", "#" %> </button>
+  </div>
+  <h3>Expérience</h3>
+  <%= @epk.description_experience %>
+  <%= @epk.concert_number %>
 
-<h3>Biographie musicale</h3>
-<%= @epk.description_education %>
+  <h3>Biographie musicale</h3>
+  <%= @epk.description_education %>
 
-<h2>Fiche technique</h2>
-<%= @epk.tools %>
-<%= @epk.tools_needed %>
-<%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
+  <h2>Fiche technique</h2>
+  <%= @epk.tools %>
+  <%= @epk.tools_needed %>
+  <%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
+</div>
+
+
+
 
 <h2>Informations complémentaires</h2>
 <%= @epk.legal_entity_type %>
@@ -59,21 +74,22 @@
 <h3>Contact</h3>
 <%= @epk.artist_name %> : <%= @epk.phone_number %>
 
-<%= link_to @epk.instagram_url, target: "_blank"  do %>
-  <i class="fa-brands fa-instagram"></i>
-<% end %>
-<%= link_to @epk.facebook_url, target: "_blank" do %>
-  <i class="fa-brands fa-facebook"></i>
-<% end %>
+<div class="flex-space-around link-light">
+  <%= link_to @epk.instagram_url, target: "_blank"  do %>
+    <i class="fa-brands fa-instagram"></i>
+  <% end %>
+  <%= link_to @epk.facebook_url, target: "_blank" do %>
+    <i class="fa-brands fa-facebook"></i>
+  <% end %>
 
-<%= link_to @epk.spotify_url, target: "_blank" do %>
-  <i class="fa-brands fa-spotify"></i>
-<% end %>
+  <%= link_to @epk.spotify_url, target: "_blank" do %>
+    <i class="fa-brands fa-spotify"></i>
+  <% end %>
 
-<%= link_to @epk.youtube_url, target: "_blank" do %>
-  <i class="fa-brands fa-youtube"></i>
-<% end %>
-
+  <%= link_to @epk.youtube_url, target: "_blank" do %>
+    <i class="fa-brands fa-youtube"></i>
+  <% end %>
+</div>
 
 <%# à mettre en bas de page, coin gauche %>
 <%= @epk.address %>
