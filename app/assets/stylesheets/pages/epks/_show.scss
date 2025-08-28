@@ -1,0 +1,10 @@
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    color: $dark !important;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+}
