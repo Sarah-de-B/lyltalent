@@ -1,0 +1,41 @@
+<div class="container.dashboard">
+
+<div class="artist-profile">
+  <% @user.photos.each do |photo| %>
+    <%= image_tag url_for(photo), controls: true, size: "360x360", alt: @user.artist_name, class: "artist-profile__photo" %>
+  <% end %>
+
+  <h1 class="artist-profile__name"><%= @user.artist_name %></h1>
+  <p class="artist-profile__bio"><%= @user.bio %></p>
+</div>
+
+  <h2>Mes propositions en attente</h2>
+
+  <h2>Mes candidatures en attente</h2>
+  <div class="applications-list">
+    <% @applications.each do |application| %>
+      <%= link_to entertainment_path(application.entertainment), class: "application-card" do %>
+        <div class="application-card__image">
+          <% if application.entertainment.event.photo.attached? %>
+            <%= cl_image_tag(application.entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "application-card__img") %>
+          <% else %>
+            <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card__img" %>
+          <% end %>
+        </div>
+
+        <div class="application-card__content">
+          <h3 class="application-card__title"><%= application.entertainment.event.name %></h3>
+          <p class="application-card__description"><%= application.entertainment.event.description %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h2>Mon EPK</h2>
+  <button class= "top-right-btn">
+    <%= link_to epk_path do %>
+      Actualiser
+    <% end %>
+  </button>
+
+</div>
