@@ -177,12 +177,12 @@ event_planner3.photos.attach(io: file, filename: "photo.jpg", content_type: "ima
 
 # --- EVENTS (liés aux event planners) ---
 demo_event = Event.create!(
-  category: "Concert",
+  category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 90,
   address: "Salle de la Demo, Paris",
   estimated_public_in_number: 100,
   public_age: 20,
-  musical_styles: ["Pop", "Soul"],
+  musical_styles: ["Pop", "Electro"],
   cover_or_composition: "composition",
   number_of_artists_needed: 1,
   name: "Soirée a la salle de la Demo, Chant",
@@ -195,12 +195,12 @@ file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
 demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
-  category: "Festival",
+  category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 180,
   address: "Parc des Chantiers, Nantes",
   estimated_public_in_number: 500,
   public_age: 25,
-  musical_styles: ["Pop", "Folk"],
+  musical_styles: ["Pop", "Electro"],
   cover_or_composition: "composition",
   number_of_artists_needed: 3,
   name: "Festival d'Été",
@@ -213,7 +213,7 @@ file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
 event1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event2 = Event.create!(
-  category: "Club",
+  category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 240,
   address: "Rex Club, Paris",
   estimated_public_in_number: 300,
@@ -231,7 +231,7 @@ file = Rails.root.join("db/seeds/events/soiree_electro.jpeg").open
 event2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event3 = Event.create!(
-  category: "Concert",
+  category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 120,
   address: "Maison de la Jeunesse, Lyon",
   estimated_public_in_number: 200,
@@ -258,7 +258,7 @@ demo_entertainment = Entertainment.create!(
   duration_in_minutes: 75,
   available_tool: "Micro Shure",
   necessary_tool: "Piano électrique",
-  planned_remuneration: "Cachet démo",
+  planned_remuneration: "Cachet, démo",
   planned_remuneration_in_euros: nil,
   event: demo_event,
   user: artist_persona
