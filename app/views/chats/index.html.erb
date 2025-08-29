@@ -1,31 +1,28 @@
-<h1>Messages des Event Planners</h1>
-
+<div class="container-message">
+  <h1 class="message">Messagerie</h1>
+</div>
 <div class="chat-cards">
-  <% @event_planners.each do |event_planner| %>
-    <div class="chat-card">
-      <!-- Photo circulaire -->
-      <div class="chat-card-photo">
-        <% if event_planner.photos.attached? %>
-          <%= cl_image_tag event_planner.photos.first.key,
-                           height: 60, width: 60, crop: :fill,
-                           class: "user-image" %>
+  <% @chats.each do |chat| %>
+    <% event_planner = chat.entertainment_application.entertainment.event.user %>
+    <%= link_to chat_path(chat.entertainment_application.entertainment), class: "application-card" do %>
+      <div class="application-card-avatar">
+        <% if event_planner.photos.attached?  %>
+          <%= cl_image_tag event_planner.photos.first.key, height: 60, width: 60, crop: :fill, class: "user-image" %>
         <% else %>
-          <%= cl_image_tag "default_avatar.png", size: "60x60", alt: "Avatar par défaut", class: "user-image" %>
+          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
         <% end %>
       </div>
-
-      <!-- Message -->
-      <div class="chat-card-message">
-        <h4><%= event_planner.name %></h4>
-        <% chats = event_planner.entertainment_applications
-                               .where(status: 'accepted')
-                               .map(&:chats)
-                               .flatten %>
-        <% chats.each do |chat| %>
-          <p><%= chat.message %></p>
+      <div class="application-card-content">
+        <h3 class="application-card-name"><%= event_planner.first_name%> <%= event_planner.last_name %></h3>
+        <div class="espace">
+        <p class="application-card-nameevent">
+          <% if chat.messages.any?  %>
+        <%= chat.messages.last.content.first(20) %>
+        <%="..." if chat.messages.last.content.size > 20%>
         <% end %>
+        </p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
-
