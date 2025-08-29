@@ -396,7 +396,7 @@ EntertainmentApplication.create!(
   created_at: DateTime.new(2025, 8, 15, 16, 45)
 )
 EntertainmentApplication.create!(
-  status: "refused",
+  status: "Refusé",
   message: "Proposition intéressante mais le style ne correspond pas à l’événement.",
   user: artiste3,
   entertainment: entertainment4,
@@ -404,7 +404,7 @@ EntertainmentApplication.create!(
 )
 
 EntertainmentApplication.create!(
-  status: "accepted",
+  status: "Accepté",
   message: "Expérience sur plusieurs festivals, matériel complet disponible.",
   user: artiste3,
   entertainment: entertainment5,
