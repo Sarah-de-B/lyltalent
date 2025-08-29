@@ -11,6 +11,8 @@
   top: -2.5em;
   width: 130px;
   height: 130px;
+  object-fit: cover;
+  display: block;
 }
 
 .artist-profile-photo-group {
@@ -108,6 +110,42 @@
   top: 8px;
   left: 8px;
   background-color: $orange;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.application-card-status-proposed {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: $blue;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.application-card-status-validate {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: $green;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.application-card-status-refuse {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #d00000;
   color: white;
   font-size: 12px;
   font-weight: bold;

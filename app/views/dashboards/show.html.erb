@@ -21,46 +21,55 @@
 
   <%# <h2>Mes propositions en attente</h2> %>
 
+  <h2>Mes propositions en attente</h2>
+
+  <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <% @applications.where(status: "Proposé").each do |application| %>
+         <%= render "application_card", application: application, status_class: "application-card-status-proposed" %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+
+  <h2>Mes proposition validé</h2>
+
+  <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <% @applications.where(status: "Validé").each do |application| %>
+         <%= render "application_card", application: application, status_class: "application-card-status-validate" %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+
   <h2>Mes candidatures en attente</h2>
 
   <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <ul class="splide__list">
-        <% @applications.each do |application| %>
-          <li class="splide__slide">
-            <div class="applications-list">
-              <%= link_to entertainment_path(application.entertainment), class: "application-card" do %>
-                <div class="application-card-image">
-                  <% if application.entertainment.event.photo.attached? %>
-                    <%= cl_image_tag(application.entertainment.event.photo.key, alt: "Image de l'événement", class: "application-card-img") %>
-                  <% else %>
-                    <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card_img" %>
-                  <% end %>
-                  <% if application.status == "accepted" %>
-                    <div class="status">
-                      <p class="application-card-status-accepted"><%= application.status %></p>
-                    </div>
-                  <% elsif application.status == "pending" %>
-                    <div class="status">
-                      <p class="application-card-status-pending"><%= application.status %></p>
-                    </div>
-                  <% else %>
-                    <div class="status">
-                      <p class="application-card-status-refuse"><%= application.status %></p>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="application-card-content">
-                  <h3 class="application-card-title"><%= application.entertainment.event.name %></h3>
-                  <p class="application-card-description"><%= application.entertainment.event.description %></p>
-                </div>
-              <% end %>
-            </div>
-          </li>
+        <% @applications.where(status: "En cours").each do |application| %>
+         <%= render "application_card", application: application, status_class: "application-card-status-pending" %>
         <% end %>
       </ul>
     </div>
   </section>
+
+  <h2>Mes candidatures en accepté</h2>
+
+  <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <% @applications.where(status: "Accepté").each do |application| %>
+         <%= render "application_card", application: application, status_class: "application-card-status-accepted" %>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+
+
 
   <h2 id="epk-title">Mon EPK</h2>
   <div class= "d-flex justify-content-center align-items-center">
@@ -69,6 +78,9 @@
         Actualiser
       <% end %>
     </button>
-  </div>
 
+  </div>
+    <div class= "d-flex justify-content-center align-items-center">
+  <%= button_to "Deconnexion", destroy_user_session_path, method: :delete, class: "top-right-btn" %>
+  </div>
 </div>
