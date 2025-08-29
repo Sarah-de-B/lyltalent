@@ -12,7 +12,7 @@ class EntertainmentApplicationsController < ApplicationController
     @entertainment_application = EntertainmentApplication.new(entertainment_application_params)
     @entertainment_application.user = current_user
     @entertainment_application.entertainment = @entertainment
-    @entertainment_application.status = "pending"
+    @entertainment_application.status = "En cours"
     authorize @entertainment_application
 
     if @entertainment_application.save
@@ -26,7 +26,7 @@ class EntertainmentApplicationsController < ApplicationController
   def accept
     authorize @entertainment_application
 
-    if @entertainment_application.update(status: "accepted")
+    if @entertainment_application.update(status: "Accepté")
       redirect_to some_path, notice: "Candidature acceptée et chat créé !"
     else
       redirect_to some_path, alert: "Impossible d’accepter la candidature."

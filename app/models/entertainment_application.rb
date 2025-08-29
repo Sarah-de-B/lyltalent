@@ -2,6 +2,8 @@ class EntertainmentApplication < ApplicationRecord
   belongs_to :user
   belongs_to :entertainment
   validates :message, presence: true
-  has_one :chat
-  validates :status, inclusion: { in: ["pending", "accepted", "refused"] }
+
+
+  validates :status, inclusion: { in: ["En cours", "Accepté", "Refusé", "Proposé", "Validé"] }
+
 end
