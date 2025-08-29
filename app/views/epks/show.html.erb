@@ -1,7 +1,15 @@
+<section class="splide" data-controller="photo-carroussel" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list">
+      <% @epk.videos.each do |video| %>
+        <li class="splide__slide">
+          <%= video_tag url_for(video), controls: true, size: "360x780", alt: @epk.artist_name, class: "video_fullscreen" %>
+        </li>
+      <% end %>
+		</ul>
+  </div>
+</section>
 
-<% @epk.videos.each do |video| %>
-  <%= video_tag url_for(video), controls: true, size: "360x780", alt: @epk.artist_name, class: "video_fullscreen" %>
-<% end %>
 
 <div class="text-center">
   <h1><%= @epk.artist_name %></h1>
@@ -13,6 +21,7 @@
 
   <h3><%= @epk.musical_styles.join(", ") %></h3>
 </div>
+<br>
 
 <div class="text-bold-center">
   <% if @epk.original_composition && @epk.covers %>
@@ -39,40 +48,54 @@
   <%= @epk.bio %>
 </div>
 
+<br>
 
+<section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list">
+        <% @epk.photos.each do |photo| %>
+          <li class="splide__slide">
+            <%= image_tag url_for(photo), alt: @epk.artist_name, class: "artist-photo-epk"%>
+          </li>
+        <% end %>
+		</ul>
+  </div>
+</section>
 
-<% @epk.photos.each do |photo| %>
-  <%= image_tag url_for(photo), alt: @epk.artist_name %>
-<% end %>
-
-
+<br>
+<br>
 
 <div class="text-center">
   <div class="btn-light link-light">
     <%= link_to "Télécharger les photos", "#" %> </button>
   </div>
+  <br>
   <h3>Expérience</h3>
   <%= @epk.description_experience %>
   <%= @epk.concert_number %>
-
+  <br>
+  <br>
   <h3>Biographie musicale</h3>
   <%= @epk.description_education %>
-
-  <h2>Fiche technique</h2>
-  <%= @epk.tools %>
-  <%= @epk.tools_needed %>
-  <%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
 </div>
 
+<div class="condition-container">
+  <h2>Fiche technique</h2>
+  Je possède : <%= @epk.tools %>
+  <br>
+  <br>
+  Il faudra me fournir : <%= @epk.tools_needed %>
+  <%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
+  <br>
+  <br>
+  <h2>Statut légal</h2>
+  <%= @epk.legal_entity_type %>
+  <br>
+  <p>SIREN: <%= @epk.siret %> </p>
 
-
-
-<h2>Informations complémentaires</h2>
-<%= @epk.legal_entity_type %>
-<%= @epk.siret %>
-
-<h3>Contact</h3>
-<%= @epk.artist_name %> : <%= @epk.phone_number %>
+  <h3>Contact</h3>
+  <%= @epk.artist_name %> : <%= @epk.phone_number %>
+</div>
 
 <div class="flex-space-around link-light">
   <%= link_to @epk.instagram_url, target: "_blank"  do %>
@@ -92,4 +115,4 @@
 </div>
 
 <%# à mettre en bas de page, coin gauche %>
-<%= @epk.address %>
+<div class="musical-style-card"><%= @epk.address %></div>
