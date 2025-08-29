@@ -10,7 +10,8 @@ class User < ApplicationRecord
   # ARTIST
   has_many :availabilities, dependent: :destroy
   has_many :entertainment_applications, dependent: :destroy
-  has_many :chats, through: :entertainment_applications
+  has_many :chats, through: :entertainment_applications , source: :user
+
   has_many :entertainments, through: :entertainment_applications
   
   has_many_attached :photos
