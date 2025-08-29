@@ -1,0 +1,31 @@
+<h1>Messages des Event Planners</h1>
+
+<div class="chat-cards">
+  <% @event_planners.each do |event_planner| %>
+    <div class="chat-card">
+      <!-- Photo circulaire -->
+      <div class="chat-card-photo">
+        <% if event_planner.photos.attached? %>
+          <%= cl_image_tag event_planner.photos.first.key,
+                           height: 60, width: 60, crop: :fill,
+                           class: "user-image" %>
+        <% else %>
+          <%= cl_image_tag "default_avatar.png", size: "60x60", alt: "Avatar par défaut", class: "user-image" %>
+        <% end %>
+      </div>
+
+      <!-- Message -->
+      <div class="chat-card-message">
+        <h4><%= event_planner.name %></h4>
+        <% chats = event_planner.entertainment_applications
+                               .where(status: 'accepted')
+                               .map(&:chats)
+                               .flatten %>
+        <% chats.each do |chat| %>
+          <p><%= chat.message %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
