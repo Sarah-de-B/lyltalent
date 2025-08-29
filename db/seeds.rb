@@ -427,6 +427,14 @@ EntertainmentApplication.create!(
   created_at: DateTime.new(2025, 6, 7, 14, 30)
 )
 
+EntertainmentApplication.create!(
+  status: "Validé",
+  message: "J'accepte la proposition",
+  user: artist_persona,
+  entertainment: entertainment1,
+  created_at: DateTime.new(2025, 6, 7, 14, 30)
+)
+
 p "Entertainment Applications created: #{EntertainmentApplication.count}"
 
 # --- CHATS (liés aux entertainment applications) ---
