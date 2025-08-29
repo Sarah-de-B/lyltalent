@@ -15,7 +15,13 @@ Rails.application.routes.draw do
       collection { get :confirmation }
     end
   end
+  resources :entertainment_applications, only: [] do
+    member {
+      patch :accept
+      patch :refused
+    }
 
+  end
   resources :events, only: [ :new, :create ]
 
   resource :dashboard, only: [ :show ]

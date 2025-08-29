@@ -1,5 +1,5 @@
 class EntertainmentApplicationsController < ApplicationController
-  before_action :set_entertainment_application, only: [:accept]
+  before_action :set_entertainment_application, only: [:accept, :refused]
 
   def new
     @entertainment = Entertainment.find(params[:entertainment_id])
@@ -27,9 +27,19 @@ class EntertainmentApplicationsController < ApplicationController
     authorize @entertainment_application
 
     if @entertainment_application.update(status: "Accepté")
-      redirect_to some_path, notice: "Candidature acceptée et chat créé !"
+      redirect_to dashboard_path, notice: "Candidature acceptée et chat créé !"
     else
-      redirect_to some_path, alert: "Impossible d’accepter la candidature."
+      redirect_to dashboard_path, alert: "Impossible d’accepter la candidature."
+    end
+  end
+
+  def refused
+    authorize @entertainment_application
+
+    if @entertainment_application.update(status: "Refusé")
+      redirect_to dashboard_path, notice: "Candidature acceptée et chat créé !"
+    else
+      redirect_to dashboard_path, alert: "Impossible d’accepter la candidature."
     end
   end
 

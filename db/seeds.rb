@@ -422,7 +422,7 @@ demo_entertainment_application2 = EntertainmentApplication.create!(
   status: "En cours",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
-  entertainment: entertainment1,
+  entertainment: entertainment3,
   created_at: DateTime.new(2025, 8, 15, 10, 45)
 )
 
@@ -438,7 +438,7 @@ EntertainmentApplication.create!(
   status: "Proposé",
   message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
   user: artist_persona,
-  entertainment: entertainment1,
+  entertainment: entertainment2,
   created_at: DateTime.new(2025, 6, 7, 14, 30)
 )
 

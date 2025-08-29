@@ -14,7 +14,9 @@ class EntertainmentsController < ApplicationController
     authorize @entertainment
     @participating_artists = @entertainment.event.users
     @entertainment = Entertainment.find(params[:id])
-    @user_has_applied = current_user&.entertainment_applications&.exists?(entertainment: @entertainment)
+
+    @user_has_applied = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: ["En cours", "Accepté", "Validé"])
+    @is_proposed = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: "Proposé")
     # @user_has_applied = Entertainment_applications.where(entertainment: @entertainment, user: current_user)
   end
 

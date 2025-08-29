@@ -18,7 +18,13 @@ class EntertainmentApplicationPolicy < ApplicationPolicy
     user.present?
   end
 
+  def accept?
+    user.present?
+  end
 
+  def refused?
+    user.present?
+  end
 
   # Autorise un utilisateur connecté à voir la page de confirmation
   def confirmation?
