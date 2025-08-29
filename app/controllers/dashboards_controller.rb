@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
     authorize @user
     @applications = current_user.entertainment_applications
     # @offers =
-    @entertainments = current_user.entertainments.where(entertainment_applications: {status: "accepted"})
+    @entertainments = current_user.entertainments.where(entertainment_applications: {status: "Accepté"})
   end
 
 end

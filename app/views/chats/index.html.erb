@@ -18,7 +18,7 @@
       <div class="chat-card-message">
         <h4><%= event_planner.name %></h4>
         <% chats = event_planner.entertainment_applications
-                               .where(status: 'accepted')
+                               .where(status: 'Accepté')
                                .map(&:chats)
                                .flatten %>
         <% chats.each do |chat| %>
@@ -28,4 +28,3 @@
     </div>
   <% end %>
 </div>
-
