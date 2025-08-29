@@ -12,9 +12,7 @@
 
 <div class="artist-profile">
   <div class="artist-profile-photo-group">
-    <% @user.photos.each do |photo| %>
-      <%= image_tag url_for(photo), controls: true, size: "130x130", alt: @user.artist_name, class: "artist-profile-photo rounded-circle" %>
-    <% end %>
+      <%= cl_image_tag @user.photos.first.key, alt: @user.artist_name, class: "artist-profile-photo rounded-circle" %>
   </div>
 
   <h1 class="artist-profile-name"><%= @user.artist_name %></h1>
