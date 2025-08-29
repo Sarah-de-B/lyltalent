@@ -12,10 +12,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
             <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card_img" %>
           <% end %>
 
-          <% if application.status == "accepted" %>
-            <div class="status"><p class="application-card-status-accepted"><%= application.status %></p></div>
-          <% elsif application.status == "pending" %>
-            <div class="status"><p class="application-card-status-pending"><%= application.status %></p></div>
+          <% if application.status == "Proposé" %>
+            <div class="status"><p class="application-card-status-proposed"><%= application.status %></p></div>
+          <% elsif application.status == "Validé" %>
+            <div class="status"><p class="application-card-status-validate"><%= application.status %></p></div>
           <% else %>
             <div class="status"><p class="application-card-status-refuse"><%= application.status %></p></div>
           <% end %>

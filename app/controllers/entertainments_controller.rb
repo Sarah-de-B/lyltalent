@@ -3,15 +3,19 @@ class EntertainmentsController < ApplicationController
   before_action :set_entertainment, only: [:show]
 
   def index
-    @entertainments = policy_scope(Entertainment)
+    @entertainments = policy_scope(Entertainment.where(user: nil)).order(starts_at: :desc)
     if params[:query].present?
       @entertainments = @entertainments.search_by_address(params[:query])
+
     end
   end
 
   def show
     authorize @entertainment
     @participating_artists = @entertainment.event.users
+    @entertainment = Entertainment.find(params[:id])
+    @user_has_applied = current_user&.entertainment_applications&.exists?(entertainment: @entertainment)
+    # @user_has_applied = Entertainment_applications.where(entertainment: @entertainment, user: current_user)
   end
 
   private
