@@ -1,0 +1,36 @@
+.message-form {
+  .message-input-container {
+    position: relative;
+
+    .message-input {
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 0px 20px 12px 16px;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      }
+    }
+
+    .message-submit-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      font-weight: bold;
+
+      &:hover {
+        background-color: darken($red, 10%);
+      }
+    }
+  }
+}
