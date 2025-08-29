@@ -6,7 +6,7 @@
   <% @chats.each do |chat| %>
     <% event_planner = chat.entertainment_application.entertainment.event.user %>
 
-    <%= link_to chat_path(chat.entertainment_application.entertainment), class: "application-card" do %>
+    <%= link_to chat_path(chat), class: "application-card" do %>
       <div class="application-card-avatar">
         <% if event_planner.photos.attached? %>
           <%= cl_image_tag event_planner.photos.first.key,
