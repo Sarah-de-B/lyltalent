@@ -1,27 +1,38 @@
 <div class="container-message">
   <h1 class="message">Messagerie</h1>
 </div>
+
 <div class="chat-cards">
   <% @chats.each do |chat| %>
     <% event_planner = chat.entertainment_application.entertainment.event.user %>
+
     <%= link_to chat_path(chat.entertainment_application.entertainment), class: "application-card" do %>
       <div class="application-card-avatar">
-        <% if event_planner.photos.attached?  %>
-          <%= cl_image_tag event_planner.photos.first.key, height: 60, width: 60, crop: :fill, class: "user-image" %>
+        <% if event_planner.photos.attached? %>
+          <%= cl_image_tag event_planner.photos.first.key,
+                           height: 60,
+                           width: 60,
+                           crop: :fill,
+                           class: "user-image" %>
         <% else %>
-          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
+          <%= image_tag "default_user.jpg",
+                        alt: "Image par défaut",
+                        class: "application-card-img" %>
         <% end %>
       </div>
+
       <div class="application-card-content">
-        <h3 class="application-card-name"><%= event_planner.first_name%> <%= event_planner.last_name %></h3>
-        <div class="espace">
-        <p class="application-card-nameevent">
-          <% if chat.messages.any?  %>
-        <%= chat.messages.last.content.first(20) %>
-        <%="..." if chat.messages.last.content.size > 20%>
-        <% end %>
+        <h3 class="application-card-name">
+          <%= event_planner.first_name %> <%= event_planner.last_name %>
+        </h3>
+
+        <p class="application-card-name-message">
+        <%# signifie “Est-ce qu’il y a au moins un message dans la collection messages ? %>
+          <% if chat.messages.any? %>
+            <%= chat.messages.last.content.first(20) %>
+            <%= "..." if chat.messages.last.content.size > 20 %>
+          <% end %>
         </p>
-        </div>
       </div>
     <% end %>
   <% end %>
