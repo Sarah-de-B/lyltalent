@@ -42,7 +42,7 @@
 }
 
 #title-entertainment {
-  margin: 30px;
+  margin: 25px 30px 0px 30px;
   text-align: center;
 }
 
@@ -75,7 +75,7 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 250px;
+  width: 35vh;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -114,4 +114,33 @@
   border-top-right-radius: 15px;
   object-fit: cover;
   display: block;
+}
+.artist-search{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #008000;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.artist-search-overlay{
+  position: absolute;
+  // bottom: 250px;
+  // left: 10px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 10px;
+}
+#sous-entertainment{
+  text-align: center;
 }

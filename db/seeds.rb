@@ -391,9 +391,24 @@ EntertainmentApplication.create!(
 EntertainmentApplication.create!(
   status: "En cours",
   message: "Envie de représenter la scène hip-hop locale avec énergie. Appelons-nous!",
-  user: artiste3,
+  user: artiste1,
   entertainment: entertainment3,
   created_at: DateTime.new(2025, 8, 15, 16, 45)
+)
+EntertainmentApplication.create!(
+  status: "Refusé",
+  message: "Proposition intéressante mais le style ne correspond pas à l’événement.",
+  user: artiste3,
+  entertainment: entertainment4,
+  created_at: DateTime.new(2025, 8, 20, 14, 30)
+)
+
+EntertainmentApplication.create!(
+  status: "Accepté",
+  message: "Expérience sur plusieurs festivals, matériel complet disponible.",
+  user: artiste3,
+  entertainment: entertainment5,
+  created_at: DateTime.new(2025, 8, 25, 11, 15)
 )
 demo_entertainment_application1 = EntertainmentApplication.create!(
   status: "Accepté",
