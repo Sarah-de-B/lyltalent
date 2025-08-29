@@ -26,7 +26,9 @@ class EntertainmentApplicationsController < ApplicationController
   def accept
     authorize @entertainment_application
 
-    if @entertainment_application.update(status: "Accepté")
+    if @entertainment_application.update(status: "Validé")
+      @entertainment = @entertainment_application.entertainment
+      @entertainment.update(user: current_user)
       redirect_to dashboard_path, notice: "Candidature acceptée et chat créé !"
     else
       redirect_to dashboard_path, alert: "Impossible d’accepter la candidature."
