@@ -1,4 +1,4 @@
-<div id='container'>
+<div id='entertainment-container'>
   <div class="event-image-container">
     <% if @entertainment.event.photo.attached? %>
           <%= cl_image_tag @entertainment.event.photo.key, height: 300, width: 300, crop: :fill, class: 'event-image'%>
@@ -41,8 +41,11 @@
     <p class="text-bold">Sont pris en charge:</p>
       <%= @entertainment.included_services.join(', ') %>
   </div>
-  <div class="btn-container">
-    <% if @user_has_applied %>
+  <div class="btn-container gap-4">
+    <% if @is_proposed %>
+        <%=  link_to "Valider",accept_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: {turbo_method: :patch}%>
+        <%=  link_to "Refuser", refused_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: { turbo_confirm: "Es-tu sûr de vouloir refuser ce spectacle ?", turbo_method: :patch } %>
+    <% elsif @user_has_applied %>
       <div >
         <span class="top-right-btn mb-3">
           Déjà candidaté <i class="fa-solid fa-check"></i>
