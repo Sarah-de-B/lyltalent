@@ -391,14 +391,14 @@ EntertainmentApplication.create!(
 EntertainmentApplication.create!(
   status: "pending",
   message: "Envie de représenter la scène hip-hop locale avec énergie. Appelons-nous!",
-  user: artiste3,
+  user: artiste1,
   entertainment: entertainment3,
   created_at: DateTime.new(2025, 8, 15, 16, 45)
 )
 EntertainmentApplication.create!(
   status: "refused",
   message: "Proposition intéressante mais le style ne correspond pas à l’événement.",
-  user: musician3,
+  user: artiste3,
   entertainment: entertainment4,
   created_at: DateTime.new(2025, 8, 20, 14, 30)
 )
@@ -406,7 +406,7 @@ EntertainmentApplication.create!(
 EntertainmentApplication.create!(
   status: "accepted",
   message: "Expérience sur plusieurs festivals, matériel complet disponible.",
-  user: musician3,
+  user: artiste3,
   entertainment: entertainment5,
   created_at: DateTime.new(2025, 8, 25, 11, 15)
 )
