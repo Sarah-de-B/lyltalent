@@ -1,4 +1,5 @@
 class EntertainmentApplicationsController < ApplicationController
+  before_action :set_entertainment_application, only: [:accept]
 
   def new
     @entertainment = Entertainment.find(params[:entertainment_id])
@@ -18,17 +19,30 @@ class EntertainmentApplicationsController < ApplicationController
       redirect_to confirmation_entertainment_entertainment_applications_path(@entertainment)
     else
       render :new, status: :unprocessable_entity
-
     end
   end
 
-  # Page de confirmation après envoi
+  # Bouton côté event planner pour accepter une candidature
+  def accept
+    authorize @entertainment_application
+
+    if @entertainment_application.update(status: "accepted")
+      redirect_to some_path, notice: "Candidature acceptée et chat créé !"
+    else
+      redirect_to some_path, alert: "Impossible d’accepter la candidature."
+    end
+  end
+
   def confirmation
     @entertainment = Entertainment.find(params[:entertainment_id])
     authorize EntertainmentApplication
   end
 
   private
+
+  def set_entertainment_application
+    @entertainment_application = EntertainmentApplication.find(params[:id])
+  end
 
   def entertainment_application_params
     params.require(:entertainment_application).permit(:message)

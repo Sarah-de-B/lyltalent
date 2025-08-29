@@ -18,6 +18,11 @@ class EntertainmentApplicationPolicy < ApplicationPolicy
     user.present?
   end
 
+  def index?
+    user.present?
+  end
+
+
   # Autorise un utilisateur connecté à voir la page de confirmation
   def confirmation?
     user.present?
