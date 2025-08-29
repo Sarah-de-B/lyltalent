@@ -305,6 +305,37 @@ entertainment3 = Entertainment.create!(
   event: event1,
   user: nil
 )
+
+# entertainment4 = Entertainment.create!(
+#   artist_type: "duo",
+#   starts_at: DateTime.new(2025, 9, 6, 20, 30),
+#   ends_at: DateTime.new(2025, 9, 6, 22, 0),
+#   included_services: ["Scène", "Lumières"],
+#   artist_experience_in_years: "5",
+#   duration_in_minutes: 90,
+#   available_tool: "guitare, clavier",
+#   necessary_tool: "batterie",
+#   planned_remuneration: "Cachet",
+#   planned_remuneration_in_euros: 450,
+#   event: event2,
+#   user: nil
+# )
+
+# entertainment5 = Entertainment.create!(
+#   artist_type: "groupe",
+#   starts_at: DateTime.new(2025, 9, 7, 19, 0),
+#   ends_at: DateTime.new(2025, 9, 7, 21, 30),
+#   included_services: ["Scène", "Sonorisation", "Technicien"],
+#   artist_experience_in_years: "10",
+#   duration_in_minutes: 150,
+#   available_tool: "ampli, câbles, pédales",
+#   necessary_tool: "batterie, micros",
+#   planned_remuneration: "Forfait",
+#   planned_remuneration_in_euros: 800,
+#   event: event2,
+#   user: nil
+# )
+
 # --- ENTERTAINMENT APPLICATIONS (liés aux entertainments + musiciens) ---
 EntertainmentApplication.create!(
   status: "accepted",
@@ -327,6 +358,21 @@ EntertainmentApplication.create!(
   entertainment: entertainment3,
   created_at: DateTime.new(2025, 8, 15, 16, 45)
 )
+# EntertainmentApplication.create!(
+#   status: "refused",
+#   message: "Proposition intéressante mais le style ne correspond pas à l’événement.",
+#   user: musician3,
+#   entertainment: entertainment4,
+#   created_at: DateTime.new(2025, 8, 20, 14, 30)
+# )
+
+# EntertainmentApplication.create!(
+#   status: "accepted",
+#   message: "Expérience sur plusieurs festivals, matériel complet disponible.",
+#   user: musician3,
+#   entertainment: entertainment5,
+#   created_at: DateTime.new(2025, 8, 25, 11, 15)
+# )
 demo_entertainment_application = EntertainmentApplication.create!(
   status: "accepted",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",

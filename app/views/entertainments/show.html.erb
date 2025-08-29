@@ -40,10 +40,18 @@
 
     <p class="text-bold">Sont pris en charge:</p>
       <%= @entertainment.included_services.join(', ') %>
-   </div>
-    <div class="btn-container">
+  </div>
+  <div class="btn-container">
+    <% if @user_has_applied %>
+      <div >
+        <span class="top-right-btn mb-3">
+          Déjà candidaté <i class="fa-solid fa-check"></i>
+        </span>
+      </div>
+    <% else %>
       <%= link_to "Postuler", new_entertainment_entertainment_application_path(@entertainment), class: "bottom-middle-btn" %>
-    </div>
+    <% end %>
+  </div>
 
     <div class="text-bold-center">
       <h4>Ils participent à l'événement</h4>
