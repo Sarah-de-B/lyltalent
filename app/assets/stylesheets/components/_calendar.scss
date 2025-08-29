@@ -1,0 +1,106 @@
+.simple-calendar {
+  width: 85%;
+  margin: 1em auto 0 auto;
+  border-collapse: collapse;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 1em;
+  border-radius: 10px;
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 0.8em;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed; // force toutes les colonnes à largeur égale
+  }
+  th{
+    font-size: small;
+  }
+  th,
+  .day {
+    border: 1px solid #e5e5e5;
+    padding: 0.2rem;
+    vertical-align: top;
+    position: relative;
+    transition: background 0.2s ease;
+  }
+
+  th {
+    background: #f1f1f1;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .day {
+    cursor: pointer;
+    background: #fff; // 👉 tous les jours numériques en blanc
+
+    &:hover {
+      background: #f9fafb;
+    }
+  }
+
+  // Dimanche & Samedi
+  .wday-0 { color: #e63946; font-weight: 600; }
+  .wday-6 { color: #1d3557; font-weight: 600; }
+
+  .current-month { background: #fff; }
+
+  .today {
+    background-color: $red;
+    color: white;
+    font-weight: bold;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // États passé / futur
+  .past { color: #9e9e9e; background: #fafafa; }
+  .future { color: #333; }
+
+  // Mois différents
+  .prev-month,
+  .next-month {
+    color: #b0b0b0;
+    background: #f5f5f5;
+  }
+  .calendar-accepted{
+    background-color: $green;
+    opacity: 0.6;
+    color: white;
+    font-weight: bold;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+// outon du calendrier
+.calendar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+  margin-top: 1em;
+  padding: 0.2em 0.5em;
+}
