@@ -46,6 +46,10 @@ artist_persona = User.new(
 puts "created en cours"
 file = Rails.root.join("db/seeds/users/stefi_celma.jpg").open
 artist_persona.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/users/stefi_celma2.jpg").open
+artist_persona.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+file = Rails.root.join("db/seeds/users/stefi_celma3.jpg").open
+artist_persona.photos.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 puts "done"
 artist_persona.save!
 # p artist_persona.valid?
@@ -53,6 +57,9 @@ artist_persona.save!
 # p artist_persona.id
 file = Rails.root.join("db/seeds/users/videos/sarah_show.mp4").open
 artist_persona.videos.attach(io: file, filename: "sarah_show.mp4", content_type: "video/mp4")
+
+file = Rails.root.join("db/seeds/users/videos/sarah_to_delete.mp4").open
+artist_persona.videos.attach(io: file, filename: "sarah_to_delete.mp4", content_type: "video/mp4")
 # :guitare: artistes
 artiste1 = User.new(
   email: "jules.d@example.com",
