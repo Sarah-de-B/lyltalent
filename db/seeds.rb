@@ -191,8 +191,8 @@ demo_event = Event.create!(
   musical_styles: ["Pop", "Electro, Hard Rock"],
   cover_or_composition: "composition",
   number_of_artists_needed: 1,
-  name: "Vendredi tout est permis, et encore plus en musique!",
-  description: "venez inspirer notre public en le transportant au bord de l'océan, mer de tranquilité.",
+  name: "Vendredi tout est permis, en musique!",
+  description: "Transportez le public au bord de la mer calme",
   vehicule: false,
   date: Date.new(2025, 10, 5),
   user: event_planner1 # tu peux réutiliser un event planner existant
@@ -209,8 +209,8 @@ event1 = Event.create!(
   musical_styles: ["Pop", "Electro"],
   cover_or_composition: "composition",
   number_of_artists_needed: 3,
-  name: "Festival d'Été",
-  description: "Festival annuel mettant en avant des artistes émergents.",
+  name: "Un Festival d'Été inoubliable",
+  description: "Un festival dédié aux artistes émergents",
   vehicule: true,
   date: Date.new(2025, 7, 15),
   user: event_planner1
@@ -227,8 +227,8 @@ event2 = Event.create!(
   musical_styles: ["Electro", "House"],
   cover_or_composition: "composition",
   number_of_artists_needed: 1,
-  name: "Soirée Electro",
-  description: "Nuit électro avec des DJs français et internationaux.",
+  name: "Nuit Électro à Paris",
+  description: "Nuit électro avec DJs français et internationaux",
   vehicule: false,
   date: Date.new(2025, 8, 20),
   user: event_planner2
@@ -245,7 +245,7 @@ event3 = Event.create!(
   musical_styles: ["Hip-hop", "Rap"],
   cover_or_composition: "composition",
   number_of_artists_needed: 3,
-  name: "Open Mic Hip-Hop",
+  name: "Open Mic Hip-Hop – scène libre",
   description: "Scène ouverte pour les rappeurs et beatboxers.",
   vehicule: false,
   date: Date.new(2025, 9, 5),
@@ -375,21 +375,21 @@ p "Entertainments created: #{Entertainment.count}"
 
 # --- ENTERTAINMENT APPLICATIONS (liés aux entertainments + musiciens) ---
 EntertainmentApplication.create!(
-  status: "accepted",
+  status: "Accepté",
   message: "Je serais de participer à ce festival et partager mes compositions.",
   user: artiste1,
   entertainment: entertainment1,
   created_at: DateTime.new(2025, 6, 1, 14, 30)
 )
 EntertainmentApplication.create!(
-  status: "accepted",
+  status: "Accepté",
   message: "Expérience confirmée en clubs électro, prêt pour une grosse soirée. Hate de bosser avec vous!",
   user: artiste2,
   entertainment: entertainment2,
   created_at: DateTime.new(2025, 7, 10, 19, 0)
 )
 EntertainmentApplication.create!(
-  status: "pending",
+  status: "En cours",
   message: "Envie de représenter la scène hip-hop locale avec énergie. Appelons-nous!",
   user: artiste1,
   entertainment: entertainment3,
@@ -411,7 +411,7 @@ EntertainmentApplication.create!(
   created_at: DateTime.new(2025, 8, 25, 11, 15)
 )
 demo_entertainment_application1 = EntertainmentApplication.create!(
-  status: "accepted",
+  status: "Accepté",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
   entertainment: demo_entertainment,
@@ -419,7 +419,7 @@ demo_entertainment_application1 = EntertainmentApplication.create!(
 )
 
 demo_entertainment_application2 = EntertainmentApplication.create!(
-  status: "pending",
+  status: "En cours",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
   entertainment: entertainment1,
@@ -427,11 +427,27 @@ demo_entertainment_application2 = EntertainmentApplication.create!(
 )
 
 demo_entertainment_application3 = EntertainmentApplication.create!(
-  status: "refused",
+  status: "Refusé",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
   entertainment: entertainment6,
   created_at: DateTime.new(2025, 8, 15, 10, 45)
+)
+
+EntertainmentApplication.create!(
+  status: "Proposé",
+  message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
+  user: artist_persona,
+  entertainment: entertainment1,
+  created_at: DateTime.new(2025, 6, 7, 14, 30)
+)
+
+EntertainmentApplication.create!(
+  status: "Validé",
+  message: "J'accepte la proposition",
+  user: artist_persona,
+  entertainment: entertainment1,
+  created_at: DateTime.new(2025, 6, 7, 14, 30)
 )
 
 p "Entertainment Applications created: #{EntertainmentApplication.count}"
