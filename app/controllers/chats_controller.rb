@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
     @event_planners = User
                         .where(role: 'event_planner')
                         .joins(:entertainment_applications)
-                        .where(entertainment_applications: { user_id: current_user.id, status: 'accepted' })
+                        .where(entertainment_applications: { user_id: current_user.id, status: 'Accepté' })
                         .distinct
     authorize @chats
   end
