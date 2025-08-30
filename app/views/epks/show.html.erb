@@ -55,7 +55,13 @@
 		<ul class="splide__list">
         <% @epk.photos.each do |photo| %>
           <li class="splide__slide">
+            <div class="link-light download-btn-photo">
+              <%= link_to url_for(photo), download: "" do %>
+                <i class="fa-solid fa-download"></i>
+              <% end %>
+            </div>
             <%= image_tag url_for(photo), alt: @epk.artist_name, class: "artist-photo-epk"%>
+
           </li>
         <% end %>
 		</ul>
@@ -65,11 +71,7 @@
 <br>
 <br>
 
-<div class="text-center">
-  <div class="btn-light link-light">
-    <%= link_to "Télécharger les photos", "#" %> </button>
-  </div>
-  <br>
+
   <h3>Expérience</h3>
   <%= @epk.description_experience %>
   <%= @epk.concert_number %>
@@ -115,4 +117,6 @@
 </div>
 
 <%# à mettre en bas de page, coin gauche %>
-<div class="musical-style-card"><%= @epk.address %></div>
+<div class="musical-style-card">
+  <%= @epk.address %>
+</div>

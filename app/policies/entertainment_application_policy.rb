@@ -22,6 +22,10 @@ class EntertainmentApplicationPolicy < ApplicationPolicy
     user.present?
   end
 
+  def first_accept?
+    user.present?
+  end
+  
   def refused?
     user.present?
   end
