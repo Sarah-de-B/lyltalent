@@ -17,7 +17,7 @@
     <%= f.input :role,
               required: true,
               label: "Musicien ou Organisateur d'événement",
-              collection: [["Musicien", "musician"], ["Organisateur d'événement", "event_planner"]],
+              collection: ["Musicien", "Organisateur d'événement"],
               prompt: "Choisissez votre rôle",
               input_html: { autocomplete: "role" } %>
     <%= f.input :phone_number,

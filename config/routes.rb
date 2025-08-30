@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member {
       patch :accept
       patch :refused
+      patch :first_accept
     }
 
   end

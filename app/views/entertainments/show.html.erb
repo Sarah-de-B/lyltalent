@@ -43,12 +43,12 @@
   </div>
   <div class="btn-container gap-4">
     <% if @is_proposed %>
-        <%=  link_to "Valider",accept_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: {turbo_method: :patch}%>
+        <%=  link_to "Accepter",first_accept_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: {turbo_method: :patch}%>
         <%=  link_to "Refuser", refused_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: { turbo_confirm: "Es-tu sûr de vouloir refuser ce spectacle ?", turbo_method: :patch } %>
     <% elsif @user_has_applied %>
       <div >
         <span class="top-right-btn mb-3">
-          Déjà candidaté <i class="fa-solid fa-check"></i>
+          Candidaté <i class="fa-solid fa-check"></i>
         </span>
       </div>
     <% else %>

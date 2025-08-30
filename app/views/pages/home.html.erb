@@ -9,7 +9,7 @@
 <div class="container-content row justify-content-center">
     <%= form_with url: entertainments_path, method: :get, class: "search-form", local: true do %>
       <div class="input-wrapper">
-        <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "Tape une adresse..." %>
+        <%= text_field_tag :query, params[:query], class: "search-input", placeholder: "Tape une ville..." %>
         <button type="submit" class="search-btn">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
