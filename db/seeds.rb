@@ -468,7 +468,7 @@ p "Entertainment Applications created: #{EntertainmentApplication.count}"
 # --- CHATS (liés aux entertainment applications) ---
  chat1 = Chat.create!(
   entertainment_application: EntertainmentApplication.first
-  
+
 )
 Chat.create!(
   entertainment_application: EntertainmentApplication.second
@@ -486,3 +486,30 @@ Chat.create!(
   entertainment_application: demo_entertainment_application3
 )
 p "Chats created: #{Chat.count}"
+
+# --- Messages aléatoires ---
+sample_messages = [
+  "Bonjour, je suis intéressé par votre candidature  !",
+  "Merci pour votre réponse rapide.",
+  "Pouvez-vous m'envoyer plus de détails ?",
+  "Super, je serai présent !",
+  "J'ai une question concernant le programme.",
+  "Merci beaucoup pour l'information !",
+  "C'est parfait, à bientôt.",
+  "Je ne pourrai pas assister, désolé.",
+  "Pouvez-vous confirmer l'heure exacte ?",
+  "Merci, tout est clair maintenant."
+]
+
+# --- Créer des messages aléatoires pour chaque chat ---
+Chat.all.each do |chat|
+
+    Message.create!(
+      chat: chat,
+      user: User.where(role: "organisateur d'événements").sample,
+      content: sample_messages.sample
+    )
+
+end
+
+p "Messages created: #{Message.count}"
