@@ -12,6 +12,8 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     authorize @chat
     @messages = @chat.messages
+    @entertainment = @chat.entertainment_application.entertainment
+    @user_has_applied = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: ["Accepté"])
   end
 
 
