@@ -61,10 +61,6 @@ class EntertainmentApplicationsController < ApplicationController
   def destroy
     @entertainment_application = EntertainmentApplication.find(params[:id])
     authorize @entertainment_application
-    if @entertainment_application.chat
-      @entertainment_application.chat.messages.destroy_all
-      @entertainment_application.chat.destroy
-    end
     @entertainment_application.destroy
     redirect_to  entertainments_path, notice: "Candidature supprimée avec succès"
   end
