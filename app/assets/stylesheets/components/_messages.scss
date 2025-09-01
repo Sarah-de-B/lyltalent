@@ -1,0 +1,23 @@
+// Dans ton messages.scss
+.message-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  // Message de l'utilisateur actuel (à droite)
+  &.current-user {
+    justify-content: flex-end;
+  }
+
+  // Message des autres (à gauche)
+  &.event-planner {
+    justify-content: flex-start;
+  }
+}
+
+.message-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}

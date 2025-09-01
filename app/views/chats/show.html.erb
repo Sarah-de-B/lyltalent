@@ -1,14 +1,14 @@
 <div class="message-container">
   <% @messages.each do |message| %>
     <% if message.user == current_user %>
-      <div class="d-flex justify-content-end align-items-center mb-3">
+      <div class="message-row current-user">
         <div class="entertainment-card">
           <p><%= message.content %></p>
         </div>
-        <%= cl_image_tag message.user.photos.first.key, height: 50, width: 50, crop: :fill, class: 'rounded-circle' %>
+        <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar' %>
       </div>
     <% else %>
-    <div class="d-flex justify-content-start align-items-center mb-3">
+    <div class="message-row event-planner">
       <%= cl_image_tag message.user.photos.first.key, height: 50, width: 50, crop: :fill, class: 'rounded-circle' %>
       <div class="entertainment-card">
         <p><%= message.content %></p>
