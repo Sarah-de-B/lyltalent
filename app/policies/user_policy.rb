@@ -12,6 +12,14 @@ class UserPolicy < ApplicationPolicy
     user.present?
   end
 
+  def update?
+    record == user
+  end
+
+  def edit?
+    update?
+  end
+
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
