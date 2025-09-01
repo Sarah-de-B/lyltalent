@@ -1,39 +1,57 @@
 .message {
-    text-align: center;
-    gap : 15px;
-    margin-top: 20 px;
+  text-align: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .container-message {
   margin-bottom: 30px;
   margin-top: 30px;
-
 }
 
 .chat-cards {
   display: flex;
-  flex-direction: column; // les cards s'empilent verticalement
-  gap: 15px; // espace entre chaque card
+  flex-direction: column; /* les cards s'empilent verticalement */
+  gap: 15px; /* espace entre chaque card */
   margin-left: 10px;
   margin-right: 10px;
-}
 
+  .application-card {
+    overflow: hidden;
+    height: auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;        /* prend toute la largeur */
+    max-width: 400px;   /* limite la largeur */
+    min-height: 80px;   /* la hauteur minimale */
+  }
+
+}
 
 .application-card-avatar {
   margin-left: 10px;
   margin-right: 20px;
-  display: flex; // pour centrer la photo dans le conteneur application-card-avatar
+  display: flex; /* pour centrer la photo */
   align-items: center;
   justify-content: center;
-
-
 }
-// retirer la marge autour du texte pour centralisé
+
 .application-card-name {
-margin : 0px;
-
+  font-size: 16px;
+  margin: 0;
+  white-space: nowrap;      /* ne passe jamais à la ligne */
+  overflow: hidden;         /* cache ce qui dépasse */
+  text-overflow: ellipsis; /* ajoute "…" si c’est trop long */
+  max-width: 200px;
 }
-// retirer la marge autour du texte pour centralisé
-.application-card-name-message {
-margin-bottom: 0;
+
+.unread-message {
+  font-weight: bold;
 }

@@ -1,6 +1,7 @@
 class EntertainmentApplication < ApplicationRecord
   belongs_to :user
   belongs_to :entertainment
+  has_one :chat, dependent: :destroy
   validates :message, presence: true
 
 

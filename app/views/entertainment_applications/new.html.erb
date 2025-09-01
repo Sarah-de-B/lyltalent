@@ -1,15 +1,18 @@
-<div class ="container-header">
-  <h1><%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo-entertainments" %></h1>
-</div>
-
-<%= simple_form_for [@entertainment, @entertainment_application] do |f| %>
-  <div class="entertainment-area mb-3 relative">
-    <%= f.input :message,
-      as: :text,
-      label: false,
-      placeholder: "Entrez votre message pour l'événement",
-      input_html: { class: "entertainment-card colordark", wrap: "soft" } %>
-
-    <%= f.submit "Envoyer", class: "bottom-right-btn" %>
+<div class="container-entertainement">
+  <div class ="container-header">
+    <%= image_tag "lyltatent_logo.png", alt: "Ma photo", class: "lyl-logo-entertainments" %>
   </div>
-<% end %>
+
+  <div class="entertainment-area mb-3 relative">
+    <h2 id="subtitle-entertainment">Message de candidature</h2>
+    <%= simple_form_for [@entertainment, @entertainment_application] do |f| %>
+        <%= f.input :message,
+          as: :text,
+          label: false,
+          placeholder: "Bonjour ...",
+          input_html: { class: "entertainment-input", wrap: "soft" } %>
+
+        <div class="btn-send"><%= f.submit "Envoyer", class: "bottom-right-btn" %></div>
+    <% end %>
+  </div>
+</div>
