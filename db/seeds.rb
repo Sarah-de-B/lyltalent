@@ -462,6 +462,7 @@ p "Entertainment Applications created: #{EntertainmentApplication.count}"
 # --- CHATS (liés aux entertainment applications) ---
 Chat.create!(
   entertainment_application: EntertainmentApplication.first
+  
 )
 Chat.create!(
   entertainment_application: EntertainmentApplication.second
