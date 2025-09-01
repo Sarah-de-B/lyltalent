@@ -16,6 +16,14 @@ class EntertainmentApplicationsController < ApplicationController
     authorize @entertainment_application
 
     if @entertainment_application.save
+      @chat = Chat.create!(entertainment_application: @entertainment_application)
+
+      @message = Message.create!(
+       content: @entertainment_application.message,
+       chat: @chat,
+       user: current_user
+     )
+
       redirect_to confirmation_entertainment_entertainment_applications_path(@entertainment)
     else
       render :new, status: :unprocessable_entity
