@@ -8,8 +8,8 @@
         <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar' %>
       </div>
     <% else %>
-    <div class="message-row event-planner">
-      <%= cl_image_tag message.user.photos.first.key, height: 50, width: 50, crop: :fill, class: 'rounded-circle' %>
+    <div class="message-row other-user">
+      <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar'%>
       <div class="entertainment-card">
         <p><%= message.content %></p>
       </div>
