@@ -25,13 +25,17 @@ class EntertainmentApplicationPolicy < ApplicationPolicy
   def first_accept?
     user.present?
   end
-  
+
   def refused?
     user.present?
   end
 
   # Autorise un utilisateur connecté à voir la page de confirmation
   def confirmation?
+    user.present?
+  end
+
+  def destroy?
     user.present?
   end
 end

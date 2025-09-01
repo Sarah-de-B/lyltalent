@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       collection { get :confirmation }
     end
   end
-  resources :entertainment_applications, only: [] do
+  resources :entertainment_applications, only: [:destroy] do
     member {
       patch :accept
       patch :refused

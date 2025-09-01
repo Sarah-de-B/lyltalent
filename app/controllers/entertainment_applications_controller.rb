@@ -1,5 +1,5 @@
 class EntertainmentApplicationsController < ApplicationController
-  before_action :set_entertainment_application, only: [:accept, :refused, :first_accept]
+  before_action :set_entertainment_application, only: [:accept, :refused, :first_accept ]
 
   def new
     @entertainment = Entertainment.find(params[:entertainment_id])
@@ -56,6 +56,17 @@ class EntertainmentApplicationsController < ApplicationController
   def confirmation
     @entertainment = Entertainment.find(params[:entertainment_id])
     authorize EntertainmentApplication
+  end
+
+  def destroy
+    @entertainment_application = EntertainmentApplication.find(params[:id])
+    authorize @entertainment_application
+    if @entertainment_application.chat
+      @entertainment_application.chat.messages.destroy_all
+      @entertainment_application.chat.destroy
+    end
+    @entertainment_application.destroy
+    redirect_to  entertainments_path, notice: "Candidature supprimée avec succès"
   end
 
   private
