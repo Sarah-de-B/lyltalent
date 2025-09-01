@@ -1,6 +1,22 @@
 <div class="container-btn">
-  <%= link_to "#", class: "top-right-btn btn-orga" do %>
-    J'organise un événement
+  <% if user_signed_in? %>
+    <% if current_user.role == "artiste" %>
+      <%= link_to  "Organisateur",
+          destroy_user_session_path,
+          methode: :delete,
+          data: { turbo_method: :delete, turbo_confirm: "Vous allez être déconnecté pour vous reconnecter en tant qu'organisateur. Continuer ?"},
+          class: "top-right-btn btn-orga" %>
+    <% elsif current_user.role == "organisateur d'événements" %>
+      <%= link_to " Artiste",
+          destroy_user_session_path,
+          method: :delete,
+          class: "top-right-btn btn-orga",
+          data: {
+            turbo_method: :delete, turbo_confirm: "Vous allez être déconnecté pour vous reconnecter en tant qu'artiste. Continuer ?"
+          } %>
+    <% end %>
+  <% else %>
+    <%= link_to "Se connecter", new_user_session_path, class: "top-right-btn btn-orga" %>
   <% end %>
 </div>
 <div class="logo">
