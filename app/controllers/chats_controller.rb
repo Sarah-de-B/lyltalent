@@ -4,6 +4,7 @@ class ChatsController < ApplicationController
     # On récupère les event_planners liés aux applications acceptées
     if current_user.role == "artiste"
       @chats = policy_scope(
+
       Chat.joins(:entertainment_application)
           .joins(:messages)
           .where(entertainment_application: { user: current_user })
@@ -11,12 +12,10 @@ class ChatsController < ApplicationController
           # Trie les enregistrements (par exemple, les chats) en fonction de la date du dernier message, du plus récent au plus ancien
           .order("MAX(messages.created_at) DESC")
     )
-
     else
       @chats = policy_scope(Chat.joins(entertainment_application: { entertainment: :event })
                                 .where(events: {user: current_user}))
     end
-
     authorize @chats
   end
 

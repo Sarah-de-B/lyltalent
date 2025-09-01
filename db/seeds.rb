@@ -506,7 +506,7 @@ Chat.all.each do |chat|
 
     Message.create!(
       chat: chat,
-      user: User.where(role: "organisateur d'événements").sample,
+      user: artist_persona,
       content: sample_messages.sample
     )
 
