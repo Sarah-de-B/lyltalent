@@ -13,6 +13,7 @@ class ChatsController < ApplicationController
   end
 
   def show
+    # pour afficher le chat
     @chat = Chat.find(params[:id])
     @messages = @chat.messages.order(created_at: :asc)
     authorize @chat
