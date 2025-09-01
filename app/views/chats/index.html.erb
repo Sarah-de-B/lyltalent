@@ -1,36 +1,32 @@
 <div class="container-message">
   <h1 class="message">Messagerie</h1>
 </div>
-
 <div class="chat-cards">
-  <% @chats.each do |chat| %>
-    <% event_planner = chat.entertainment_application.entertainment.event.user %>
+  <% @chats.each_with_index do |chat, index| %>
+    <% event = chat.entertainment_application.entertainment.event %>
 
     <%= link_to chat_path(chat), class: "application-card" do %>
+      <!-- Avatar -->
       <div class="application-card-avatar">
-        <% if event_planner.photos.attached? %>
-          <%= cl_image_tag event_planner.photos.first.key,
-                           height: 60,
-                           width: 60,
-                           crop: :fill,
-                           class: "user-image" %>
+        <% if event.photo.attached? %>
+          <%= cl_image_tag event.photo.key, height: 60, width: 60, crop: :fill, class: "user-image" %>
         <% else %>
-          <%= image_tag "default_user.jpg",
-                        alt: "Image par défaut",
-                        class: "application-card-img" %>
+          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
         <% end %>
       </div>
 
+      <!-- Contenu -->
       <div class="application-card-content">
-        <h3 class="application-card-name">
-          <%= event_planner.first_name %> <%= event_planner.last_name %>
-        </h3>
+        <h3 class="application-card-name"><%= event.name %></h3>
+         <%# pour mettre les msg non lu en bold  %>
+        <p class="application-card-last-message <%= 'unread-message' if chat.messages.last.user != current_user %>"></p>
 
-        <p class="application-card-name-message">
-        <%# signifie “Est-ce qu’il y a au moins un message dans la collection messages ? %>
           <% if chat.messages.any? %>
-            <%= chat.messages.last.content.first(20) %>
-            <%= "..." if chat.messages.last.content.size > 20 %>
+            <% last_msg = chat.messages.last %>
+            <%= last_msg.content.first(20) %>
+            <%= "..." if last_msg.content.size > 20 %>
+          <% else %>
+            <em>Aucun message</em>
           <% end %>
         </p>
       </div>

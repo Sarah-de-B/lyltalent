@@ -16,6 +16,25 @@
   gap: 15px; // espace entre chaque card
   margin-left: 10px;
   margin-right: 10px;
+
+.application-card {
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: white;
+  text-decoration: none;
+  color: inherit;
+  // 👇 Taille fixe pour la card (au lieu de s'étirer selon le texte)
+  width: 100%;        // ou une valeur fixe genre 350px
+  max-width: 400px;   // si tu veux limiter la largeur
+  min-height: 80px;   // la hauteur ne bouge pas
+}
+
 }
 
 
@@ -36,4 +55,24 @@ margin : 0px;
 // retirer la marge autour du texte pour centralisé
 .application-card-name-message {
 margin-bottom: 0;
+}
+
+
+
+
+.application-card-content {
+  flex: 1;  // prend l'espace restant
+  overflow: hidden;   // cache le texte qui dépasse
+}
+
+.application-card-name {
+  font-size: 16px;
+  margin: 0;
+  white-space: nowrap;      // ne passe jamais à la ligne
+  overflow: hidden;         // cache ce qui dépasse
+  text-overflow: ellipsis;  // ajoute "…" si c’est trop long
+}
+
+.unread-message {
+  font-weight: bold;
 }
