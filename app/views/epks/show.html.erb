@@ -19,7 +19,7 @@
     <% end %>
   </h2>
 
-  <h3><%= @epk.musical_styles.join(", ") %></h3>
+  <h3 class="epk-info-itallique"><%= @epk.musical_styles.join(", ") %></h3>
 </div>
 <br>
 
@@ -69,18 +69,26 @@
 </section>
 
 <br>
-<br>
 
-
+<div class="text-container text-center">
   <h3>Expérience</h3>
   <%= @epk.description_experience %>
-  <%= @epk.concert_number %>
+
   <br>
   <br>
   <h3>Biographie musicale</h3>
   <%= @epk.description_education %>
 </div>
 
+<div class="flex-space-around">
+  <div class="achievement-red">
+    <p>concerts <br> effectués</p>
+    <br>
+    <div class="count"><%= @epk.concert_number %></div>
+  </div>
+</div>
+<br>
+<br>
 <div class="condition-container">
   <h2>Fiche technique</h2>
   Je possède : <%= @epk.tools %>
@@ -97,8 +105,12 @@
 
   <h3>Contact</h3>
   <%= @epk.artist_name %> : <%= @epk.phone_number %>
+  <br>
+  <br>
+  <h3>Ville d'origine</h3>
+  <%= @epk.address %>
 </div>
-
+<br>
 <div class="flex-space-around link-light">
   <%= link_to @epk.instagram_url, target: "_blank"  do %>
     <i class="fa-brands fa-instagram"></i>
@@ -117,6 +129,3 @@
 </div>
 
 <%# à mettre en bas de page, coin gauche %>
-<div class="musical-style-card">
-  <%= @epk.address %>
-</div>
