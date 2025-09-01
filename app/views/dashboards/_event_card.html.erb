@@ -1,0 +1,20 @@
+ <li class="splide__slide">
+  <div class="applications-list">
+    <%# <%= link_to entertainment_path(application.entertainment), class: "application-card" do %>
+      <div class="application-card-image">
+        <% if event.photo.attached? %>
+          <%= cl_image_tag(event.photo.key, alt: "Image de l'événement", class: "application-card-img") %>
+        <% else %>
+          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card_img" %>
+        <% end %>
+
+        <%# <div class="status"><p class=<%= status_class %>
+        <%# ><%= application.status</p></div> %>
+
+      </div>
+      <div class="application-card-content">
+        <h3 class="application-card-title"><%= event.name %></h3>
+        <p class="application-card-description"><%= event.description %></p>
+      </div>
+  </div>
+</li>
