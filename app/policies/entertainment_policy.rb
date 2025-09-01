@@ -15,4 +15,7 @@ class EntertainmentPolicy < ApplicationPolicy
   def show?
     true
   end
+  def map?
+  true
+  end
 end

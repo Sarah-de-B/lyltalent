@@ -1,5 +1,6 @@
 class EntertainmentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_after_action :verify_authorized, only: [:map]
   before_action :set_entertainment, only: [:show]
 
   def index
@@ -20,6 +21,23 @@ class EntertainmentsController < ApplicationController
     # @user_has_applied = Entertainment_applications.where(entertainment: @entertainment, user: current_user)
    @entertainment_application = current_user.entertainment_applications.find_by(entertainment: @entertainment)
   end
+
+  def map
+    @entertainments = Entertainment.includes(:event).all
+    authorize Entertainment
+    @markers = @entertainments.map do |entertainment|
+      event = entertainment.event
+
+    if event.latitude && event.longitude
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        info_window: "#{event.name}<br>#{event.address}"
+      }
+    end
+    end.compact
+  end
+
 
   private
 
