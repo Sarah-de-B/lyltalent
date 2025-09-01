@@ -497,13 +497,13 @@ sample_messages = [
 
 # --- Créer des messages aléatoires pour chaque chat ---
 Chat.all.each do |chat|
-  rand(2..5).times do
+
     Message.create!(
       chat: chat,
       user: User.where(role: "organisateur d'événements").sample,
       content: sample_messages.sample
     )
-  end
+
 end
 
 p "Messages created: #{Message.count}"
