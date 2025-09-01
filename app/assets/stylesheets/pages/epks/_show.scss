@@ -9,6 +9,11 @@
   }
 }
 
+.flex-space-around-simple {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 // .artist-photo-epk {
 //   width: 400px;
 //   height: 400px;
