@@ -1,0 +1,80 @@
+<div class="container-message">
+  <h1 class="message">Notifications</h1>
+</div>
+
+<div class="chat-cards">
+
+  <!-- Nouveaux événements -->
+  <% @recent_events.each do |event| %>
+    <% entertainment = Entertainment.find_by(event_id: event.id) %>
+    <% if entertainment %>
+      <%= link_to entertainment_path(entertainment),
+                  class: "application-card",
+                  data: { controller: "card", action: "click->card#remove" } do %>
+        <div class="application-card-avatar">
+          <%= image_tag "Lyltalent.png", class: "user-image rounded-circle", height: 60, width: 60, alt: "event" %>
+        </div>
+
+        <div class="application-card-content">
+          <h3 class="application-card-name">Nouvel événement</h3>
+          <p class="application-card-last-message unread-message">
+            <%= event.name %>
+            <small>(<%= time_ago_in_words(event.created_at) %> ago)</small>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <!-- Messages récents des organisateurs -->
+  <% if @messages.any? %>
+    <% @messages.each do |message| %>
+      <%= link_to chat_path(message.chat),
+                  class: "application-card",
+                  data: { controller: "card", action: "click->card#remove" } do %>
+        <div class="application-card-avatar">
+          <% if message.user&.photos&.attached? %>
+            <%= image_tag message.user.photos.first, class: "user-image rounded-circle", height: 60, width: 60, alt: message.user.role %>
+          <% else %>
+            <%= image_tag "Lyltalent.png", class: "user-image rounded-circle", alt: "user-image" %>
+          <% end %>
+        </div>
+
+        <div class="application-card-content">
+          <h3 class="application-card-name">Nouveau Message</h3>
+          <p class="application-card-last-message unread-message">
+            <%= truncate(message.content, length: 30) %>
+            <small>(<%= time_ago_in_words(message.created_at) %> ago)</small>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <!-- Entertainment Applications acceptées/proposées -->
+  <% if @entertainment_applications.any? %>
+    <% @entertainment_applications.each do |entertainment_application| %>
+          <%= link_to entertainment_path(entertainment_application.entertainment),
+                  class: "application-card",
+                  data: { controller: "card", action: "click->card#remove" } do %>
+        <div class="application-card-avatar">
+          <% if entertainment_application.user&.photos&.attached? %>
+            <%= image_tag entertainment_application.user.photos.first, class: "user-image rounded-circle", height: 60, width: 60, alt: entertainment_application.user.role %>
+          <% else %>
+            <%= image_tag "Lyltalent.png", class: "user-image rounded-circle", alt: "user-image" %>
+          <% end %>
+        </div>
+
+        <div class="application-card-content">
+          <h3 class="application-card-name">
+            <% if entertainment_application.status == "Accepté" %>
+               Accepté
+            <% else %>
+               Proposé
+            <% end %>
+          </h3>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
