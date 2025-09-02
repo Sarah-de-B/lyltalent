@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   get 'notification', to: 'pages#notification', as: 'notification'
   resources :entertainments, only: [ :index, :show ] do
+    collection do
+      get :map
+    end
     resources :entertainment_applications, only: [ :new, :create ] do
       collection { get :confirmation }
     end

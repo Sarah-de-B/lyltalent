@@ -15,4 +15,8 @@ class EntertainmentPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def map?
+     user.present?
+  end
 end
