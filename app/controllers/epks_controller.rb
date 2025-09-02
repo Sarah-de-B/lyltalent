@@ -11,6 +11,9 @@ class EpksController < ApplicationController
   end
 
   def update
+    @epk.photos.attach(params[:user][:photos]) if params[:user][:photos].present?
+    @epk.videos.attach(params[:user][:videos]) if params[:user][:videos].present?
+    @epk.save
     authorize @epk
     if @epk.update(user_params)
       redirect_to epk_path, notice: "EPK mis à jour avec succès !"
@@ -31,8 +34,7 @@ class EpksController < ApplicationController
       :description_experience, :concert_number, :description_education,
       :tools, :tools_needed, :vehicule, :legal_entity_type, :siret,
       :phone_number, :instagram_url, :facebook_url, :spotify_url, :youtube_url, :address,
-      instruments: [], musical_styles: [],
-      videos: [], photos: []
+      instruments: [], musical_styles: []
     )
   end
 

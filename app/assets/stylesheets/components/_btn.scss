@@ -91,6 +91,10 @@
   text-decoration: none;
   text-align: center;
   margin-bottom: 20px;
+  &:hover {
+    color: $red !important;
+    background-color: white !important;
+  }
 }
 
 .btn-center {
