@@ -303,7 +303,7 @@ file = Rails.root.join("db/seeds/events/graslin.jpg").open
 demo_event_1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_1 = Entertainment.create!(
-  artist_type: "soliste, chanteur",
+  artist_type: "soliste",
   starts_at: DateTime.new(2025, 11, 15, 19, 30),
   ends_at: DateTime.new(2025, 11, 15, 21, 30),
   included_services: ["Hébergement"],
@@ -337,7 +337,7 @@ file = Rails.root.join("db/seeds/events/fosse.jpg").open
 demo_event_2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_2 = Entertainment.create!(
-  artist_type: "groupe, hard rock",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 7, 20, 18, 0),
   ends_at: DateTime.new(2025, 7, 20, 21, 0),
   included_services: ["Transport", "Catering"],
@@ -371,7 +371,7 @@ file = Rails.root.join("db/seeds/events/chateaux.jpg").open
 demo_event_3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_3 = Entertainment.create!(
-  artist_type: "groupe, rock",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 12, 16, 0),
   ends_at: DateTime.new(2025, 9, 12, 1),
   included_services: ["Programme de concert"],
@@ -439,7 +439,7 @@ file = Rails.root.join("db/seeds/events/jardin.jpg").open
 demo_event_5.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_5 = Entertainment.create!(
-  artist_type: "soliste, chanteur rock",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 6, 1, 15, 0),
   ends_at: DateTime.new(2025, 6, 1, 16, 0),
   included_services: ["Animation", "Matériel pédagogique"],
@@ -453,7 +453,7 @@ demo_entertainment_5 = Entertainment.create!(
   user: nil
 )
 demo_entertainment = Entertainment.create!(
-  artist_type: "soliste, chanteur pop",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 7, 20, 0),
   ends_at: DateTime.new(2025, 9, 7, 21, 15),
   included_services: ["Hébergement", "Transport"],
@@ -468,7 +468,7 @@ demo_entertainment = Entertainment.create!(
 )
 #----------------
 entertainment1 = Entertainment.create!(
-  artist_type: "groupe, rock",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 6, 20, 0),
   ends_at: DateTime.new(2025, 9, 6, 21, 30),
   included_services: ["Restauration"],
@@ -497,7 +497,7 @@ entertainment2 = Entertainment.create!(
   user: artiste2
 )
 entertainment3 = Entertainment.create!(
-  artist_type: "soliste, guitare",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 5, 21, 0),
   ends_at: DateTime.new(2025, 9, 5, 22, 0),
   included_services: ["Scène", "Micro"],
@@ -512,7 +512,7 @@ entertainment3 = Entertainment.create!(
 )
 
 entertainment4 = Entertainment.create!(
-  artist_type: "groupe, indie",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 10, 10, 22, 0),
   ends_at: DateTime.new(2025, 10, 10, 23, 30),
   included_services: ["Transport"],
@@ -540,7 +540,7 @@ entertainment5 = Entertainment.create!(
   user: nil
 )
 entertainment6 = Entertainment.create!(
-  artist_type: "groupe, rock",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 5, 19, 0),
   ends_at: DateTime.new(2025, 9, 5, 20, 0),
   included_services: ["Transport", "Restauration"],
@@ -555,7 +555,7 @@ entertainment6 = Entertainment.create!(
 )
 
 entertainment7 = Entertainment.create!(
-  artist_type: "soliste, chanteur classique",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 6, 18, 0),
   ends_at: DateTime.new(2025, 9, 6, 19, 0),
   included_services: ["Transport"],
