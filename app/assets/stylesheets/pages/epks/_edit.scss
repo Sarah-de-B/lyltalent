@@ -22,6 +22,10 @@
   text-align: center;
 }
 
+input.styled-checkbox + label {
+  color: $dark !important;
+}
+
 .styled-checkbox {
-  color: $dark;
+  border: none;
 }

@@ -61,6 +61,8 @@ artist_persona.videos.attach(io: file, filename: "sarah_show.mp4", content_type:
 file = Rails.root.join("db/seeds/users/videos/sarah_to_delete.mp4").open
 artist_persona.videos.attach(io: file, filename: "sarah_to_delete.mp4", content_type: "video/mp4")
 # :guitare: artistes
+puts "event_planner"
+
 artiste1 = User.new(
   email: "jules.d@example.com",
   password: "password123",
@@ -201,11 +203,29 @@ demo_event = Event.create!(
   name: "Vendredi tout est permis, en musique!",
   description: "Transportez le public au bord de la mer calme",
   vehicule: false,
-  date: Date.new(2025, 10, 5),
+  date: Date.new(2025, 9, 7),
   user: event_planner1 # tu peux réutiliser un event planner existant
 )
 file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
 demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+event0 = Event.create!(
+  category: ["Dynamique", "Conviviale", "Dansant"],
+  duration: 180,
+  address: "Nantes",
+  estimated_public_in_number: 500,
+  public_age: 25,
+  musical_styles: ["Pop", "Electro"],
+  cover_or_composition: "composition",
+  number_of_artists_needed: 3,
+  name: "Un Festival d'Été inoubliable",
+  description: "Un festival dédié aux artistes émergents",
+  vehicule: true,
+  date: Date.new(2025, 9, 7),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
+event0.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
@@ -219,7 +239,7 @@ event1 = Event.create!(
   name: "Un Festival d'Été inoubliable",
   description: "Un festival dédié aux artistes émergents",
   vehicule: true,
-  date: Date.new(2025, 7, 15),
+  date: Date.new(2025, 9, 6),
   user: event_planner1
 )
 file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
@@ -262,11 +282,180 @@ file = Rails.root.join("db/seeds/events/open mic_hip_hop.jpeg").open
 event3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 p "Events created: #{Event.count}"
-# --- ENTERTAINMENTS (liés aux musiciens + events) ---
+#--- ENTERTAINMENTS (liés aux musiciens + events) ---
+# Seed 1
+demo_event_1 = Event.create!(
+  category: ["Intimiste", "Romantique", "Acoustique"],
+  duration: 120,
+  address: "Place Graslin, 44000 Nantes",
+  estimated_public_in_number: 50,
+  public_age: 35,
+  musical_styles: ["Jazz", "Soul", "Blues"],
+  cover_or_composition: "cover",
+  number_of_artists_needed: 2,
+  name: "Soirée Jazz au clair de lune",
+  description: "Soirée jazz intime dans une ambiance feutrée",
+  vehicule: true,
+  date: Date.new(2025, 11, 15),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/graslin.jpg").open
+demo_event_1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+demo_entertainment_1 = Entertainment.create!(
+  artist_type: "duo",
+  starts_at: DateTime.new(2025, 11, 15, 19, 30),
+  ends_at: DateTime.new(2025, 11, 15, 21, 30),
+  included_services: ["Hébergement"],
+  artist_experience_in_years: "8",
+  duration_in_minutes: 120,
+  available_tool: "Piano, éclairage tamisé, système son",
+  necessary_tool: "Contrebasse",
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 800,
+  event: demo_event_1,
+  user:  nil
+)
+
+# Seed 2
+demo_event_2 = Event.create!(
+  category: ["Festive", "Énergique", "Dansant"],
+  duration: 180,
+  address: "Quai de la Fosse, 44000 Nantes",
+  estimated_public_in_number: 300,
+  public_age: 25,
+  musical_styles: ["Reggae", "Ska", "Dub"],
+  cover_or_composition: "composition",
+  number_of_artists_needed: 4,
+  name: "Summer Vibes Festival",
+  description: "Festival reggae en plein air avec vue sur la Loire",
+  vehicule: true,
+  date: Date.new(2025, 7, 20),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/fosse.jpg").open
+demo_event_2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+demo_entertainment_2 = Entertainment.create!(
+  artist_type: "groupe",
+  starts_at: DateTime.new(2025, 7, 20, 18, 0),
+  ends_at: DateTime.new(2025, 7, 20, 21, 0),
+  included_services: ["Transport", "Catering"],
+  artist_experience_in_years: "12",
+  duration_in_minutes: 180,
+  available_tool: "Scène principale, éclairage professionnel, sonorisation",
+  necessary_tool: "Instruments de percussion additionnels",
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 2500,
+  event: demo_event_2,
+  user: nil
+)
+
+# Seed 3
+demo_event_3 = Event.create!(
+  category: ["Culturel", "Éducatif", "Classique"],
+  duration: 75,
+  address: "Château des ducs de Bretagne, 4 Place Marc Elder, 44000 Nantes",
+  estimated_public_in_number: 80,
+  public_age: 45,
+  musical_styles: ["Classique", "Baroque", "Musique de chambre"],
+  cover_or_composition: "cover",
+  number_of_artists_needed: 3,
+  name: "Concert baroque au château",
+  description: "Musique baroque dans le cadre historique du château",
+  vehicule: false,
+  date: Date.new(2025, 9, 12),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/chateaux.jpg").open
+demo_event_3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+demo_entertainment_3 = Entertainment.create!(
+  artist_type: "trio",
+  starts_at: DateTime.new(2025, 9, 12, 16, 0),
+  ends_at: DateTime.new(2025, 9, 12, 1),
+  included_services: ["Programme de concert"],
+  artist_experience_in_years: "15",
+  duration_in_minutes: 75,
+  available_tool: "Acoustique naturelle, sièges",
+  necessary_tool: "Violon, violoncelle, clavecin",
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 1200,
+  event: demo_event_3,
+  user: nil
+)
+
+# Seed 4
+demo_event_4 = Event.create!(
+  category: ["Alternative", "Underground", "Expérimental"],
+  duration: 150,
+  address: "Île de Nantes, Hangar à Bananes, Quai des Antilles, 44200 Nantes",
+  estimated_public_in_number: 200,
+  public_age: 28,
+  musical_styles: ["Techno", "House", "Ambient"],
+  cover_or_composition: "composition",
+  number_of_artists_needed: 3,
+  name: "Nuit Électronique Underground",
+  description: "Électronique expérimentale dans un lieu industriel",
+  vehicule: true,
+  date: Date.new(2025, 12, 31),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/ware.jpg").open
+demo_event_4.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+demo_entertainment_4 = Entertainment.create!(
+  artist_type: "dj",
+  starts_at: DateTime.new(2025, 12, 31, 22, 0),
+  ends_at: DateTime.new(2026, 1, 1, 0, 30),
+  included_services: ["Transport", "Hébergement", "Technique"],
+  artist_experience_in_years: "6",
+  duration_in_minutes: 150,
+  available_tool: "Tables de mixage, système son, éclairage LED",
+  necessary_tool: "Contrôleurs MIDI, casque professionnel",
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 1500,
+  event: demo_event_4,
+  user: nil
+)
+
+# Seed 5
+demo_event_5 = Event.create!(
+  category: ["Familial", "Convivial", "Éducatif"],
+  duration: 60,
+  address: "Jardin des Plantes, Rue Stanislas Baudry, 44000 Nantes",
+  estimated_public_in_number: 150,
+  public_age: 8,
+  musical_styles: ["Chanson française", "Comptines", "Folk"],
+  cover_or_composition: "cover",
+  number_of_artists_needed: 1,
+  name: "Concert pour enfants au jardin",
+  description: "Spectacle musical interactif pour toute la famille",
+  vehicule: false,
+  date: Date.new(2025, 6, 1),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/jardin.jpg").open
+demo_event_5.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+demo_entertainment_5 = Entertainment.create!(
+  artist_type: "soliste",
+  starts_at: DateTime.new(2025, 6, 1, 15, 0),
+  ends_at: DateTime.new(2025, 6, 1, 16, 0),
+  included_services: ["Animation", "Matériel pédagogique"],
+  artist_experience_in_years: "10",
+  duration_in_minutes: 60,
+  available_tool: "Micro sans fil, petite sonorisation",
+  necessary_tool: "Guitare acoustique, instruments de percussion pour enfants",
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 400,
+  event: demo_event_5,
+  user: nil
+)
 demo_entertainment = Entertainment.create!(
   artist_type: "soliste",
-  starts_at: DateTime.new(2025, 10, 5, 20, 0),
-  ends_at: DateTime.new(2025, 10, 5, 21, 15),
+  starts_at: DateTime.new(2025, 9, 7, 20, 0),
+  ends_at: DateTime.new(2025, 9, 7, 21, 15),
   included_services: ["Hébergement", "Transport"],
   artist_experience_in_years: "5",
   duration_in_minutes: 75,
@@ -277,10 +466,11 @@ demo_entertainment = Entertainment.create!(
   event: demo_event,
   user: artist_persona
 )
+#----------------
 entertainment1 = Entertainment.create!(
   artist_type: "groupe",
-  starts_at: DateTime.new(2025, 7, 15, 20, 0),
-  ends_at: DateTime.new(2025, 7, 15, 21, 30),
+  starts_at: DateTime.new(2025, 9, 6, 20, 0),
+  ends_at: DateTime.new(2025, 9, 6, 21, 30),
   included_services: ["Restauration"],
   artist_experience_in_years: "5",
   duration_in_minutes: 90,
@@ -291,10 +481,11 @@ entertainment1 = Entertainment.create!(
   event: event1,
   user: artiste1
 )
+#----------------
 entertainment2 = Entertainment.create!(
   artist_type: "DJ",
-  starts_at: DateTime.new(2025, 8, 20, 23, 0),
-  ends_at: DateTime.new(2025, 8, 21, 1, 0),
+  starts_at: DateTime.new(2025, 9, 7, 23, 0),
+  ends_at: DateTime.new(2025, 9, 8, 1, 0),
   included_services: ["DJ Booth", "Lights"],
   artist_experience_in_years: "10",
   duration_in_minutes: 120,
@@ -302,7 +493,7 @@ entertainment2 = Entertainment.create!(
   necessary_tool: "guitar, enceinte",
   planned_remuneration: "Facture",
   planned_remuneration_in_euros: 800,
-  event: event1,
+  event: event0,
   user: artiste2
 )
 entertainment3 = Entertainment.create!(
@@ -322,8 +513,8 @@ entertainment3 = Entertainment.create!(
 
 entertainment4 = Entertainment.create!(
   artist_type: "groupe",
-  starts_at: DateTime.new(2025, 7, 15, 22, 0),
-  ends_at: DateTime.new(2025, 7, 15, 23, 30),
+  starts_at: DateTime.new(2025, 10, 10, 22, 0),
+  ends_at: DateTime.new(2025, 10, 10, 23, 30),
   included_services: ["Transport"],
   artist_experience_in_years: "7",
   duration_in_minutes: 90,
@@ -365,8 +556,8 @@ entertainment6 = Entertainment.create!(
 
 entertainment7 = Entertainment.create!(
   artist_type: "soliste",
-  starts_at: DateTime.new(2025, 7, 15, 18, 0),
-  ends_at: DateTime.new(2025, 7, 15, 19, 0),
+  starts_at: DateTime.new(2025, 9, 6, 18, 0),
+  ends_at: DateTime.new(2025, 9, 6, 19, 0),
   included_services: ["Transport"],
   artist_experience_in_years: "2",
   duration_in_minutes: 60,
@@ -434,11 +625,11 @@ demo_entertainment_application2 = EntertainmentApplication.create!(
 )
 
 demo_entertainment_application3 = EntertainmentApplication.create!(
-  status: "Refusé",
+  status: "Accepté",
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
   entertainment: entertainment6,
-  created_at: DateTime.new(2025, 8, 15, 10, 45)
+  created_at:Date.today
 )
 
 EntertainmentApplication.create!(
@@ -446,7 +637,7 @@ EntertainmentApplication.create!(
   message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
   user: artist_persona,
   entertainment: entertainment2,
-  created_at: DateTime.new(2025, 6, 7, 14, 30)
+  created_at: Date.today
 )
 
 EntertainmentApplication.create!(
@@ -461,7 +652,7 @@ EntertainmentApplication.create!(
   message: "J'accepte la proposition",
   user: artist_persona,
   entertainment: entertainment2,
-  created_at: DateTime.new(2025, 6, 7, 14, 30)
+  created_at: DateTime.new(2025, 9, 7, 14, 30)
 )
 p "Entertainment Applications created: #{EntertainmentApplication.count}"
 
