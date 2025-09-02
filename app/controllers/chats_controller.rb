@@ -3,7 +3,8 @@ class ChatsController < ApplicationController
 
     # On récupère les event_planners liés aux applications acceptées
     if current_user.role == "artiste"
-     @chats = policy_scope(
+      @chats = policy_scope(
+
       Chat.joins(:entertainment_application)
           .joins(:messages)
           .where(entertainment_application: { user: current_user })
@@ -15,7 +16,6 @@ class ChatsController < ApplicationController
       @chats = policy_scope(Chat.joins(entertainment_application: { entertainment: :event })
                                 .where(events: {user: current_user}))
     end
-    
     authorize @chats
   end
 
