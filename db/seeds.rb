@@ -221,7 +221,7 @@ event1 = Event.create!(
   name: "Un Festival d'Été inoubliable",
   description: "Un festival dédié aux artistes émergents",
   vehicule: true,
-  date: Date.new(2025, ),
+  date: Date.new(2025, 9, 6),
   user: event_planner1
 )
 file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
@@ -466,7 +466,7 @@ entertainment1 = Entertainment.create!(
 #----------------
 entertainment2 = Entertainment.create!(
   artist_type: "DJ",
-  starts_at: DateTime.new(2025, 9, 7, 23, 0),
+  starts_at: DateTime.new(2025, 9, 6, 23, 0),
   ends_at: DateTime.new(2025, 9, 7, 1, 0),
   included_services: ["DJ Booth", "Lights"],
   artist_experience_in_years: "10",
@@ -611,7 +611,7 @@ demo_entertainment_application3 = EntertainmentApplication.create!(
   message: "Je suis très motivée pour participer à cet événement et partager ma musique avec le public.",
   user: artist_persona,
   entertainment: entertainment6,
-  created_at: DateTime.new(2025, 10, 4, 10, 45)
+  created_at:Date.today
 )
 
 EntertainmentApplication.create!(
@@ -619,7 +619,7 @@ EntertainmentApplication.create!(
   message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
   user: artist_persona,
   entertainment: entertainment2,
-  created_at: DateTime.new(2025, 6, 7, 14, 30)
+  created_at: Date.today
 )
 
 EntertainmentApplication.create!(
