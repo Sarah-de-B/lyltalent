@@ -53,9 +53,8 @@
 
   <!-- Entertainment Applications acceptées/proposées -->
   <% if @entertainment_applications.any? %>
-    <h2 class="section-title">Propositions & Acceptations</h2>
     <% @entertainment_applications.each do |entertainment_application| %>
-      <%= link_to event_path(entertainment_application.entertainment.event),
+          <%= link_to entertainment_path(entertainment_application.entertainment),
                   class: "application-card",
                   data: { controller: "card", action: "click->card#remove" } do %>
         <div class="application-card-avatar">
@@ -68,18 +67,14 @@
 
         <div class="application-card-content">
           <h3 class="application-card-name">
-            <% if entertainment_application.status == "accepté" %>
+            <% if entertainment_application.status == "Accepté" %>
                Accepté
             <% else %>
                Proposé
             <% end %>
           </h3>
-          <p class="appication-card-last-message unread-message">
-            <%= entertainment_application.entertainment.name %>
-          </p>
         </div>
       <% end %>
     <% end %>
   <% end %>
-
 </div>

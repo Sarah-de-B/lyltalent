@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     # EntertainmentApplications acceptées ou proposées de moins de 24h
     @entertainment_applications = EntertainmentApplication
                                     .where("created_at >= ?", 24.hours.ago)
-                                    .where(status: ["accepté", "proposé"])
+                                    .where(status: ["Accepté", "Proposé"])
                                     .order(created_at: :desc)
 
     # Nouveaux événements de moins de 24h
