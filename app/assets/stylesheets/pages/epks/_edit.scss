@@ -1,0 +1,31 @@
+.container-edit {
+  margin: 0 10px;
+}
+
+.edit-input {
+  width: 100%;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: $dark;
+  padding: 15px 20px;
+  resize: none;
+}
+
+.form-edit {
+  margin-top: 20px;
+}
+
+#title-edit {
+  margin-top: 20px;
+  text-align: center;
+}
+
+input.styled-checkbox + label {
+  color: $dark !important;
+}
+
+.styled-checkbox {
+  border: none;
+}
