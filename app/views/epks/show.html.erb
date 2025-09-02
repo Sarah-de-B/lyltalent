@@ -19,7 +19,7 @@
       <% end %>
     </h2>
 
-    <h3 class="epk-info-itallique"><%= @epk.musical_styles.join(", ") %></h3>
+    <h3 class="epk-info-itallique"><%= @epk.musical_styles.reject(&:blank?).join(", ") %></h3>
   </div>
 </div>
 <br>
@@ -46,7 +46,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="text-center">
+  <div class="text-epk">
     <%= @epk.bio %>
   </div>
 </div>
@@ -74,7 +74,7 @@
 <br>
 
 <div class="container-epk">
-  <div class="text-container text-center">
+  <div class="text-center">
     <h3>Expérience</h3>
     <%= @epk.description_experience %>
 
