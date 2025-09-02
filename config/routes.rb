@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  # get 'notification', to: 'pages#notification', as: 'notification'
+  get 'notification', to: 'pages#notification', as: 'notification'
   resources :entertainments, only: [ :index, :show ] do
     collection do
       get :map
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     }
 
   end
-  resources :events, only: [ :new, :create ]
+  resources :events, only: [ :new, :create, :show ]
 
   resource :dashboard, only: [ :show ]
 
