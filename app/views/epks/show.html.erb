@@ -10,42 +10,45 @@
   </div>
 </section>
 
+<div class="container-epk">
+  <div class="title-epk">
+    <h1><%= @epk.artist_name %></h1>
+    <h2>
+      <%= @epk.artist_type %> - <% @epk.instruments.each do |instrument| %>
+        <%= instrument %>
+      <% end %>
+    </h2>
 
-<div class="text-center">
-  <h1><%= @epk.artist_name %></h1>
-  <h2>
-    <%= @epk.artist_type %> - <% @epk.instruments.each do |instrument| %>
-      <%= instrument %>
-    <% end %>
-  </h2>
-
-  <h3 class="epk-info-itallique"><%= @epk.musical_styles.join(", ") %></h3>
+    <h3 class="epk-info-itallique"><%= @epk.musical_styles.reject(&:blank?).join(", ") %></h3>
+  </div>
 </div>
 <br>
 
-<div class="text-bold-center">
-  <% if @epk.original_composition && @epk.covers %>
-    <%= "Compositions originales et reprises" %>
-  <% elsif @epk.original_composition && !@epk.covers %>
-    <% if @epk.artist_type == "soliste" %>
-      <%= "Spécialisé en compositions originales" %>
-    <% elsif @epk.artist_type == "groupe" %>
-      <%= "Spécialisés en compositions originales" %>
-    <% else %>
-      <%= "un DJ set original" %>
+<div class="container-epk">
+  <div class="text-bold-center">
+    <% if @epk.original_composition && @epk.covers %>
+      <%= "Compositions originales et reprises" %>
+    <% elsif @epk.original_composition && !@epk.covers %>
+      <% if @epk.artist_type == "soliste" %>
+        <%= "Spécialisé en compositions originales" %>
+      <% elsif @epk.artist_type == "groupe" %>
+        <%= "Spécialisés en compositions originales" %>
+      <% else %>
+        <%= "un DJ set original" %>
+      <% end %>
+    <% elsif !@epk.original_composition && @epk.covers %>
+      <% if @epk.artist_type == "soliste" %>
+        <%= "Spécialisé en reprises" %>
+      <% elsif @epk.artist_type == "groupe" %>
+        <%= "Spécialisés en reprises" %>
+      <% else %>
+        <%= "uniquement des musiques que vous connaissez" %>
+      <% end %>
     <% end %>
-  <% elsif !@epk.original_composition && @epk.covers %>
-    <% if @epk.artist_type == "soliste" %>
-      <%= "Spécialisé en reprises" %>
-    <% elsif @epk.artist_type == "groupe" %>
-      <%= "Spécialisés en reprises" %>
-    <% else %>
-      <%= "uniquement des musiques que vous connaissez" %>
-    <% end %>
-  <% end %>
-</div>
-<div class="text-center">
-  <%= @epk.bio %>
+  </div>
+  <div class="text-epk">
+    <%= @epk.bio %>
+  </div>
 </div>
 
 <br>
@@ -70,62 +73,65 @@
 
 <br>
 
-<div class="text-container text-center">
-  <h3>Expérience</h3>
-  <%= @epk.description_experience %>
+<div class="container-epk">
+  <div class="text-center">
+    <h3>Expérience</h3>
+    <%= @epk.description_experience %>
 
-  <br>
-  <br>
-  <h3>Biographie musicale</h3>
-  <%= @epk.description_education %>
-</div>
-
-<div class="flex-space-around">
-  <div class="achievement-red">
-    <p>concerts <br> effectués</p>
     <br>
-    <div class="count"><%= @epk.concert_number %></div>
+    <br>
+    <h3>Biographie musicale</h3>
+    <%= @epk.description_education %>
+  </div>
+
+  <div class="flex-space-around">
+    <div class="achievement-red">
+      <span id="concert_number"><%= @epk.concert_number %></span>
+      <p>concerts</p>
+      <p>effectués</p>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="condition-container">
+    <h2>Fiche technique</h2>
+    Je possède : <%= @epk.tools %>
+    <br>
+    <br>
+    Il faudra me fournir : <%= @epk.tools_needed %>
+    <%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
+    <br>
+    <br>
+    <h2>Statut légal</h2>
+    <%= @epk.legal_entity_type %>
+    <br>
+    <p>SIREN: <%= @epk.siret %> </p>
+
+    <h3>Contact</h3>
+    <%= @epk.artist_name %> : <%= @epk.phone_number %>
+    <br>
+    <br>
+    <h3>Ville d'origine</h3>
+    <%= @epk.address %>
+  </div>
+  <br>
+  <div class="flex-space-around link-light">
+    <%= link_to @epk.instagram_url, target: "_blank"  do %>
+      <i class="fa-brands fa-instagram"></i>
+    <% end %>
+    <%= link_to @epk.facebook_url, target: "_blank" do %>
+      <i class="fa-brands fa-facebook"></i>
+    <% end %>
+
+    <%= link_to @epk.spotify_url, target: "_blank" do %>
+      <i class="fa-brands fa-spotify"></i>
+    <% end %>
+
+    <%= link_to @epk.youtube_url, target: "_blank" do %>
+      <i class="fa-brands fa-youtube"></i>
+    <% end %>
   </div>
 </div>
-<br>
-<br>
-<div class="condition-container">
-  <h2>Fiche technique</h2>
-  Je possède : <%= @epk.tools %>
-  <br>
-  <br>
-  Il faudra me fournir : <%= @epk.tools_needed %>
-  <%= @epk.vehicule ? "véhiculé" : "non-véhiculé" %>
-  <br>
-  <br>
-  <h2>Statut légal</h2>
-  <%= @epk.legal_entity_type %>
-  <br>
-  <p>SIREN: <%= @epk.siret %> </p>
-
-  <h3>Contact</h3>
-  <%= @epk.artist_name %> : <%= @epk.phone_number %>
-  <br>
-  <br>
-  <h3>Ville d'origine</h3>
-  <%= @epk.address %>
-</div>
-<br>
-<div class="flex-space-around link-light">
-  <%= link_to @epk.instagram_url, target: "_blank"  do %>
-    <i class="fa-brands fa-instagram"></i>
-  <% end %>
-  <%= link_to @epk.facebook_url, target: "_blank" do %>
-    <i class="fa-brands fa-facebook"></i>
-  <% end %>
-
-  <%= link_to @epk.spotify_url, target: "_blank" do %>
-    <i class="fa-brands fa-spotify"></i>
-  <% end %>
-
-  <%= link_to @epk.youtube_url, target: "_blank" do %>
-    <i class="fa-brands fa-youtube"></i>
-  <% end %>
-</div>
-
 <%# à mettre en bas de page, coin gauche %>
