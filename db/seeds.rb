@@ -203,11 +203,29 @@ demo_event = Event.create!(
   name: "Vendredi tout est permis, en musique!",
   description: "Transportez le public au bord de la mer calme",
   vehicule: false,
-  date: Date.new(2025, 10, 5),
+  date: Date.new(2025, 9, 7),
   user: event_planner1 # tu peux réutiliser un event planner existant
 )
 file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
 demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+
+event0 = Event.create!(
+  category: ["Dynamique", "Conviviale", "Dansant"],
+  duration: 180,
+  address: "Nantes",
+  estimated_public_in_number: 500,
+  public_age: 25,
+  musical_styles: ["Pop", "Electro"],
+  cover_or_composition: "composition",
+  number_of_artists_needed: 3,
+  name: "Un Festival d'Été inoubliable",
+  description: "Un festival dédié aux artistes émergents",
+  vehicule: true,
+  date: Date.new(2025, 9, 7),
+  user: event_planner1
+)
+file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
+event0.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
@@ -466,8 +484,8 @@ entertainment1 = Entertainment.create!(
 #----------------
 entertainment2 = Entertainment.create!(
   artist_type: "DJ",
-  starts_at: DateTime.new(2025, 9, 6, 23, 0),
-  ends_at: DateTime.new(2025, 9, 7, 1, 0),
+  starts_at: DateTime.new(2025, 9, 7, 23, 0),
+  ends_at: DateTime.new(2025, 9, 8, 1, 0),
   included_services: ["DJ Booth", "Lights"],
   artist_experience_in_years: "10",
   duration_in_minutes: 120,
@@ -475,7 +493,7 @@ entertainment2 = Entertainment.create!(
   necessary_tool: "guitar, enceinte",
   planned_remuneration: "Facture",
   planned_remuneration_in_euros: 800,
-  event: event1,
+  event: event0,
   user: artiste2
 )
 entertainment3 = Entertainment.create!(
@@ -634,7 +652,7 @@ EntertainmentApplication.create!(
   message: "J'accepte la proposition",
   user: artist_persona,
   entertainment: entertainment2,
-  created_at: DateTime.new(2025, 6, 7, 14, 30)
+  created_at: DateTime.new(2025, 9, 7, 14, 30)
 )
 p "Entertainment Applications created: #{EntertainmentApplication.count}"
 
