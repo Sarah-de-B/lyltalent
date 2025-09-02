@@ -13,8 +13,10 @@
   display: flex;
   flex-direction: column; /* les cards s'empilent verticalement */
   gap: 15px; /* espace entre chaque card */
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 0 10px;
+  width: 100%;
 
   .application-card {
     overflow: hidden;
