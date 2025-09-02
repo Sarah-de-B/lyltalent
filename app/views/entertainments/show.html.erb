@@ -41,23 +41,28 @@
     <p class="text-bold">Sont pris en charge:</p>
       <%= @entertainment.included_services.join(', ') %>
   </div>
-  <div class="btn-container gap-4">
+
+
+<div class="flex-space-between">
     <% if @is_proposed %>
         <%=  link_to "Accepter",first_accept_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: {turbo_method: :patch}%>
         <%=  link_to "Refuser", refused_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: { turbo_confirm: "Es-tu sûr de vouloir refuser ce spectacle ?", turbo_method: :patch } %>
     <% elsif @user_has_applied %>
-      <div >
-        <span class="top-right-btn mb-3">
-          Candidaté <i class="fa-solid fa-check"></i>
-        </span>
-        <%= button_to "Supprimer ma candidature", entertainment_application_path(@entertainment_application), method: :delete,
-          data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette candidature ?"},
-          class: "top-right-btn mb-3" %>
-      </div>
+        <%= link_to chat_path(@entertainment_chat), class: "btn-rounded" do %>
+          <i class="fa-solid fa-message"></i>
+        <% end %>
+
+        <%= link_to entertainment_application_path(@entertainment_application),
+                    data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette candidature ?" },
+                    class: "btn-rounded" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+
     <% else %>
       <%= link_to "Postuler", new_entertainment_entertainment_application_path(@entertainment), class: "bottom-middle-btn" %>
     <% end %>
   </div>
+
 
     <div class="text-bold-center">
       <h4>Ils participent à l'événement</h4>

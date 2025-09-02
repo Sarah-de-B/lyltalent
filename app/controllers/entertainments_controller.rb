@@ -3,7 +3,7 @@ class EntertainmentsController < ApplicationController
   before_action :set_entertainment, only: [:show]
 
   def index
-    @entertainments = policy_scope(Entertainment.where(user: nil)).order(starts_at: :desc)
+    @entertainments = policy_scope(Entertainment.joins(:event).where(user: nil).where("events.date >= ?", Date.today)).order(starts_at: :desc)
     if params[:query].present?
       @entertainments = @entertainments.search_by_address(params[:query])
 
@@ -20,6 +20,7 @@ class EntertainmentsController < ApplicationController
     @is_proposed = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: "Proposé")
     # @user_has_applied = Entertainment_applications.where(entertainment: @entertainment, user: current_user)
     @entertainment_application = current_user&.entertainment_applications&.find_by(entertainment: @entertainment)
+    @entertainment_chat = @entertainment_application&.chat
   end
 
   def map
