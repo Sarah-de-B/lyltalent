@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "@splidejs/splide", to: "@splidejs--splide.js" # @4.1.4
+pin "@splidejs/splide-extension-url-hash", to: "@splidejs--splide-extension-url-hash.js" # @0.3.0

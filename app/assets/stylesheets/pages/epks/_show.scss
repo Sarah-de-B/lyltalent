@@ -14,6 +14,14 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 42%;
+  margin: auto;
+}
 // .artist-photo-epk {
 //   width: 400px;
 //   height: 400px;
