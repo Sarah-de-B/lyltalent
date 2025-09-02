@@ -8,6 +8,7 @@ class EntertainmentsController < ApplicationController
       @entertainments = @entertainments.search_by_address(params[:query])
 
     end
+
   end
 
   def show
@@ -22,21 +23,17 @@ class EntertainmentsController < ApplicationController
   end
 
   def map
-    @entertainments = Entertainment.includes(:event).all
-    authorize Entertainment
-    @markers = @entertainments.map do |entertainment|
-      event = entertainment.event
-
-    if event.latitude && event.longitude
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        info_window: "#{event.name}<br>#{event.address}"
-      }
-    end
-    end.compact
+  @events = Event.all
+  authorize @events
+  @markers = @events.map do |event|
+    {
+      lat: event.latitude,
+      lng: event.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { event: event }),
+      marker_html: render_to_string(partial: "marker", locals: {event: event})
+    }
   end
-
+  end
 
   private
 

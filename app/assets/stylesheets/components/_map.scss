@@ -1,0 +1,58 @@
+.popup-container {
+  padding: 12px;
+  font-family: inherit;
+}
+
+.popup-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #2c3e50;
+}
+
+.popup-address {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin: 0 0 12px 0;
+}
+
+.entertainments-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.entertainment-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.entertainment-card-map {
+  background: white;
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba($red, 0.08);
+    border-color: rgba($red, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+}
+
+.artist-type {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  color: #34495e;
+  text-align: center;
+}
+
+.popup-date {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin: 0 0 12px 0;
+}
