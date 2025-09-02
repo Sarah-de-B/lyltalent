@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # USER
   has_many :messages, dependent: :destroy
-
+  has_many :notifications, dependent: :destroy
   # ARTIST
   has_many :availabilities, dependent: :destroy
   has_many :entertainment_applications, dependent: :destroy
