@@ -1,0 +1,74 @@
+<div class="container-edit">
+  <h1 id="title-edit">Modifier l’EPK</h1>
+    <div class="form-edit">
+      <%= simple_form_for @epk, url: epk_path, html: { multipart: true } do |f| %>
+
+        <%= f.input :artist_name, label: "Nom de l'artiste", input_html: { class: "edit-input" } %>
+
+        <%= f.input :artist_type,
+                    label: "Type d'artiste",
+                    collection: ['Soliste', 'Groupe', 'DJ'],
+                    prompt: "Sélectionnez un type",
+                    input_html: { class: "edit-input" } %>
+
+        <%= f.input :instruments,
+                    as: :check_boxes,
+                    collection: [
+                      "Accordéon", "Batterie", "Basse", "Voix", "Clarinette", "Contrebasse",
+                      "Platines", "Guitare acoustique", "Guitare électrique", "Harmonica",
+                      "Percussions", "Piano", "Synthétiseur", "Saxophone", "Trompette",
+                      "Violon", "Violoncelle"
+                    ],
+                    input_html: { class: "styled-checkbox" },
+                    label: "Instruments joués" %>
+
+        <%= f.input :musical_styles,
+                    as: :check_boxes,
+                    collection: [
+                      "Afro", "Balearic", "Blues", "Chanson française", "Country", "Deep house",
+                      "Disco", "Electro", "Funk", "Généraliste", "Hard-techno", "Hip-hop", "House",
+                      "Italo", "Jazz", "Latino", "Metal", "Musique classique", "Musiques commerciales",
+                      "Pop", "Rap", "Rock", "Soul", "Techno"
+                    ],
+                    input_html: { class: "styled-checkbox" },
+                    label: "Genres musicaux" %>
+
+        <%= f.input :original_composition, as: :boolean, label: "Compositions originales ?" %>
+
+        <%= f.input :covers, as: :boolean, label: "Fait des reprises ?" %>
+
+        <%= f.input :bio, as: :text, input_html: { class: "edit-input" } %>
+
+        <%= f.input :videos, as: :file, input_html: { multiple: true, class: "edit-input" }, label: "Vidéos", hint: "Ajouter une ou plusieurs vidéos" %>
+
+        <%= f.input :photos, as: :file, input_html: { multiple: true, class: "edit-input" }, label: "Photos", hint: "Ajouter une ou plusieurs photos" %>
+
+        <%= f.input :description_experience, as: :text, label: "Expérience", input_html: { class: "edit-input" } %>
+
+        <%= f.input :concert_number, as: :integer, label: "Nombre de concerts", input_html: { class: "edit-input" } %>
+
+        <%= f.input :description_education, as: :text, label: "Biographie musicale", input_html: { class: "edit-input" } %>
+
+        <%= f.input :tools, as: :text, label: "Matériel possédé", input_html: { class: "edit-input" } %>
+
+        <%= f.input :tools_needed, as: :text, label: "Matériel nécessaire", input_html: { class: "edit-input" } %>
+
+        <%= f.input :vehicule, as: :boolean, label: "Véhiculé ?" %>
+
+        <%= f.input :legal_entity_type, label: "Statut légal", input_html: { class: "edit-input" } %>
+
+        <%= f.input :siret, label: "SIRET", input_html: { class: "edit-input" } %>
+
+        <%= f.input :phone_number, label: "Téléphone", input_html: { class: "edit-input" } %>
+
+        <%= f.input :instagram_url, input_html: { class: "edit-input" } %>
+        <%= f.input :facebook_url, input_html: { class: "edit-input" } %>
+        <%= f.input :spotify_url, input_html: { class: "edit-input" } %>
+        <%= f.input :youtube_url, input_html: { class: "edit-input" } %>
+
+        <%= f.input :address, label: "Adresse", input_html: { class: "edit-input" } %>
+
+        <div class="btn-center"><%= f.button :submit, "Enregistrer les modifications", class: "btn-edit" %></div>
+      <% end %>
+    </div>
+</div>
