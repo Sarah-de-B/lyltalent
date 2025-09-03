@@ -303,7 +303,7 @@ file = Rails.root.join("db/seeds/events/graslin.jpg").open
 demo_event_1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_1 = Entertainment.create!(
-  artist_type: "soliste",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 11, 15, 19, 30),
   ends_at: DateTime.new(2025, 11, 15, 21, 30),
   included_services: ["Hébergement"],
@@ -314,7 +314,8 @@ demo_entertainment_1 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 800,
   event: demo_event_1,
-  user:  nil
+  user: nil,
+  instruments: ['Chanteur', 'Pianiste', 'Contre-bassiste']
 )
 
 # Seed 2
@@ -348,7 +349,8 @@ demo_entertainment_2 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 2500,
   event: demo_event_2,
-  user: nil
+  user: nil,
+  instruments: ['Bassiste', 'Percussioniste']
 
 )
 
@@ -383,7 +385,8 @@ demo_entertainment_3 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 1200,
   event: demo_event_3,
-  user: nil
+  user: nil,
+  instruments: ['Violoniste', 'Violoncelliste']
 )
 
 # Seed 4
@@ -418,7 +421,7 @@ demo_entertainment_4 = Entertainment.create!(
   planned_remuneration_in_euros: 1500,
   event: demo_event_4,
   user: nil,
-  instruments: ['Platines', 'Synthétiseur']
+  instruments: ['Pianiste', 'Synthétiseur']
 )
 
 # Seed 5
@@ -453,7 +456,8 @@ demo_entertainment_5 = Entertainment.create!(
   planned_remuneration_in_euros: 400,
   event: demo_event_5,
   user: nil,
-  instruments: ['Clarinette', 'Voix', 'Percussions']
+  instruments: ['Clarinettiste', 'Chanteur', 'Percussioniste
+']
 )
 demo_entertainment = Entertainment.create!(
   artist_type: "Soliste",
@@ -468,7 +472,7 @@ demo_entertainment = Entertainment.create!(
   planned_remuneration_in_euros: 1000,
   event: demo_event,
   user: artist_persona,
-  instruments: ['Voix', 'Piano']
+  instruments: ['Chanteur', 'Pianiste']
 )
 #----------------
 entertainment1 = Entertainment.create!(
@@ -484,7 +488,7 @@ entertainment1 = Entertainment.create!(
   planned_remuneration_in_euros: nil,
   event: event1,
   user: artiste1,
-  instruments: ['Guitare acoustique', 'Voix']
+  instruments: ['Guitariste (accoustique)', 'Chanteur']
 )
 #----------------
 entertainment2 = Entertainment.create!(
@@ -500,7 +504,7 @@ entertainment2 = Entertainment.create!(
   planned_remuneration_in_euros: 800,
   event: event0,
   user: artiste2,
-  instruments: ['Synthétiseur', 'Guitare électrique']
+  instruments: ['Synthétiseur', 'Guitariste (électrique)']
 )
 entertainment3 = Entertainment.create!(
   artist_type: "Soliste",
@@ -515,7 +519,7 @@ entertainment3 = Entertainment.create!(
   planned_remuneration_in_euros: 300,
   event: event1,
   user: nil,
-  instruments: ['Guitare', 'Voix', 'Trompette']
+  instruments: ['Chanteur', 'Guitariste (accoustique)', 'Trompettiste']
 )
 
 entertainment4 = Entertainment.create!(
@@ -531,7 +535,7 @@ entertainment4 = Entertainment.create!(
   planned_remuneration_in_euros: nil,
   event: event2,
   user: nil,
-  instruments: ['Guitare acoustique', 'Voix']
+  instruments: ['Guitariste (accoustique)', 'Chanteur']
 )
 entertainment5 = Entertainment.create!(
   artist_type: "DJ",
@@ -546,7 +550,7 @@ entertainment5 = Entertainment.create!(
   planned_remuneration_in_euros: 1200,
   event: event3,
   user: nil,
-  instruments: ["Saxophone", "Voix"]
+  instruments: ["Saxophoniste", "Chanteur"]
 )
 entertainment6 = Entertainment.create!(
   artist_type: "Groupe",
@@ -561,7 +565,7 @@ entertainment6 = Entertainment.create!(
   planned_remuneration_in_euros: 400,
   event: event3,
   user: nil,
-  instruments: ["Guitare électrique", "Saxophone"]
+  instruments: ["Guitariste (électrique)", "Saxophoniste"]
 )
 
 entertainment7 = Entertainment.create!(
@@ -577,7 +581,7 @@ entertainment7 = Entertainment.create!(
   planned_remuneration_in_euros: 200,
   event: event3,
   user: artiste3,
-  instruments: ["Guitare acoustique", "Voix"]
+  instruments: ["Saxophoniste", "Chanteur"]
 )
 
 p "Entertainments created: #{Entertainment.count}"
