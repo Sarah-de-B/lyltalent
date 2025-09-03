@@ -47,18 +47,25 @@
     <% @entertainments.each do |entertainment| %>
       <%= link_to entertainment_path(entertainment), class: "entertainment-card-link" do %>
         <div class="entertainment-card">
-          <div class="artist-search-overlay">
-            <%= entertainment.artist_type %>
-          </div>
           <% if entertainment.event.photo.attached? %>
             <%= cl_image_tag(entertainment.event.photo.key, height: 160, width: 250, crop: :fill, alt: "Image de l'événement", class: "card-image") %>
           <% else %>
-            <%= image_tag "default_event.jpg", alt: "Image par défaut" %>
+           <%= image_tag "default_event.jpg", alt: "Image par défaut" %>
           <% end %>
+
           <div class="card-content">
             <h3><%= entertainment.event.name %></h3>
-            <p id="date_address"><%= entertainment.event.date%> | <%=entertainment.event.address%></p>
-            <p id="musical_styles"><%= entertainment.event.musical_styles.join(', ') %></p>
+            <p><i class="fas fa-solid fa-calendar-days me-2" style="margin-right: 8px;"></i><%= l(entertainment.event.date, format: '%d/%m/%Y') %></p>
+            <p><i class="fas fa-music" style="margin-right: 4px;"></i> Ambience <%= entertainment.event.musical_styles.join(', ') %></p>
+            <%if entertainment.instruments.include?('Chanteur') && entertainment.artist_type == 'Soliste'%>
+              <% ordered_instruments = entertainment.instruments.partition { |i| i == 'Chanteur' }.flatten %>
+              <p> <i class="fas fa-search" style="margin-right: 3px;"></i>  Recherche un <%= ordered_instruments.join(' / ') %></p>
+            <% else %>
+              <p><i class="fas fa-search" style="margin-right: 3px;"></i>   Recherche <%= entertainment.artist_type %> avec : </p>
+              <% if entertainment.instruments.any?  %>
+                <p class='instrument-margin'> <%= entertainment.instruments.join(', ') %></p>
+              <% end %>
+            <% end %>
           </div>
         </div>
       <% end %>
