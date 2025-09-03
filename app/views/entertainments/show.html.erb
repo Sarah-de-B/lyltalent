@@ -1,7 +1,18 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@entertainment.event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @entertainment.event.description %>
+<% if @entertainment.event.photo.attached? %>
+  <% content_for :meta_image, cl_image_path(@entertainment.event.photo.key) %>
+<% else %>
+  <% content_for :meta_image, image_path("default_event.jpg") %>
+<% end %>
+
 <div id='entertainment-container'>
   <div class="event-image-container">
     <% if @entertainment.event.photo.attached? %>
           <%= cl_image_tag @entertainment.event.photo.key, height: 300, width: 300, crop: :fill, class: 'event-image'%>
+    <% else %>
+          <%= image_tag "default_event.jpg", alt: "image par défaut", class: 'event-image' %>
     <% end %>
   </div>
 
