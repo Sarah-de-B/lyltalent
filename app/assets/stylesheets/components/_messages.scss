@@ -7,11 +7,15 @@
   // Message de l'utilisateur actuel (à droite)
   &.current-user {
     justify-content: flex-end;
+    width: 100%;
+    margin-right: 10px;
   }
 
   // Message des autres (à gauche)
   &.other-user {
     justify-content: flex-start;
+     width: 100%;
+     margin-left: 10px;
   }
 }
 
