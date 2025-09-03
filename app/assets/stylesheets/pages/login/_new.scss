@@ -1,0 +1,38 @@
+.logo-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+}
+
+.lyl-logo-login {
+  width: 20vh;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 40vh;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 10px;
+  padding: 20px;
+  h2 {
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0;
+  }
+}
