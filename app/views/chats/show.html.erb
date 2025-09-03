@@ -1,39 +1,37 @@
-<div class="message-container">
+<%= turbo_stream_from "chat_#{@chat.id}_messages" %>
+<div id="messages" class="message-container">
   <% @messages.each do |message| %>
-    <% if message.user == current_user %>
-      <div class="message-row current-user">
-        <div class="entertainment-card">
-          <p><%= message.content %></p>
-        </div>
-        <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar' %>
-      </div>
-    <% else %>
-    <div class="message-row other-user">
-      <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar'%>
-      <div class="entertainment-card">
-        <p><%= message.content %></p>
+    <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-start' : 'justify-content-end' %>">
+      <div class="<%= message.sender?(current_user) ? 'other-user' : 'current-user' %>">
+        <%= render "messages/message", message: message, user: current_user%>
       </div>
     </div>
-    <% end %>
   <% end %>
 </div>
+
 <% if current_user.role == "artiste" %>
-  <% if @user_has_applied%>
+  <% if @user_has_applied %>
     <div class='message-form mt-4'>
-      <%= simple_form_for [@chat, Message.new], local: true do |f| %>
+      <%= simple_form_for [@chat, Message.new],
+        html: {class: "",
+               data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+      %>
         <div class="message-input-container">
           <%= f.input :content,
             placeholder: "Tapez votre message...",
             input_html: { class: "message-input" },
             label: false %>
-            <%= f.submit ">", class: "message-submit-btn" %>
+          <%= f.submit ">", class: "message-submit-btn" %>
         </div>
       <% end %>
     </div>
   <% end %>
 <% else %>
   <div class='message-form mt-4'>
-      <%= simple_form_for [@chat, Message.new], local: true do |f| %>
+      <%= simple_form_for [@chat, Message.new],
+        html: {class: "",
+               data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+      %>
         <div class="message-input-container">
           <%= f.input :content,
             placeholder: "Tapez votre message...",

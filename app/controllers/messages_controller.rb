@@ -4,10 +4,17 @@ class MessagesController < ApplicationController
     @message = @chat.messages.build(message_params)
     @message.user = current_user
 
-     authorize @message 
+     authorize @message
 
     if @message.save
-      redirect_to @chat, notice: 'Message envoyé!'
+      # refresh
+        respond_to do |format|
+          format.turbo_stream do
+            render turbo_stream: turbo_stream.append(:messages, partial: "messages/message",
+              locals: { message: @message, user: current_user })
+          end
+          format.html { redirect_to chat_path(@chat) }
+        end
     else
       redirect_to @chat, alert: 'Erreur lors de l\'envoi.'
     end

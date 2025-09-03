@@ -27,6 +27,5 @@ class ChatsController < ApplicationController
 
     @entertainment = @chat.entertainment_application.entertainment
     @user_has_applied = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: ["Accepté"])
-
   end
 end
