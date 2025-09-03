@@ -98,19 +98,19 @@
     <h2 id="epk-title">Mon EPK</h2>
     <%# <div class= "d-flex justify-content-center align-items-center"> %>
     <div class="flex-space-around-simple">
-      <button class= "top-right-btn">
+      <button class= "btn-white-dashboard">
         <%= link_to edit_epk_path do %>
           Modifier
         <% end %>
       </button>
-      <button class= "top-right-btn">
+      <button class= "btn-white-dashboard">
         <%= link_to epk_path do %>
-          Voir
+          Visualiser
         <% end %>
       </button>
     </div>
 
     <div class= "d-flex justify-content-center align-items-center">
-      <%= button_to "Deconnexion", destroy_user_session_path, method: :delete, class: "top-right-btn" %>
+      <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "top-right-btn" %>
     </div>
 </div>
