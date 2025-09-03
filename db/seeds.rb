@@ -349,6 +349,7 @@ demo_entertainment_2 = Entertainment.create!(
   planned_remuneration_in_euros: 2500,
   event: demo_event_2,
   user: nil
+
 )
 
 # Seed 3
@@ -416,7 +417,8 @@ demo_entertainment_4 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 1500,
   event: demo_event_4,
-  user: nil
+  user: nil,
+  instruments: ['Platines', 'Synthétiseur']
 )
 
 # Seed 5
@@ -450,7 +452,8 @@ demo_entertainment_5 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 400,
   event: demo_event_5,
-  user: nil
+  user: nil,
+  instruments: ['Clarinette', 'Voix', 'Percussions']
 )
 demo_entertainment = Entertainment.create!(
   artist_type: "Soliste",
@@ -464,7 +467,8 @@ demo_entertainment = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 1000,
   event: demo_event,
-  user: artist_persona
+  user: artist_persona,
+  instruments: ['Voix', 'Piano']
 )
 #----------------
 entertainment1 = Entertainment.create!(
@@ -479,7 +483,8 @@ entertainment1 = Entertainment.create!(
   planned_remuneration: "au chapeau",
   planned_remuneration_in_euros: nil,
   event: event1,
-  user: artiste1
+  user: artiste1,
+  instruments: ['Guitare acoustique', 'Voix']
 )
 #----------------
 entertainment2 = Entertainment.create!(
@@ -494,7 +499,8 @@ entertainment2 = Entertainment.create!(
   planned_remuneration: "Facture",
   planned_remuneration_in_euros: 800,
   event: event0,
-  user: artiste2
+  user: artiste2,
+  instruments: ['Synthétiseur', 'Guitare électrique']
 )
 entertainment3 = Entertainment.create!(
   artist_type: "Soliste",
@@ -508,7 +514,8 @@ entertainment3 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 300,
   event: event1,
-  user: nil
+  user: nil,
+  instruments: ['Guitare', 'Voix', 'Trompette']
 )
 
 entertainment4 = Entertainment.create!(
@@ -523,7 +530,8 @@ entertainment4 = Entertainment.create!(
   planned_remuneration: "au chapeau",
   planned_remuneration_in_euros: nil,
   event: event2,
-  user: nil
+  user: nil,
+  instruments: ['Guitare acoustique', 'Voix']
 )
 entertainment5 = Entertainment.create!(
   artist_type: "DJ",
@@ -537,7 +545,8 @@ entertainment5 = Entertainment.create!(
   planned_remuneration: "GUSO",
   planned_remuneration_in_euros: 1200,
   event: event3,
-  user: nil
+  user: nil,
+  instruments: ["Saxophone", "Voix"]
 )
 entertainment6 = Entertainment.create!(
   artist_type: "Groupe",
@@ -551,7 +560,8 @@ entertainment6 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 400,
   event: event3,
-  user: nil
+  user: nil,
+  instruments: ["Guitare électrique", "Saxophone"]
 )
 
 entertainment7 = Entertainment.create!(
@@ -566,7 +576,8 @@ entertainment7 = Entertainment.create!(
   planned_remuneration: "Cachet",
   planned_remuneration_in_euros: 200,
   event: event3,
-  user: artiste3
+  user: artiste3,
+  instruments: ["Guitare acoustique", "Voix"]
 )
 
 p "Entertainments created: #{Entertainment.count}"
