@@ -158,7 +158,7 @@ event_planner1 = User.create!(
   first_name: "Anetta",
   phone_number: "0645781234",
   role: "organisateur d'événements",
-  address: "Bordeaux",
+  address: "Nantes",
   bio: "Organisatrice d'événements culturels et musicaux depuis 8 ans."
 )
 file = Rails.root.join("db/seeds/users/anetta.png").open
@@ -171,7 +171,7 @@ event_planner2 = User.create!(
   first_name: "Thomas",
   phone_number: "0623456789",
   role: "organisateur d'événements",
-  address: "Toulouse",
+  address: "Nantes",
   bio: "Spécialisé dans la gestion de festivals et de concerts."
 )
 file = Rails.root.join("db/seeds/users/thomas.jpg").open
@@ -184,7 +184,7 @@ event_planner3 = User.create!(
   first_name: "Amélie",
   phone_number: "0698765432",
   role: "organisateur d'événements",
-  address: "Marseille",
+  address: "Nantes",
   bio: "Directrice d'agence événementielle, experte en booking d’artistes."
 )
 file = Rails.root.join("db/seeds/users/amelie.jpg").open
@@ -194,7 +194,7 @@ event_planner3.photos.attach(io: file, filename: "photo.jpg", content_type: "ima
 demo_event = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 90,
-  address: "Nantes",
+  address: "2 Rue de la Biscuiterie, 44000 Nantes",
   estimated_public_in_number: 100,
   public_age: 20,
   musical_styles: ["Pop", "Electro, Hard Rock"],
@@ -212,7 +212,7 @@ demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jp
 event0 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 180,
-  address: "Nantes",
+  address: "4 Boulevard Léon Bureau, 44200 Nantes",
   estimated_public_in_number: 500,
   public_age: 25,
   musical_styles: ["Pop", "Electro"],
@@ -230,7 +230,7 @@ event0.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 event1 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 180,
-  address: "Nantes",
+  address: "4 Boulevard de Stalingrad, 44000 Nantes",
   estimated_public_in_number: 500,
   public_age: 25,
   musical_styles: ["Pop", "Electro"],
@@ -248,7 +248,7 @@ event1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 event2 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 240,
-  address: "Paris",
+  address: "21 Quai des Antilles, 44200 Nantes",
   estimated_public_in_number: 300,
   public_age: 22,
   musical_styles: ["Electro", "House"],
@@ -266,7 +266,7 @@ event2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 event3 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
   duration: 120,
-  address: "Lyon",
+  address: "4 Place Marc Elder, 44000 Nantes",
   estimated_public_in_number: 200,
   public_age: 20,
   musical_styles: ["Hip-hop", "Rap"],
@@ -303,7 +303,7 @@ file = Rails.root.join("db/seeds/events/graslin.jpg").open
 demo_event_1.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_1 = Entertainment.create!(
-  artist_type: "duo",
+  artist_type: "soliste",
   starts_at: DateTime.new(2025, 11, 15, 19, 30),
   ends_at: DateTime.new(2025, 11, 15, 21, 30),
   included_services: ["Hébergement"],
@@ -337,7 +337,7 @@ file = Rails.root.join("db/seeds/events/fosse.jpg").open
 demo_event_2.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_2 = Entertainment.create!(
-  artist_type: "groupe",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 7, 20, 18, 0),
   ends_at: DateTime.new(2025, 7, 20, 21, 0),
   included_services: ["Transport", "Catering"],
@@ -355,7 +355,7 @@ demo_entertainment_2 = Entertainment.create!(
 demo_event_3 = Event.create!(
   category: ["Culturel", "Éducatif", "Classique"],
   duration: 75,
-  address: "Château des ducs de Bretagne, 4 Place Marc Elder, 44000 Nantes",
+  address: "Château des ducs de Bretagne, 44000 Nantes",
   estimated_public_in_number: 80,
   public_age: 45,
   musical_styles: ["Classique", "Baroque", "Musique de chambre"],
@@ -371,7 +371,7 @@ file = Rails.root.join("db/seeds/events/chateaux.jpg").open
 demo_event_3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_3 = Entertainment.create!(
-  artist_type: "trio",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 12, 16, 0),
   ends_at: DateTime.new(2025, 9, 12, 1),
   included_services: ["Programme de concert"],
@@ -405,7 +405,7 @@ file = Rails.root.join("db/seeds/events/ware.jpg").open
 demo_event_4.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_4 = Entertainment.create!(
-  artist_type: "dj",
+  artist_type: "DJ",
   starts_at: DateTime.new(2025, 12, 31, 22, 0),
   ends_at: DateTime.new(2026, 1, 1, 0, 30),
   included_services: ["Transport", "Hébergement", "Technique"],
@@ -439,7 +439,7 @@ file = Rails.root.join("db/seeds/events/jardin.jpg").open
 demo_event_5.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 demo_entertainment_5 = Entertainment.create!(
-  artist_type: "soliste",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 6, 1, 15, 0),
   ends_at: DateTime.new(2025, 6, 1, 16, 0),
   included_services: ["Animation", "Matériel pédagogique"],
@@ -453,7 +453,7 @@ demo_entertainment_5 = Entertainment.create!(
   user: nil
 )
 demo_entertainment = Entertainment.create!(
-  artist_type: "soliste",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 7, 20, 0),
   ends_at: DateTime.new(2025, 9, 7, 21, 15),
   included_services: ["Hébergement", "Transport"],
@@ -468,7 +468,7 @@ demo_entertainment = Entertainment.create!(
 )
 #----------------
 entertainment1 = Entertainment.create!(
-  artist_type: "groupe",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 6, 20, 0),
   ends_at: DateTime.new(2025, 9, 6, 21, 30),
   included_services: ["Restauration"],
@@ -497,7 +497,7 @@ entertainment2 = Entertainment.create!(
   user: artiste2
 )
 entertainment3 = Entertainment.create!(
-  artist_type: "soliste",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 5, 21, 0),
   ends_at: DateTime.new(2025, 9, 5, 22, 0),
   included_services: ["Scène", "Micro"],
@@ -512,7 +512,7 @@ entertainment3 = Entertainment.create!(
 )
 
 entertainment4 = Entertainment.create!(
-  artist_type: "groupe",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 10, 10, 22, 0),
   ends_at: DateTime.new(2025, 10, 10, 23, 30),
   included_services: ["Transport"],
@@ -540,7 +540,7 @@ entertainment5 = Entertainment.create!(
   user: nil
 )
 entertainment6 = Entertainment.create!(
-  artist_type: "groupe",
+  artist_type: "Groupe",
   starts_at: DateTime.new(2025, 9, 5, 19, 0),
   ends_at: DateTime.new(2025, 9, 5, 20, 0),
   included_services: ["Transport", "Restauration"],
@@ -555,7 +555,7 @@ entertainment6 = Entertainment.create!(
 )
 
 entertainment7 = Entertainment.create!(
-  artist_type: "soliste",
+  artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 6, 18, 0),
   ends_at: DateTime.new(2025, 9, 6, 19, 0),
   included_services: ["Transport"],

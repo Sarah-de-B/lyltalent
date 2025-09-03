@@ -1,0 +1,14 @@
+<div class="popup-container">
+  <h3 class="popup-title"><%= event.name %></h3>
+  <p class="popup-address"><%= event.address %></p>
+  <p class='popup-date'><%= l(event.date, format: '%d/%m/%Y') %></p>
+  <div class="entertainments-grid">
+    <% event.entertainments.each do |entertainment| %>
+      <%= link_to entertainment_path(entertainment), class: "entertainment-link" do %>
+        <div class="entertainment-card-map">
+          <p class="artist-type"><%= entertainment.artist_type %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

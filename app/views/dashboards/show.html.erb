@@ -51,18 +51,17 @@
       <h2 class= "d-none">Proposition en attente de ma confirmation</h2>
     <% else %>
       <h2>Proposition en attente de ma confirmation</h2>
+
+      <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <% @applications.where(status: "Proposé").each do |application| %>
+            <%= render "application_card", application: application, status_class: "application-card-status-proposed" %>
+            <% end %>
+          </ul>
+        </div>
+      </section>
     <% end %>
-
-    <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <% @applications.where(status: "Proposé").each do |application| %>
-          <%= render "application_card", application: application, status_class: "application-card-status-proposed" %>
-          <% end %>
-        </ul>
-      </div>
-    </section>
-
     <%# <h2>Mes proposition validé</h2>
 
     <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
@@ -77,20 +76,20 @@
 
     <% if @applications.where(status: "En cours").empty? %>
       <h2 class="d-none">Mes candidatures en attente</h2>
-      <p>Candidate aux événements directement depuis la home page</p>
+      <p class="text-center">Candidate aux événements directement depuis la home page</p>
     <% else %>
       <h2>Mes candidatures en attente</h2>
-    <% end %>
 
-    <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <% @applications.where(status: "En cours").each do |application| %>
-          <%= render "application_card", application: application, status_class: "application-card-status-pending" %>
-          <% end %>
-        </ul>
-      </div>
-    </section>
+      <section class="splide" data-controller="carousel" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <% @applications.where(status: "En cours").each do |application| %>
+            <%= render "application_card", application: application, status_class: "application-card-status-pending" %>
+            <% end %>
+          </ul>
+        </div>
+      </section>
+    <% end %>
 
 
 
