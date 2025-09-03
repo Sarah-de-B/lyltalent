@@ -13,7 +13,8 @@ class EntertainmentsController < ApplicationController
 
   def show
     authorize @entertainment
-    @participating_artists = @entertainment.event.users
+    @entertainment_applications = @entertainment.entertainment_applications.where(status: "Accepté")
+    @artist_number = @entertainment.event.number_of_artists_needed - @entertainment_applications.count
     @entertainment = Entertainment.find(params[:id])
 
     @user_has_applied = current_user&.entertainment_applications&.find_by(entertainment: @entertainment, status: ["En cours", "Accepté", "Validé"])
