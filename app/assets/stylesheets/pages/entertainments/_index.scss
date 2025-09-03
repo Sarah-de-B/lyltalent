@@ -96,7 +96,15 @@
   }
   p {
     font-size: 12px;
+    margin: 0px 0px 6px;
+
   }
+
+  .fas {
+    color: #363636; // Même couleur que ton texte
+    opacity: 0.8;
+  }
+
 }
 
 #date_address {
@@ -144,3 +152,9 @@
 #sous-entertainment{
   text-align: center;
 }
+
+  .entertainment-instruments {
+  text-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+ }

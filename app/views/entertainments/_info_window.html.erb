@@ -5,8 +5,16 @@
   <div class="entertainments-grid">
     <% event.entertainments.each do |entertainment| %>
       <%= link_to entertainment_path(entertainment), class: "entertainment-link" do %>
-        <div class="entertainment-card-map">
-          <p class="artist-type"><%= entertainment.artist_type %></p>
+        <div class="entertainment-instruments">
+          <%if entertainment.instruments.include?('Chanteur') && entertainment.artist_type == 'Soliste'%>
+          <% ordered_instruments = entertainment.instruments.partition { |i| i == 'Chanteur' }.flatten %>
+           <p class='artist-type'>Recherche un <%= ordered_instruments.join(' / ') %></p>
+           <% else %>
+          <p class="artist-type">Recherche <%= entertainment.artist_type %> avec </p>
+          <% if entertainment.instruments.any?  %>
+          <p class="artist-type"> <%= entertainment.instruments.join(', ') %></p>
+          <% end %>
+        <% end %>
         </div>
       <% end %>
     <% end %>

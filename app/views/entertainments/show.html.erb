@@ -1,7 +1,18 @@
+<!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@entertainment.event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @entertainment.event.description %>
+<% if @entertainment.event.photo.attached? %>
+  <% content_for :meta_image, cl_image_path(@entertainment.event.photo.key) %>
+<% else %>
+  <% content_for :meta_image, image_path("default_event.jpg") %>
+<% end %>
+
 <div id='entertainment-container'>
   <div class="event-image-container">
     <% if @entertainment.event.photo.attached? %>
           <%= cl_image_tag @entertainment.event.photo.key, height: 300, width: 300, crop: :fill, class: 'event-image'%>
+    <% else %>
+          <%= image_tag "default_event.jpg", alt: "image par défaut", class: 'event-image' %>
     <% end %>
   </div>
 
@@ -12,6 +23,7 @@
 
   <h4><%= @entertainment.event.description %></h4>
   <br>
+     <p><i class="fa-solid fa-location-dot me-2"></i><%=@entertainment.event.address%></p>
     <p><i class="fa-solid fa-calendar-days me-2"></i><%= l(@entertainment.event.date, format: '%d/%m/%Y') %></p>
     <p><i class="fa-solid fa-clock me-2"></i>De: <%= l(@entertainment.starts_at, format: '%Hh%M' ) %></p>
     <p><i class="fa-solid fa-clock me-2"></i>À: <%= l(Time.at(@entertainment.duration_in_minutes * 60).utc, format: '%Hh%M') %></p>
@@ -68,13 +80,17 @@
       <h4>Ils participent à l'événement</h4>
     </div>
   </div>
+
   <div class="user-image-container">
-    <% if @entertainment.user == nil %>
-      <%= image_tag "profile-base.png", alt: "profile par défaut", class: 'user-image' %>
-    <% else %>
-      <% @participating_artists.each do |artist| %>
-        <%= cl_image_tag artist.photos.first.key, height: 300, width: 300, crop: :fill, class: 'user-image'%>
+    <% @entertainment_applications.each do |entertainment_application| %>
+      <%= cl_image_tag entertainment_application.user.photos.first.key, height: 300, width: 300, crop: :fill, class: 'user-image'%>
+    <% end %>
+
+    <% if @artist_number.present? %>
+      <% @artist_number.times do %>
+        <%= image_tag "profile-base.png", alt: "profile par défaut", class: 'user-image' %>
       <% end %>
     <% end %>
   </div>
+
 </div>
