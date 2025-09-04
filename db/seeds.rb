@@ -209,23 +209,23 @@ demo_event = Event.create!(
 file = Rails.root.join("db/seeds/events/Soiree_Demo_Sarah.jpg").open
 demo_event.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
-event0 = Event.create!(
-  category: ["Dynamique", "Conviviale", "Dansant"],
-  duration: 180,
-  address: "4 Boulevard Léon Bureau, 44200 Nantes",
-  estimated_public_in_number: 500,
-  public_age: 25,
-  musical_styles: ["Pop", "Electro"],
-  cover_or_composition: "composition",
-  number_of_artists_needed: 3,
-  name: "Un Festival d'Été inoubliable",
-  description: "Un festival dédié aux artistes émergents",
-  vehicule: true,
-  date: Date.new(2025, 9, 7),
-  user: event_planner1
-)
-file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
-event0.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
+# event0 = Event.create!(
+#   category: ["Dynamique", "Conviviale", "Dansant"],
+#   duration: 180,
+#   address: "4 Boulevard Léon Bureau, 44200 Nantes",
+#   estimated_public_in_number: 500,
+#   public_age: 25,
+#   musical_styles: ["Pop", "Electro"],
+#   cover_or_composition: "composition",
+#   number_of_artists_needed: 3,
+#   name: "Un Festival d'Été inoubliable",
+#   description: "Un festival dédié aux artistes émergents",
+#   vehicule: true,
+#   date: Date.new(2025, 9, 7),
+#   user: event_planner1
+# )
+# file = Rails.root.join("db/seeds/events/Festival_d_ete.jpg").open
+# event0.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 
 event1 = Event.create!(
   category: ["Dynamique", "Conviviale", "Dansant"],
@@ -284,6 +284,53 @@ event3.photo.attach(io: file, filename: "photo.jpg", content_type: "image/jpeg")
 p "Events created: #{Event.count}"
 #--- ENTERTAINMENTS (liés aux musiciens + events) ---
 # Seed 1
+
+# Seed proposé ajouté pa r Sarah
+
+event13 = Event.create!(
+  category: ["Dynamique", "Conviviale", "Dansant"],
+  duration: 90,
+  address: "Rue Paul Bellamy, 44000 Nantes",
+  estimated_public_in_number: 150,
+  public_age: 30,
+  musical_styles: ["Pop", "Rock"],
+  cover_or_composition: "cover",
+  number_of_artists_needed: 2,
+  name: "Soirée Pop-Rock au cœur de Nantes",
+  description: "Venez vibrer au son des meilleurs hits pop-rock!",
+  vehicule: true,
+  date: Date.new(2025, 8, 15),
+  user: event_planner1
+)
+
+entertainment13 = Entertainment.create!(
+  artist_type: "Soliste",
+  starts_at: DateTime.new(2025, 8, 15, 20, 0),
+  ends_at: DateTime.new(2025, 8, 15, 21, 30),
+  included_services: ["Transport", "Restauration"],
+  artist_experience_in_years: "5",
+  duration_in_minutes: 90,
+  available_tool: "Scène, éclairage, système son",
+  necessary_tool: nil,
+  planned_remuneration: "Cachet",
+  planned_remuneration_in_euros: 600,
+  event: event13,
+  user: nil,
+  instruments: ['Chanteur', 'Pianiste']
+)
+
+entertainment_application13 = EntertainmentApplication.create!(
+  status: "Proposé",
+  message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
+  user: artist_persona,
+  entertainment: entertainment13,
+)
+
+# fin des Seeds
+
+
+# début des seeds clean SELON JONATHAN
+
 demo_event_1 = Event.create!(
   category: ["Intimiste", "Romantique", "Acoustique"],
   duration: 120,
@@ -459,6 +506,9 @@ demo_entertainment_5 = Entertainment.create!(
   instruments: ['Clarinettiste', 'Chanteur', 'Percussioniste
 ']
 )
+
+# fin du clean SELON JONATHAN
+
 demo_entertainment = Entertainment.create!(
   artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 7, 20, 0),
@@ -491,21 +541,21 @@ entertainment1 = Entertainment.create!(
   instruments: ['Guitariste (accoustique)', 'Chanteur']
 )
 #----------------
-entertainment2 = Entertainment.create!(
-  artist_type: "DJ",
-  starts_at: DateTime.new(2025, 9, 7, 23, 0),
-  ends_at: DateTime.new(2025, 9, 8, 1, 0),
-  included_services: ["DJ Booth", "Lights"],
-  artist_experience_in_years: "10",
-  duration_in_minutes: 120,
-  available_tool: "micro, cable",
-  necessary_tool: "guitar, enceinte",
-  planned_remuneration: "Facture",
-  planned_remuneration_in_euros: 800,
-  event: event0,
-  user: artiste2,
-  instruments: ['Synthétiseur', 'Guitariste (électrique)']
-)
+# entertainment2 = Entertainment.create!(
+#   artist_type: "DJ",
+#   starts_at: DateTime.new(2025, 9, 7, 23, 0),
+#   ends_at: DateTime.new(2025, 9, 8, 1, 0),
+#   included_services: ["DJ Booth", "Lights"],
+#   artist_experience_in_years: "10",
+#   duration_in_minutes: 120,
+#   available_tool: "micro, cable",
+#   necessary_tool: "guitar, enceinte",
+#   planned_remuneration: "Facture",
+#   planned_remuneration_in_euros: 800,
+#   event: event0,
+#   user: artiste2,
+#   instruments: ['Synthétiseur', 'Guitariste (électrique)']
+# )
 entertainment3 = Entertainment.create!(
   artist_type: "Soliste",
   starts_at: DateTime.new(2025, 9, 5, 21, 0),
@@ -594,13 +644,13 @@ EntertainmentApplication.create!(
   entertainment: entertainment1,
   created_at: DateTime.new(2025, 6, 1, 14, 30)
 )
-EntertainmentApplication.create!(
-  status: "Accepté",
-  message: "Expérience confirmée en clubs électro, prêt pour une grosse soirée. Hate de bosser avec vous!",
-  user: artiste2,
-  entertainment: entertainment2,
-  created_at: DateTime.new(2025, 7, 10, 19, 0)
-)
+# EntertainmentApplication.create!(
+#   status: "Accepté",
+#   message: "Expérience confirmée en clubs électro, prêt pour une grosse soirée. Hate de bosser avec vous!",
+#   user: artiste2,
+#   entertainment: entertainment2,
+#   created_at: DateTime.new(2025, 7, 10, 19, 0)
+# )
 EntertainmentApplication.create!(
   status: "En cours",
   message: "Envie de représenter la scène hip-hop locale avec énergie. Appelons-nous!",
@@ -647,13 +697,13 @@ demo_entertainment_application3 = EntertainmentApplication.create!(
   created_at:Date.today
 )
 
-EntertainmentApplication.create!(
-  status: "Proposé",
-  message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
-  user: artist_persona,
-  entertainment: entertainment2,
-  created_at: Date.today
-)
+# EntertainmentApplication.create!(
+#   status: "Proposé",
+#   message: "Je dois rédiger mon message pour que l'orga confirme qu'il ME veut.",
+#   user: artist_persona,
+#   entertainment: entertainment2,
+#   created_at: Date.today
+# )
 
 EntertainmentApplication.create!(
   status: "Validé",
@@ -662,13 +712,13 @@ EntertainmentApplication.create!(
   entertainment: entertainment1,
   created_at: DateTime.new(2025, 6, 7, 14, 30)
 )
-EntertainmentApplication.create!(
-  status: "Accepté",
-  message: "J'accepte la proposition",
-  user: artist_persona,
-  entertainment: entertainment2,
-  created_at: DateTime.new(2025, 9, 7, 14, 30)
-)
+# EntertainmentApplication.create!(
+#   status: "Accepté",
+#   message: "J'accepte la proposition",
+#   user: artist_persona,
+#   entertainment: entertainment2,
+#   created_at: DateTime.new(2025, 9, 7, 14, 30)
+# )
 p "Entertainment Applications created: #{EntertainmentApplication.count}"
 
 # --- CHATS (liés aux entertainment applications) ---
