@@ -5,7 +5,7 @@
         <% if application.entertainment.event.photo.attached? %>
           <%= cl_image_tag(application.entertainment.event.photo.key, alt: "Image de l'événement", class: "application-card-img") %>
         <% else %>
-          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card_img" %>
+          <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
         <% end %>
 
         <div class="status"><p class=<%= status_class %>><%= application.status %></p></div>
