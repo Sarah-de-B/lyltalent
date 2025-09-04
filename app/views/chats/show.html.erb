@@ -1,9 +1,7 @@
 <%= turbo_stream_from "chat_#{@chat.id}_messages" %>
 <div id="messages" class="message-container">
   <% @messages.each do |message| %>
-    <div class="message-row d-flex">
-        <%= render "messages/message", message: message, user: current_user%>
-    </div>
+   <%= render "messages/message", message: message, user: current_user%>
   <% end %>
 </div>
 
