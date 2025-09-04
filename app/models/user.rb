@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many_attached :videos
 
   # validations
-  validates :artist_name, uniqueness: true, if: :musician?
+  validates :artist_name, uniqueness: {message: "Ce nom d'artiste est déjà pris"}, if: :musician?, allow_blank: true
   validates :first_name, :last_name, :phone_number, :email, :role, presence: true
 
   validate :at_least_one_photo, if: :musician?
@@ -60,7 +60,7 @@ class User < ApplicationRecord
 
   def at_least_one_photo
     if photos.blank?
-      errors.add(:photos, "must have at least one photo")
+      errors.add(:photos, "devrait au moins en contenir une")
     end
   end
 end

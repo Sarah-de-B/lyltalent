@@ -22,9 +22,10 @@
         <%= f.input :role,
                   required: true,
                   label: "Musicien ou Organisateur d'événement",
-                  collection: ["Musicien", "Organisateur d'événement"],
+                  collection: ["artiste", "organisateur d'événements"],
                   prompt: "Choisissez votre rôle",
                   input_html: { autocomplete: "role" } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos", hint: "Ajouter au moins une photo" %>
         <%= f.input :phone_number,
                     required: true,
                     autofocus: true,
