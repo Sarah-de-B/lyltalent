@@ -58,8 +58,6 @@ artist_persona.save!
 file = Rails.root.join("db/seeds/users/videos/sarah_show.mp4").open
 artist_persona.videos.attach(io: file, filename: "sarah_show.mp4", content_type: "video/mp4")
 
-file = Rails.root.join("db/seeds/users/videos/sarah_to_delete.mp4").open
-artist_persona.videos.attach(io: file, filename: "sarah_to_delete.mp4", content_type: "video/mp4")
 # :guitare: artistes
 puts "event_planner"
 
