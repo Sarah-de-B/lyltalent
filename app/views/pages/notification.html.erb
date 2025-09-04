@@ -18,7 +18,6 @@
             <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
           <% end %>
         </div>
-
         <div class="application-card-content">
           <h3 class="application-card-name">A la une</h3>
           <p class="application-card-last-message unread-message">Cet événement pourrait vous interesser
@@ -47,10 +46,11 @@
         <div class="application-card-content">
         <h3 class="application-card-name">
           <%= message.chat.entertainment_application.entertainment.event.name  %>
-          : <%= message.user.first_name %> vous a envoyé un message
         </h3>
           <p class="application-card-last-message unread-message">
           <%# si on veux affiché le debut du message : %>
+            nouveau message
+            <br>
             <%# <%= truncate(message.content, length: 30) %>
             <small>(<%= time_ago_in_words(message.created_at) %> )</small>
           </p>
