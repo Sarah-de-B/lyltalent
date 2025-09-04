@@ -155,11 +155,22 @@
 
 #epk-title {
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.top-right-btn a {
-  text-decoration: none;
-  color: white;
+.btn-white-dashboard {
+  min-width: 110px;
+  margin-bottom: 1rem;
+  padding: 8px 16px;
+  background-color: white;
+  color: $dark;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  a {
+    text-decoration: none;
+    color: $dark;
+  }
 }
 
 
