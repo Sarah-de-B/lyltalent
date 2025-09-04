@@ -43,6 +43,11 @@
     <%= link_to "Liste | Carte", map_entertainments_path, class: "btn-white" %>
   </div>
 
+  <% if @entertainments.empty? %>
+    <div class="no-entertainments">
+      <p>Pas d'événements disponibles dasn cette ville. Revenez plus tard !</p>
+    </div>
+  <% else %>
   <div class="entertainments-cards">
     <% @entertainments.each do |entertainment| %>
       <%= link_to entertainment_path(entertainment), class: "entertainment-card-link" do %>
@@ -72,3 +77,4 @@
     <% end %>
   </div>
 </div>
+<% end %>
