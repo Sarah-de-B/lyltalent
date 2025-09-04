@@ -1,0 +1,57 @@
+.notification-cards {
+  // toutes les cards soient alignées, espacées et de la même taille.
+  display: grid;
+  gap: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  .application-card-name {
+    font-weight: bold;       /* texte en gras */
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    line-height: 1.2em;
+    width: 100%;
+
+
+    white-space: normal;     /* autorise le retour à la ligne */
+    word-wrap: break-word;   /* casse les mots si nécessaire */
+    overflow: visible;       /* affiche tout le texte */
+    text-overflow: ellipsis;     /* pas de "..." */
+    display: block;          /* assure que le texte occupe toute la largeur */
+  }
+
+
+  .application-card-last-message {
+    font-size: 14px;
+    color:$dark;
+    line-height: 1.4;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .application-card {
+    display: flex;               // flex pour alignement facile
+    align-items: center;         // centre verticalement
+    padding: 15px;
+    height: 140px;               // taille fixe
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;       // supprime le soulignement du link
+    overflow: hidden;
+
+    }
+
+    .application-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // espace entre titre, message et temps
+  overflow: hidden;
+
+
+}
+
+
+}

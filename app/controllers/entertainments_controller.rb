@@ -1,5 +1,5 @@
 class EntertainmentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :map ]
   before_action :set_entertainment, only: [:show]
 
   def index

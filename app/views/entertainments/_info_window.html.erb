@@ -1,20 +1,21 @@
-<div class="popup-container">
+ <div class="popup-container">
   <h3 class="popup-title"><%= event.name %></h3>
   <p class="popup-address"><%= event.address %></p>
   <p class='popup-date'><%= l(event.date, format: '%d/%m/%Y') %></p>
+
   <div class="entertainments-grid">
     <% event.entertainments.each do |entertainment| %>
       <%= link_to entertainment_path(entertainment), class: "entertainment-link" do %>
         <div class="entertainment-instruments">
-          <%if entertainment.instruments.include?('Chanteur') && entertainment.artist_type == 'Soliste'%>
-          <% ordered_instruments = entertainment.instruments.partition { |i| i == 'Chanteur' }.flatten %>
-           <p class='artist-type'>Recherche un <%= ordered_instruments.join(' / ') %></p>
-           <% else %>
-          <p class="artist-type">Recherche <%= entertainment.artist_type %> avec </p>
-          <% if entertainment.instruments.any?  %>
-          <p class="artist-type"> <%= entertainment.instruments.join(', ') %></p>
+          <% if entertainment.instruments.include?('Chanteur') && entertainment.artist_type == 'Soliste' %>
+            <% ordered_instruments = entertainment.instruments.partition { |i| i == 'Chanteur' }.flatten %>
+            <p class='artist-type'>Recherche un <%= ordered_instruments.join(' / ') %></p>
+          <% else %>
+            <p class="artist-type">Recherche <%= entertainment.artist_type %> avec </p>
+            <% if entertainment.instruments.any? %>
+              <p class="artist-type"><%= entertainment.instruments.join(', ') %></p>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
       <% end %>
     <% end %>
