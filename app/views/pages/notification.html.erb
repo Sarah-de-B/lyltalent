@@ -15,7 +15,7 @@
           <% if event.photo.attached? %>
             <%= cl_image_tag event.photo.key, height: 60, width: 60, crop: :fill, class: "user-image" %>
           <% else %>
-            <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "application-card-img" %>
+            <%= image_tag "default_event.jpg", alt: "Image par défaut", class: "user-image" %>
           <% end %>
         </div>
         <div class="application-card-content">
