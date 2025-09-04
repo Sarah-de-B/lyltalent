@@ -59,10 +59,12 @@
     <% if @is_proposed %>
         <%=  link_to "Accepter",first_accept_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: {turbo_method: :patch}%>
         <%=  link_to "Refuser", refused_entertainment_application_path(@is_proposed), class:"bottom-middle-btn", data: { turbo_confirm: "Es-tu sûr de vouloir refuser ce spectacle ?", turbo_method: :patch } %>
-    <% elsif @user_has_applied && @entertainment_chat %>
+    <% elsif @user_has_applied  %>
+      <% if @entertainment_chat %>
         <%= link_to chat_path(@entertainment_chat), class: "btn-rounded" do %>
           <i class="fa-solid fa-message"></i>
         <% end %>
+      <% end %>
 
         <%= link_to entertainment_application_path(@entertainment_application),
                     data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer cette candidature ?" },

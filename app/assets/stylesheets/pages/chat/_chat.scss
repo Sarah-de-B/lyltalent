@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 0px 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
     background: white;
@@ -39,7 +39,6 @@
 
 .application-card-avatar {
   margin-left: 10px;
-  margin-right: 20px;
   display: flex; /* pour centrer la photo */
   align-items: center;
   justify-content: center;
@@ -56,4 +55,8 @@
 
 .unread-message {
   font-weight: bold;
+}
+
+.application-card-name {
+  margin: 16px 0px 7px 0px;
 }

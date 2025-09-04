@@ -1,15 +1,15 @@
 <%# refresh %>
+<div class="message-row d-flex" id="message-<%= message.id %>">
+      <div  class="message-row <%= message.user == user ? 'current-user' : 'other-user' %>"
+      data-controller="message"
+      data-message-user-id-value="<%= message.user.id %>">
 
-<div id="message-<%= message.id %>"
-     class="message-row <%= message.user == user ? 'current-user' : 'other-user' %>"
-     data-controller="message"
-     data-message-user-id-value="<%= message.user.id %>">
-
-    <div class="message-row ">
-      <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar', data: { message_target: "imgUser"} %>
-      <div class="entertainment-card">
-        <p><%= message.content %></p>
+      <div class="message-row ">
+        <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar', data: { message_target: "imgUser"} %>
+        <div class="entertainment-card">
+          <p><%= message.content %></p>
+        </div>
+        <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar', data: { message_target: "imgOther"} %>
       </div>
-      <%= cl_image_tag message.user.photos.first.key, class: 'message-avatar', data: { message_target: "imgOther"} %>
-    </div>
+  </div>
 </div>
