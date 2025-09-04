@@ -1,7 +1,6 @@
 <%# refresh %>
-<div class="message-row d-flex" id="message-<%= message.id %>>
-  <div
-      class="message-row <%= message.user == user ? 'current-user' : 'other-user' %>"
+<div class="message-row d-flex" id="message-<%= message.id %>">
+      <div  class="message-row <%= message.user == user ? 'current-user' : 'other-user' %>"
       data-controller="message"
       data-message-user-id-value="<%= message.user.id %>">
 
