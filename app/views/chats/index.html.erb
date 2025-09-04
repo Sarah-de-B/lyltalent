@@ -18,9 +18,8 @@
       <!-- Contenu -->
       <div class="application-card-content">
         <h2 class="application-card-name"><%= event.name %></h2>
-         <%# pour mettre les msg non lu en bold  %>
+         <%# pour mettre les msg non lu en bold voir css  %>
         <p class="application-card-last-message <%= 'unread-message' if chat.messages.last && chat.messages.last.user != current_user %>"></p>
-
           <% if chat.messages.any? %>
             <% last_msg = chat.messages.last %>
             <%= last_msg.content.first(20) %>
@@ -33,4 +32,3 @@
     <% end %>
   <% end %>
 </div>
-
