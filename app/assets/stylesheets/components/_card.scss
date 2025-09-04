@@ -24,18 +24,16 @@
   padding: 20px; /* Important pour que le texte respire */
   margin: 10px;
 }
-.message-container {
 
-  .entertainment-card {
+.message-row .entertainment-card {
     padding: 1em;
     p{
-      width: fit-content;
-      margin: 0;
+      margin: 0 !important;
+ padding:  0 0 0 1rem !important;
     }
     justify-content: center;
     display: flex;
-    align-items: center;
-  }
+    align-items: start;
 }
 
 // action pour animer l'effacement d'une card action pour animer l'effacement d'une card

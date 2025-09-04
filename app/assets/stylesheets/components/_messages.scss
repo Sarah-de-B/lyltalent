@@ -2,16 +2,25 @@
 .message-row {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  //margin-bottom: 1rem;
 
   // Message de l'utilisateur actuel (à droite)
   &.current-user {
     justify-content: flex-end;
+    width: 100%;
+      padding-right: 1rem;
+
+
   }
 
   // Message des autres (à gauche)
   &.other-user {
     justify-content: flex-start;
+     width: 100%;
+       padding-left: 1rem;
+
+
+
   }
 }
 
